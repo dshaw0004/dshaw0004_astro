@@ -1,0 +1,85 @@
+---
+import placeholderImage from "../assets/ds4.jpg";
+import "../styles/global.css";
+import { ViewTransitions } from "astro:transitions";
+
+interface Props {
+	title?: string;
+	description?: string | undefined;
+}
+
+const { title = "dshaw0004", description = "my personal website" } =
+	Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/jpg" href={placeholderImage} />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<ViewTransitions />
+	</head>
+	<body>
+		<slot />
+		<style is:global>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				position: relative;
+			}
+
+			:root {
+				--accent: 136, 58, 234;
+				--accent-light: 224, 204, 250;
+				--accent-dark: 49, 10, 101;
+				--accent-gradient: linear-gradient(
+					45deg,
+					rgb(var(--accent)),
+					rgb(var(--accent-dark)) 25%,
+					black 60%
+				);
+				--accent-dark-gradient: linear-gradient(
+					45deg,
+					rgb(var(--accent)),
+					rgb(var(--accent-dark)) 25%,
+					black 60%
+				);
+				color-scheme: light dark;
+				color: #ffffffde;
+				/* background-color: #242424; */
+				font-synthesis: none;
+				text-rendering: optimizeLegibility;
+			}
+			html {
+				font-family: system-ui, sans-serif;
+				/* background: #13151a; */
+				background-size: 224px;
+				background: var(--accent-dark-gradient) no-repeat;
+			}
+			code {
+				font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+					DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+			}
+			.section {
+				height: 100vh;
+				height: 100dvh;
+				padding-top: 2rem;
+			}
+			a[role="button"] {
+				text-decoration: none;
+				outline: 1px solid currentColor;
+				padding: 0.45ch 0.75ch;
+				background-color: white;
+				color: black;
+				font-weight: 600;
+				border-radius: 1ch;
+			}
+		</style>
+	</body>
+</html>

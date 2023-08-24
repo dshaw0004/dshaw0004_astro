@@ -1,0 +1,26 @@
+.aboutSection {
+	display: grid;
+	grid-template-columns: 2fr 3fr;
+	justify-content: space-around;
+	align-items: center;
+	box-sizing: border-box;
+	padding-inline: 1em;
+}
+.aboutSection img {
+	display: block;
+	margin: auto;
+	width: min(90%, 300px);
+	border-radius: 1rem;
+}
+.aboutSection .bio {
+	text-align: justify;
+}
+.aboutSection .bio strong {
+	color: antiquewhite;
+}
+@media screen and (max-width: 800px) {
+	.aboutSection {
+		grid-template-columns: auto;
+		grid-template-rows: 3fr 2fr;
+	}
+}
