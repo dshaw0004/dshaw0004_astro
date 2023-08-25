@@ -5,8 +5,8 @@
  */
 
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
+	--color: rgb(224, 204, 250);
+	--fg-dark: blanchedalmond;
 	--black: 15, 18, 25;
 	--gray: 96, 115, 159;
 	--gray-light: 229, 233, 240;
@@ -15,6 +15,29 @@
 	--box-shadow: 0 2px 6px rgba(var(--gray), 25%),
 		0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
 	--dark-gradient: var(--black), rgb(40, 43, 50), rgb(75, 78, 85);
+	--accent: 136, 58, 234;
+	--accent-light: 224, 204, 250;
+	--accent-dark: 49, 10, 101;
+	--accent-gradient: linear-gradient(45deg, #efefef, #faded0 30%, white 60%);
+	--accent-light-gradient: linear-gradient(
+		45deg,
+		#fec5bb,
+		#fcd5ce,
+		#fae1dd,
+		#f8edeb,
+		#e8e8e4,
+		#d8e2dc,
+		#ece4db,
+		#ffe5d9,
+		#ffd7ba,
+		#fec89a
+	);
+	--accent-dark-gradient: linear-gradient(
+		45deg,
+		rgb(var(--accent)),
+		rgb(var(--accent-dark)) 25%,
+		black 60%
+	);
 }
 @font-face {
 	font-family: "Atkinson";
@@ -38,13 +61,23 @@ body {
 	min-height: 100vh;
 	/* text-align: left; */
 	/* background: linear-gradient(var(--gray-gradient)) no-repeat; */
-	background: linear-gradient(var(--dark-gradient)) no-repeat;
 	/* background-size: 100% 600px; */
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	/* color: rgb(var(--gray-dark)); */
 	/* font-size: 20px;
 	line-height: 1.7; */
+	background-repeat: no-repeat;
+}
+.dark {
+	color: var(--fg-dark);
+	background-color: var(--accent-dark);
+	background-image: var(--accent-dark-gradient);
+}
+.light {
+	color: rgb(var(--black));
+	background-color: var(--accent-light);
+	background-image: var(--accent-light-gradient);
 }
 main {
 	/* width: 720px; */
@@ -52,17 +85,17 @@ main {
 	margin: auto;
 	padding: 3em 1em;
 }
-h1,
+/* h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
 	margin: 0 0 0.5rem 0;
-	/* color: rgb(var(--black)); */
+	color: rgb(var(--black));
 	line-height: 1.2;
-}
-h1 {
+} */
+/* h1 {
 	font-size: 3.052em;
 }
 h2 {
@@ -76,7 +109,7 @@ h4 {
 }
 h5 {
 	font-size: 1.25em;
-}
+} */
 strong,
 b {
 	font-weight: 700;
@@ -108,11 +141,12 @@ img {
 	height: auto;
 	border-radius: 8px;
 }
-code {
+.blog-post code {
 	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
+	/* background-color: rgb(var(--gray-light)); */
 	border-radius: 2px;
 }
+
 pre {
 	padding: 1.5em;
 	border-radius: 8px;
@@ -120,16 +154,14 @@ pre {
 pre > code {
 	all: unset;
 }
+
 blockquote {
 	border-left: 4px solid var(--accent);
 	padding: 0 0 0 20px;
 	margin: 0px;
 	font-size: 1.333em;
 }
-hr {
-	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
-}
+
 @media (max-width: 720px) {
 	body {
 		font-size: 18px;

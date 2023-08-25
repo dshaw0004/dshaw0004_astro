@@ -1,8 +1,8 @@
 ---
 title: YTdownloader
 description: youtube video downloader made by using python
-pubDate: 'Jul 02 2022'
-heroImage: "/blog-placeholder-5.jpg"
+pubDate: "Feb 11 2023"
+heroImage: "/YTdownloader.png"
 ---
 
 ## About this :

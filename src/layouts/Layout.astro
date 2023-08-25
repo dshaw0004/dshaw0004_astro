@@ -1,7 +1,7 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import placeholderImage from "../assets/ds4.jpg";
 import "../styles/global.css";
-import { ViewTransitions } from "astro:transitions";
 
 interface Props {
 	title?: string;
@@ -23,7 +23,7 @@ const { title = "dshaw0004", description = "my personal website" } =
 		<title>{title}</title>
 		<ViewTransitions />
 	</head>
-	<body>
+	<body class="dark">
 		<slot />
 		<style is:global>
 			* {
@@ -35,23 +35,8 @@ const { title = "dshaw0004", description = "my personal website" } =
 			}
 
 			:root {
-				--accent: 136, 58, 234;
-				--accent-light: 224, 204, 250;
-				--accent-dark: 49, 10, 101;
-				--accent-gradient: linear-gradient(
-					45deg,
-					rgb(var(--accent)),
-					rgb(var(--accent-dark)) 25%,
-					black 60%
-				);
-				--accent-dark-gradient: linear-gradient(
-					45deg,
-					rgb(var(--accent)),
-					rgb(var(--accent-dark)) 25%,
-					black 60%
-				);
 				color-scheme: light dark;
-				color: #ffffffde;
+				/* color: #ffffffde; */
 				/* background-color: #242424; */
 				font-synthesis: none;
 				text-rendering: optimizeLegibility;
@@ -60,7 +45,7 @@ const { title = "dshaw0004", description = "my personal website" } =
 				font-family: system-ui, sans-serif;
 				/* background: #13151a; */
 				background-size: 224px;
-				background: var(--accent-dark-gradient) no-repeat;
+				/* background: var(--accent-dark-gradient) no-repeat; */
 			}
 			code {
 				font-family: Menlo, Monaco, Lucida Console, Liberation Mono,

@@ -1,7 +1,7 @@
 ---
 title: Javascript Console Objects
 description: JS is not only bounded to console.log. Explore other console objects.
-pubDate: "Jul 02 2022"
+pubDate: "Feb 7 2023"
 heroImage: "/blog-placeholder-5.jpg"
 ---
 
