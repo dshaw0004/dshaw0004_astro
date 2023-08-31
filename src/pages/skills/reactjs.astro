@@ -1,0 +1,50 @@
+---
+import Card from "../../components/Card.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+	<Header />
+	<main class="main-content">
+		<h1 aira-label="my skills in react js">React JS</h1>
+		<p>
+			Knowing only the basics is not enough specially for web development. JS
+			Frameworks makes it easy to create a webapp. Also it helps to implementing
+			certain features, like dynamic routing which are not easy to implement
+			with basic HTML, CSS & JS.
+		</p>
+		<p>Here are the few example sites which are made by me using React Js</p>
+		<ul class="project-list" aria-label="list of my projects">
+			<Card
+				title="Weather App"
+				href="https://dshaw0004.github.io/WeatherApp"
+				body="My first react project. A weather app."
+			/>
+			<Card
+				title="PyApps"
+				href="https://pyapps.web.app"
+				body="I love to create windows apps using python in my free time. This site is for sharing those apps with everyone."
+			/>
+			<Card
+				title="Coming Soon"
+				href="/comingsoon"
+				body="As I develop more sites using react, more projects will be added here."
+				toplevellink={true}
+			/>
+		</ul>
+	</main>
+
+	<Footer />
+</Layout>
+
+<style>
+	.project-list {
+		max-width: 1000px;
+		margin-inline: auto;
+		gap: 1em;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+	}
+</style>

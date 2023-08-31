@@ -141,6 +141,21 @@ img {
 	height: auto;
 	border-radius: 8px;
 }
+.mypic {
+	border-radius: 50% !important;
+	/* filter: drop-shadow(0 -1px 4px white); */
+}
+.mypicnobg {
+	border-radius: 50% !important;
+	position: relative;
+}
+.mypicnobg::before {
+	content: " ";
+	position: absolute;
+	inset: -10px;
+	background-color: wheat;
+	background-image: linear-gradient(red, blue, magenta);
+}
 .blog-post code {
 	padding: 2px 5px;
 	/* background-color: rgb(var(--gray-light)); */
@@ -191,4 +206,10 @@ blockquote {
 a[role="button"] {
 	text-decoration: none;
 	outline: 1px solid currentColor;
+}
+/* ------------------ */
+/* util classes */
+.main-content {
+	max-width: 1200px;
+	margin-inline: auto;
 }

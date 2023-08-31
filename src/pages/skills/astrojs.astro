@@ -1,0 +1,44 @@
+---
+import Card from "../../components/Card.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+	<Header />
+	<main class="main-content">
+		<h1 aira-label="my skills in astro js">Astro JS</h1>
+		<p>
+			React JS is a very good framework but when it comes to static sites Astro
+			JS is better than React.
+		</p>
+		<p>Here are the few example sites which are made by me using Astro Js</p>
+		<ul class="project-list" aria-label="list of my projects">
+			<Card
+				title="This website"
+				href="/"
+				body="The website you are currently in is made using Astro js."
+				toplevellink={true}
+			/>
+			<Card
+				title="Coming Soon..."
+				href="/comingsoon"
+				body="As I develop more sites using astro, more projects will be added here."
+				toplevellink={true}
+			/>
+		</ul>
+	</main>
+
+	<Footer />
+</Layout>
+
+<style>
+	.project-list {
+		max-width: 1000px;
+		margin-inline: auto;
+		gap: 1em;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+	}
+</style>

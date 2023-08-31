@@ -2,14 +2,16 @@
 import Footer from "../components/Footer.astro";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
-import placeholderImage from "../assets/ds4.jpg";
 import "../styles/bio.css";
 ---
 
 <Layout title="About Me - dshaw0004" description="Know more about me">
 	<Header title="About Me" />
 	<section id="about" class="section aboutSection" transition:name="bio">
-		<div><img src={placeholderImage} alt="placeholder image" /></div>
+		<div>
+			<img src={"/mypic.jpeg"} class="mypic" alt="placeholder image" />
+			<!-- <img src={"/mypicnobg.png"} class="mypicnobg" alt="placeholder image" /> -->
+		</div>
 		<div>
 			<p class="bio">
 				Hi, my name is <strong>Dipankar Shaw</strong>, <wbr /> I'm a <strong
@@ -20,10 +22,60 @@ import "../styles/bio.css";
 				and frameworks, including React, ExpressJs, Firebase and SCSS.<wbr /> Where
 				I&nbsp;really value clean and readable code. Also I'm passionate about UX
 				/ UI. <br /><br />
-				<a href="/about" role="button">Know More...</a>
 			</p>
 		</div>
+	</section>
+	<section class="skill-section" aria-label="my skill set">
+		<p>I have expertise in front-end web development technologies</p>
+		<ul class="skills-list">
+			<li><a href="/skills/vanillaweb">HTML</a></li>
+			<li><a href="/skills/vanillaweb">CSS</a></li>
+			<li><a href="/skills/vanillaweb">JS</a></li>
+			<li><a href="/skills/reactjs">React JS</a></li>
+			<li><a href="/skills/astrojs">Astro JS</a></li>
+		</ul><br />
+		<p>with some basic knowledge in</p>
+		<ul class="skills-list">
+			<li><a href="/skills/python">Python</a></li>
+			<li><a href="/skills/nodejs">Node JS</a></li>
+		</ul>
 	</section>
 
 	<Footer />
 </Layout>
+<style>
+	.skill-section {
+		max-width: 900px;
+		padding: 0 1em;
+		margin-inline: auto;
+	}
+	.skills-list {
+		list-style: none;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 0.5em 1em;
+
+		justify-content: space-around;
+	}
+	.skills-list li {
+		/* background-color: rgb(225, 225, 240, 0.4); */
+		border-radius: 1ch;
+		text-align: center;
+		-webkit-backdrop-filter: blur(2px);
+		backdrop-filter: blur(2px);
+		background-color: #f0f0ff20;
+	}
+	.skills-list li:hover,
+	.skills-list li:focus-within {
+		background-color: #f0f0ff40;
+	}
+	.skills-list li a {
+		font-weight: 600;
+		text-decoration: none;
+		display: inline-block;
+		height: 100%;
+		width: 100%;
+		line-height: 2;
+		border-radius: inherit;
+	}
+</style>

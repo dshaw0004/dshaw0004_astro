@@ -1,0 +1,61 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Card from "../../components/Card.astro";
+---
+
+<Layout>
+	<Header />
+	<main class="main-content">
+		<h1 aira-label="my skills in basic html, css and js">HTML, CSS & JS</h1>
+		<p>
+			Knowing the basics is the most important thing for any field. The basic
+			building blocks of Web Developement is <b>HTML</b>, <b>CSS</b> & <b>JS</b>
+		</p>
+		<p>
+			Here are the few example sites which are made by me using my knowledge of
+			basic web development
+		</p>
+		<ul class="project-list" aria-label="list of my projects">
+			<Card
+				title="codeQRcreator"
+				href="https://dshaw0004.github.io/codeQRcreator"
+				body="This site can convert any text to a QR Code. Also you can read any QR Code using this."
+			/>
+			<Card
+				title="TicTacToe"
+				href="https://dshaw0004.github.io/TicTacToe"
+				body="Online 2 player tictactoe game"
+			/>
+			<Card
+				title="Graph Maker"
+				href="https://dshaw0004.github.io/graph-maker"
+				body="This site helps you to create 2D graph so that you can use your precious time somewhere else."
+			/>
+			<Card
+				title="freeDictionary"
+				href="https://dshaw0004.github.io/freeDictionary"
+				body="An online free English to English dictionary."
+			/>
+			<Card
+				title="Coming Soon"
+				href="/comingsoon"
+				body="As I develop more sites, more projects will be added here."
+				toplevellink={true}
+			/>
+		</ul>
+	</main>
+
+	<Footer />
+</Layout>
+
+<style>
+	.project-list {
+		max-width: 1000px;
+		margin-inline: auto;
+		gap: 1em;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+	}
+</style>

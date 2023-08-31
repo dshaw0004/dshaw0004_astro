@@ -10,7 +10,6 @@
 	display: block;
 	margin: auto;
 	width: min(90%, 300px);
-	border-radius: 1rem;
 }
 .aboutSection .bio {
 	text-align: justify;
