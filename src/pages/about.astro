@@ -27,7 +27,7 @@ import "../styles/bio.css";
 	</section>
 	<section class="skill-section" aria-label="my skill set">
 		<p>I have expertise in front-end web development technologies</p>
-		<ul class="skills-list">
+		<ul class="skills-list major">
 			<li><a href="/skills/vanillaweb">HTML</a></li>
 			<li><a href="/skills/vanillaweb">CSS</a></li>
 			<li><a href="/skills/vanillaweb">JS</a></li>
@@ -35,9 +35,12 @@ import "../styles/bio.css";
 			<li><a href="/skills/astrojs">Astro JS</a></li>
 		</ul><br />
 		<p>with some basic knowledge in</p>
-		<ul class="skills-list">
+		<ul class="skills-list minor">
 			<li><a href="/skills/python">Python</a></li>
 			<li><a href="/skills/nodejs">Node JS</a></li>
+			<li><a href="/skills/basic-computer">MS Word</a></li>
+			<li><a href="/skills/basic-computer">MS Excel</a></li>
+			<li><a href="/skills/basic-computer">MS Powerpoint</a></li>
 		</ul>
 	</section>
 
@@ -51,23 +54,37 @@ import "../styles/bio.css";
 	}
 	.skills-list {
 		list-style: none;
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		display: flex;
+		/* grid-template-columns: repeat(auto-fit, clamp(200px, 1fr, 350px)); */
 		gap: 0.5em 1em;
 
 		justify-content: space-around;
 	}
 	.skills-list li {
 		/* background-color: rgb(225, 225, 240, 0.4); */
+
 		border-radius: 1ch;
 		text-align: center;
 		-webkit-backdrop-filter: blur(2px);
 		backdrop-filter: blur(2px);
 		background-color: #f0f0ff20;
+		color: var(--color);
+	}
+	.skills-list.major li {
+		width: clamp(250px, 48%, 400px);
+		flex-grow: 2;
+		background-color: #f0f0ff27;
+	}
+	.skills-list.minor li {
+		width: clamp(200px, 47%, 350px);
+		flex-grow: 1;
+		background-color: #f0f0ff10;
 	}
 	.skills-list li:hover,
 	.skills-list li:focus-within {
 		background-color: #f0f0ff40;
+		box-shadow: 0 0 4px rgb(var(--accent-dark));
+		transform: translateY(2px);
 	}
 	.skills-list li a {
 		font-weight: 600;

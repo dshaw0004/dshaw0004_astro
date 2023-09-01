@@ -3,6 +3,7 @@ import Card from "../../components/Card.astro";
 import Footer from "../../components/Footer.astro";
 import Header from "../../components/Header.astro";
 import Layout from "../../layouts/Layout.astro";
+import util from "../../styles/util.module.css";
 ---
 
 <Layout>
@@ -15,8 +16,11 @@ import Layout from "../../layouts/Layout.astro";
 			certain features, like dynamic routing which are not easy to implement
 			with basic HTML, CSS & JS.
 		</p>
-		<p>Here are the few example sites which are made by me using React Js</p>
-		<ul class="project-list" aria-label="list of my projects">
+		<p>So I used React JS for these projects :-</p>
+		<ul
+			class={`${util.cardContainer} project-list`}
+			aria-label="list of my projects"
+		>
 			<Card
 				title="Weather App"
 				href="https://dshaw0004.github.io/WeatherApp"
@@ -34,6 +38,9 @@ import Layout from "../../layouts/Layout.astro";
 				toplevellink={true}
 			/>
 		</ul>
+		<p class={`${util.disclaimer}`}>
+			I have more React JS projects but only these are currently hosted.
+		</p>
 	</main>
 
 	<Footer />

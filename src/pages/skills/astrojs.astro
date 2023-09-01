@@ -1,4 +1,5 @@
 ---
+import util from "../../styles/util.module.css";
 import Card from "../../components/Card.astro";
 import Footer from "../../components/Footer.astro";
 import Header from "../../components/Header.astro";
@@ -11,10 +12,14 @@ import Layout from "../../layouts/Layout.astro";
 		<h1 aira-label="my skills in astro js">Astro JS</h1>
 		<p>
 			React JS is a very good framework but when it comes to static sites Astro
-			JS is better than React.
+			JS is better than React. So I started creating static sites using Astro
+			JS.
 		</p>
-		<p>Here are the few example sites which are made by me using Astro Js</p>
-		<ul class="project-list" aria-label="list of my projects">
+		<p>Check out me Astro Js projects :-</p>
+		<ul
+			class={`${util.cardContainer} project-list`}
+			aria-label="list of my projects"
+		>
 			<Card
 				title="This website"
 				href="/"

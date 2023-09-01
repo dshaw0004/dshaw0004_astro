@@ -1,0 +1,52 @@
+---
+import utilcss from "../../styles/util.module.css";
+import Card from "../../components/Card.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+	<Header />
+	<main class="main-content">
+		<h1 aira-label="my skills in python">Python</h1>
+		<p>
+			Python is one of the most popular general purpose programming language.
+			The thing I love most about python is I can do some much things with it,
+			like -
+			<ul style="padding-left: 1em;">
+				<li>I can create apps for android, windows and mac</li>
+				<li>I can create backend server using it</li>
+				<li>I can use it to create my own A.I.</li>
+				<li>I can combine this with Resberry Pi or Arduino for robotics</li>
+				and the list go one.
+			</ul>
+		</p>
+		<br />
+		<p>
+			Usually I use python to automate boring stuffs and to create different
+			types of windows app
+		</p>
+		<p>
+			Most of my python projects are stored locally in my device so I do not
+			have much to display here
+		</p>
+		<ul
+			class={`${utilcss.cardContainer} project-list`}
+			aria-label="list of my projects"
+		>
+			<Card
+				title="PyApps"
+				href="https://pyapps.web.app"
+				body="You can download my python windows apps from this site."
+			/>
+			<Card
+				title="Coming Soon..."
+				href="/comingsoon"
+				body="As I develop more sites using astro, more projects will be added here."
+				toplevellink={true}
+			/>
+		</ul>
+	</main>
+	<Footer />
+</Layout>

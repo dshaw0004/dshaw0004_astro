@@ -212,4 +212,5 @@ a[role="button"] {
 .main-content {
 	max-width: 1200px;
 	margin-inline: auto;
+	min-height: 60vh;
 }
