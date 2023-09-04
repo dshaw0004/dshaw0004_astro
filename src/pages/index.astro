@@ -1,5 +1,4 @@
 ---
-import placeholderImage from "../assets/ds4.jpg";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
@@ -9,12 +8,12 @@ import "../styles/bio.css";
 <Layout>
 	<Header title={"Dipankar Shaw"} />
 	<main>
-		<div class="welcomeSection">
+		<!-- <div class="welcomeSection">
 			<h1>Hi, I am Dipankar</h1><p>Welcome to my site</p>
-		</div>
+		</div> -->
 		<section id="about" class="section aboutSection" transition:name="bio">
 			<div>
-				<img src={"/mypic.jpeg"} class="mypic" alt="placeholder image" />
+				<img src={"/mypic.webp"} class="mypic" alt="placeholder image" />
 			</div>
 			<div>
 				<p class="bio">
@@ -34,7 +33,7 @@ import "../styles/bio.css";
 	<Footer />
 </Layout>
 <style>
-	.welcomeSection {
+	/* .welcomeSection {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -58,5 +57,5 @@ import "../styles/bio.css";
 		font-size: clamp(1rem, 5vw, 3rem);
 		text-decoration: underline;
 		color: blue;
-	}
+	} */
 </style>

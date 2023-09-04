@@ -9,8 +9,7 @@ import "../styles/bio.css";
 	<Header title="About Me" />
 	<section id="about" class="section aboutSection" transition:name="bio">
 		<div>
-			<img src={"/mypic.jpeg"} class="mypic" alt="placeholder image" />
-			<!-- <img src={"/mypicnobg.png"} class="mypicnobg" alt="placeholder image" /> -->
+			<img src={"/mypic.webp"} class="mypic" alt="placeholder image" />
 		</div>
 		<div>
 			<p class="bio">
@@ -32,15 +31,16 @@ import "../styles/bio.css";
 			<li><a href="/skills/vanillaweb">CSS</a></li>
 			<li><a href="/skills/vanillaweb">JS</a></li>
 			<li><a href="/skills/reactjs">React JS</a></li>
-			<li><a href="/skills/astrojs">Astro JS</a></li>
 		</ul><br />
 		<p>with some basic knowledge in</p>
 		<ul class="skills-list minor">
+			<li><a href="/skills/astrojs">Astro JS</a></li>
+
 			<li><a href="/skills/python">Python</a></li>
 			<li><a href="/skills/nodejs">Node JS</a></li>
-			<li><a href="/skills/basic-computer">MS Word</a></li>
+			<!-- <li><a href="/skills/basic-computer">MS Word</a></li>
 			<li><a href="/skills/basic-computer">MS Excel</a></li>
-			<li><a href="/skills/basic-computer">MS Powerpoint</a></li>
+			<li><a href="/skills/basic-computer">MS Powerpoint</a></li> -->
 		</ul>
 	</section>
 
@@ -54,15 +54,16 @@ import "../styles/bio.css";
 	}
 	.skills-list {
 		list-style: none;
-		display: flex;
-		/* grid-template-columns: repeat(auto-fit, clamp(200px, 1fr, 350px)); */
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 		gap: 0.5em 1em;
 
-		justify-content: space-around;
+		/* justify-content: space-around; */
+		/* flex-wrap: wrap; */
 	}
 	.skills-list li {
 		/* background-color: rgb(225, 225, 240, 0.4); */
-
+		/* min-width: 150px; */
 		border-radius: 1ch;
 		text-align: center;
 		-webkit-backdrop-filter: blur(2px);
@@ -71,13 +72,13 @@ import "../styles/bio.css";
 		color: var(--color);
 	}
 	.skills-list.major li {
-		width: clamp(250px, 48%, 400px);
-		flex-grow: 2;
+		/* width: clamp(250px, 48%, 400px);
+		flex-grow: 2; */
 		background-color: #f0f0ff27;
 	}
 	.skills-list.minor li {
-		width: clamp(200px, 47%, 350px);
-		flex-grow: 1;
+		/* width: clamp(200px, 47%, 350px);
+		flex-grow: 1; */
 		background-color: #f0f0ff10;
 	}
 	.skills-list li:hover,

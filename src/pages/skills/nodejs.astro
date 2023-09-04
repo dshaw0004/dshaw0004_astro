@@ -10,7 +10,7 @@ import Layout from "../../layouts/Layout.astro";
 	<Header />
 	<main class="main-content">
 		<h1 aira-label="my skills in node js">Node JS</h1>
-		<p>
+		<!-- <p>
 			<ul style="padding-left: 1em;">
 				<li>I can create apps for android, windows and mac</li>
 				<li>I can create backend server using it</li>
@@ -18,24 +18,35 @@ import Layout from "../../layouts/Layout.astro";
 				<li>I can combine this with Resberry Pi or Arduino for robotics</li>
 				and the list go one.
 			</ul>
-		</p>
+		</p> -->
 		<br />
-		<p>
+		<!-- <p>
 			Usually I use python to automate boring stuffs and to create different
 			types of windows app
 		</p>
 		<p>
 			Most of my python projects are stored locally in my device so I do not
 			have much to display here
-		</p>
+		</p> -->
+		<p>My Node JS projects</p>
 		<ul
 			class={`${utilcss.cardContainer} project-list`}
 			aria-label="list of my projects"
 		>
 			<Card
-				title="PyApps"
-				href="https://pyapps.web.app"
-				body="You can download my python windows apps from this site."
+				title="Telegram image bot"
+				href="https://image-bot.dsx4.repl.co"
+				body="A telegram bot which response with images."
+			/>
+			<Card
+				title="Iphone API Unofficial"
+				href="https://dshaw0004.github.io/Iphone-API/"
+				body="API for Iphone specs."
+			/>
+			<Card
+				title="Telegram News Bot"
+				href="https://daily-news-bot.dsx4.repl.co/"
+				body="A telegram bot which serves news to its subscriber daily."
 			/>
 			<Card
 				title="Coming Soon..."
