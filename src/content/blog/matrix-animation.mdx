@@ -1,7 +1,7 @@
 ---
 title: Matrix Animation
 description: Add matrix animation on your site in just few easy steps
-pubDate: Aug 13 2023
+pubDate: Sep 7 2023
 heroImage: "/matrix.webp"
 ---
 
@@ -100,6 +100,10 @@ if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
 
 So that all the columns have different row index, otherwise all columns are starting together and they will go on forever together. And a reminder - this if block will be inside the `for loop`
 
+If you don't add that random number check then it will be this
+
+![matrix animation without randomness](/symmetric-matrix.webp)
+
 7. Finally, we increment the y-coordinate of each column so that the characters move down by one row on each iteration:
 
 ```javascript
@@ -158,3 +162,5 @@ Here is the full code
 ```
 
 ## The End
+
+This animation is not only limited to matrix animation. You can replace that random text by 💧emoji to create rain effect. And much more can be done.
