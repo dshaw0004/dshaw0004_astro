@@ -14,6 +14,13 @@
 .aboutSection .bio {
 	text-align: justify;
 }
+.mypic {
+	outline: 1px solid currentColor;
+	outline-offset: 0.2ch;
+}
+.mypic:hover {
+	outline-offset: 0.25ch;
+}
 .aboutSection .bio strong {
 	color: antiquewhite;
 }
@@ -21,5 +28,8 @@
 	.aboutSection {
 		grid-template-columns: auto;
 		grid-template-rows: 3fr 2fr;
+	}
+	.aboutSection .bio {
+		text-align: left;
 	}
 }
