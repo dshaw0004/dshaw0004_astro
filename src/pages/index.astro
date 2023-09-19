@@ -8,6 +8,9 @@ import "@/styles/bio.css";
 <Layout>
 	<Header title={"Dipankar Shaw"} />
 	<main>
+		<!-- <div class="welcomeSection">
+			<h1>Hi, I am Dipankar</h1><p>Welcome to my site</p>
+		</div> -->
 		<section id="about" class="section aboutSection">
 			<div>
 				<img src={"/mypic.webp"} class="mypic" alt="placeholder image" />
@@ -29,3 +32,30 @@ import "@/styles/bio.css";
 	</main>
 	<Footer />
 </Layout>
+<!-- <style>
+	.welcomeSection {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		font-family: monospace;
+		height: 100vh;
+		height: 100dvh;
+		grid-area: stack;
+	}
+	.welcomeSection > h1 {
+		font-size: clamp(1.75rem, 7.5vw, 6.5rem);
+		text-overflow: wrap;
+		background-color: #efefef;
+		background-image: var(--accent-light-gradient);
+
+		color: transparent;
+		background-clip: text;
+		-webkit-background-clip: text;
+	}
+	.welcomeSection > p {
+		font-size: clamp(1rem, 5vw, 3rem);
+		text-decoration: underline;
+		color: blue;
+	}
+</style> -->
