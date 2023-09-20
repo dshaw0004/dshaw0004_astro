@@ -1,0 +1,12 @@
+.prose ul {
+	list-style-position: inside;
+}
+.prose p {
+	margin-bottom: 1em;
+}
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5 {
+	margin-block: 1em 0.5 em;
+}
