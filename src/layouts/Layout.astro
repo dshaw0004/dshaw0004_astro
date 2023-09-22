@@ -1,6 +1,7 @@
 ---
 import placeholderImage from "@/assets/ds4.jpg";
 import "@/styles/global.css";
+import { SEO } from "astro-seo";
 
 interface Props {
 	title?: string;
@@ -15,11 +16,35 @@ const { title = "dshaw0004", description = "my personal website" } =
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/jpg" href={placeholderImage} />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<SEO
+			title={title}
+			description={description}
+			openGraph={{
+				basic: {
+					title: "Dipankar Shaw",
+					image: "@/assets/ds4.jpg",
+				},
+			}}
+			twitter={{
+				creator: "@dshaw0004",
+			}}
+			extend={{
+				// extending the default link tags
+				link: [{ rel: "icon", href: "@/assets/ds4.jpg", type: "image/jpg" }],
+				// extending the default meta tags
+				// meta: [
+				//   {
+				//     name: "twitter:image",
+				//     content: "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png",
+				//   },
+				//   { name: "twitter:title", content: "Tinker Tailor Soldier Spy" },
+				//   { name: "twitter:description", content: "Agent" },
+				// ],
+			}}
+		/>
 	</head>
 	<body class="dark">
 		<slot />
