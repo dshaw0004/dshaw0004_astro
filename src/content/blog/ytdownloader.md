@@ -1,6 +1,6 @@
 ---
-title: YTdownloader
-description: youtube video downloader made by using python
+title: "YTdownloader"
+description: "youtube video downloader made by using python"
 pubDate: "Feb 11 2023"
 heroImage: "/YTdownloader.png"
 ---
