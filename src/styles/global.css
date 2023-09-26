@@ -205,8 +205,24 @@ blockquote {
 	white-space: nowrap;
 }
 a[role="button"] {
+	--color1: antiquewhite;
+	--color2: #1e1e1e;
 	text-decoration: none;
+	background-color: var(--color1);
+	background-image: linear-gradient(var(--color1) 10%, var(--color2));
+	background-position: center bottom;
+	background-size: 100% 0px;
+	color: var(--color1);
 	outline: 1px solid currentColor;
+	background-color: transparent;
+	transition: background-size 250ms linear;
+}
+a[role="button"]:hover {
+	background-size: 100% 100%;
+	transition: background-size 500ms ease-out;
+	background-position: center top;
+
+	color: var(--color2);
 }
 /* ------------------ */
 /* util classes */
