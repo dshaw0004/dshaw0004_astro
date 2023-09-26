@@ -20,13 +20,26 @@ const { title = "dshaw0004", description = "my personal website" } =
 		<link rel="icon" type="image/jpg" href={placeholderImage} />
 		<meta name="generator" content={Astro.generator} />
 		<SEO
+			charset="UTF-8"
 			title={title}
+			titleDefault="Dipankar Shaw's Portfolio"
 			description={description}
 			openGraph={{
 				basic: {
 					title: "Dipankar Shaw",
 					image: "@/assets/ds4.jpg",
 					type: "website",
+				},
+				image: {
+					url: "@/assests/ds4.jpg",
+					height: 360,
+					width: 360,
+					alt: "dshaw0004",
+				},
+				optional: {
+					description: description,
+					locale: "en-IN",
+					siteName: "dshaw0004",
 				},
 			}}
 			twitter={{
