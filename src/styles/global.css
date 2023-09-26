@@ -207,6 +207,10 @@ blockquote {
 a[role="button"] {
 	--color1: antiquewhite;
 	--color2: #1e1e1e;
+	padding: 0.45ch 0.75ch;
+
+	font-weight: 600;
+	border-radius: 1ch;
 	text-decoration: none;
 	background-color: var(--color1);
 	background-image: linear-gradient(var(--color1) 10%, var(--color2));
