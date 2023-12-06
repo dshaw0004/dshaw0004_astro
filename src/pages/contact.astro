@@ -7,60 +7,62 @@ import "../styles/bio.css";
 
 <Layout title="Contact Me - dshaw0004" description="get in contact">
 	<Header title="Contact" />
-	<section class="sendmsg">
-		<h2 class="title">send me a message</h2>
-		<form>
-			<div>
-				<label for="yourname">Enter name:</label>
-				<input name="yourname" type="text" id="name" required />
-			</div>
-			<div>
-				<label for="yourcontact"
-					>Enter contact details<abbr
-						title="provide your contact details like email or contact number so that I can contact you back"
-						><svg
-							viewBox="0 0 24 24"
-							fill="none"
-							width="1em"
-							height="1em"
-							xmlns="http://www.w3.org/2000/svg"
-							><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-								id="SVGRepo_tracerCarrier"
-								stroke-linecap="round"
-								stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
-								<circle
-									cx="12"
-									cy="12"
-									r="9"
-									stroke="currentColor"
+	<main class="main-content">
+		<section class="sendmsg">
+			<h2 class="title">send me a message</h2>
+			<form>
+				<div>
+					<label for="yourname">Enter name:</label>
+					<input name="yourname" type="text" id="name" required />
+				</div>
+				<div>
+					<label for="yourcontact"
+						>Enter contact details<abbr
+							title="provide your contact details like email or contact number so that I can contact you back"
+							><svg
+								viewBox="0 0 24 24"
+								fill="none"
+								width="1em"
+								height="1em"
+								xmlns="http://www.w3.org/2000/svg"
+								><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+									id="SVGRepo_tracerCarrier"
 									stroke-linecap="round"
-									stroke-linejoin="round"></circle>
-								<path
-									d="M12 11V17"
-									stroke="currentColor"
-									stroke-linecap="round"
-									stroke-linejoin="round"></path>
-								<path
-									d="M11.75 8V7H12.25V8H11.75Z"
-									stroke="#currentColor"
-									stroke-linecap="round"
-									stroke-linejoin="round"></path>
-							</g></svg
-						></abbr
-					>:</label
-				>
-				<input name="yourcontact" id="contact" required />
-			</div>
-			<div>
-				<label for="yourmessage">Enter your message:</label>
-				<textarea name="yourmessage" rows="5" id="message"></textarea>
-			</div>
-			<div class="submit-btn">
-				<input type="submit" value="send" class="btn" id="submitBtn" />
-			</div>
-		</form>
-		<Footer />
-	</section>
+									stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+									<circle
+										cx="12"
+										cy="12"
+										r="9"
+										stroke="currentColor"
+										stroke-linecap="round"
+										stroke-linejoin="round"></circle>
+									<path
+										d="M12 11V17"
+										stroke="currentColor"
+										stroke-linecap="round"
+										stroke-linejoin="round"></path>
+									<path
+										d="M11.75 8V7H12.25V8H11.75Z"
+										stroke="#currentColor"
+										stroke-linecap="round"
+										stroke-linejoin="round"></path>
+								</g></svg
+							></abbr
+						>:</label
+					>
+					<input name="yourcontact" id="contact" required />
+				</div>
+				<div>
+					<label for="yourmessage">Enter your message:</label>
+					<textarea name="yourmessage" rows="5" id="message"></textarea>
+				</div>
+				<div class="submit-btn">
+					<input type="submit" value="send" class="btn" id="submitBtn" />
+				</div>
+			</form>
+			<Footer />
+		</section>
+	</main>
 </Layout>
 <script>
 	const form = document.querySelector("form");
