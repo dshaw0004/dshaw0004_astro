@@ -1,0 +1,135 @@
+---
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import Layout from "@/layouts/Layout.astro";
+import "../styles/bio.css";
+---
+
+<Layout title="Contact Me - dshaw0004" description="get in contact">
+	<Header title="Contact" />
+	<section class="sendmsg">
+		<h2 class="title">send me a message</h2>
+		<form>
+			<div>
+				<label for="yourname">Enter name:</label>
+				<input name="yourname" type="text" id="name" required />
+			</div>
+			<div>
+				<label for="yourcontact"
+					>Enter contact details<abbr
+						title="provide your contact details like email or contact number so that I can contact you back"
+						><svg
+							viewBox="0 0 24 24"
+							fill="none"
+							width="1em"
+							height="1em"
+							xmlns="http://www.w3.org/2000/svg"
+							><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+								id="SVGRepo_tracerCarrier"
+								stroke-linecap="round"
+								stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+								<circle
+									cx="12"
+									cy="12"
+									r="9"
+									stroke="currentColor"
+									stroke-linecap="round"
+									stroke-linejoin="round"></circle>
+								<path
+									d="M12 11V17"
+									stroke="currentColor"
+									stroke-linecap="round"
+									stroke-linejoin="round"></path>
+								<path
+									d="M11.75 8V7H12.25V8H11.75Z"
+									stroke="#currentColor"
+									stroke-linecap="round"
+									stroke-linejoin="round"></path>
+							</g></svg
+						></abbr
+					>:</label
+				>
+				<input name="yourcontact" id="contact" required />
+			</div>
+			<div>
+				<label for="yourmessage">Enter your message:</label>
+				<textarea name="yourmessage" rows="5" id="message"></textarea>
+			</div>
+			<div class="submit-btn">
+				<input type="submit" value="send" class="btn" id="submitBtn" />
+			</div>
+		</form>
+		<Footer />
+	</section>
+</Layout>
+<script>
+	const form = document.querySelector("form");
+	const btn = document.getElementById("submitBtn");
+	form?.addEventListener("submit", async (e) => {
+		e.preventDefault();
+		btn?.setAttribute("disabled", "true");
+		const contact = form.contact.value;
+		const name = form.name.value;
+		const msg = form.message.value;
+
+		const res = await fetch("https://dshaw0004.onrender.com/addnewmsg", {
+			method: "post",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({
+				senderName: name,
+				senderContact: contact,
+				message: msg,
+			}),
+		});
+		if (res.ok) {
+			alert("message send");
+		}
+		btn?.removeAttribute("disabled");
+	});
+</script>
+<style>
+	section {
+		min-height: 90vh;
+	}
+	form {
+		width: min(700px, 80%);
+
+		display: grid;
+		row-gap: 00.5em;
+
+		/* justify-items: center; */
+
+		border: 1px solid antiquewhite;
+		border-radius: 1ch;
+		margin-inline: auto;
+		padding: 0.5em 1em;
+	}
+	label {
+		margin-right: 1ch;
+	}
+	input,
+	textarea {
+		background-color: rgb(75, 75, 175, 0.45);
+	}
+	textarea {
+		resize: none;
+		margin: auto;
+		display: block;
+	}
+	.submit-btn {
+		text-align: center;
+	}
+	.btn {
+		padding: 0.5ch 1ch;
+		border-radius: 1ch;
+		border-style: solid;
+		border-color: antiquewhite;
+		border-width: 1px;
+	}
+</style>
+
+<style>
+	.title {
+		text-align: center;
+	}
+</style>

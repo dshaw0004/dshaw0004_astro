@@ -1,0 +1,33 @@
+---
+---
+
+<main>
+	<form name="loginForm">
+		<div>
+			<label for="email">Enter name</label>
+			<input type="email" required name="email" id="email" />
+		</div>
+		<div>
+			<label for="password">enter password</label>
+			<input type="password" name="password" id="password" required />
+		</div>
+		<input type="submit" value="login" />
+	</form>
+</main>
+<script>
+	const loginForm = document.querySelector("form");
+	loginForm?.addEventListener("submit", async (e) => {
+		e.preventDefault();
+		const email = loginForm.email.value;
+		const password = loginForm.password.value;
+		const fetching = await fetch("https://dshaw0004.onrender.com/login", {
+			method: "post",
+			body: JSON.stringify({
+				email: "dipankarshaw692@gmail.com",
+				password: "n0pa55",
+			}),
+		});
+		const res = await fetching.json();
+		console.log(res);
+	});
+</script>
