@@ -127,7 +127,7 @@ p {
 	margin-bottom: 2em;
 }
 textarea {
-	width: calc(100%- 1em);
+	width: calc(100% - 1em);
 	font-size: 16px;
 }
 input {
