@@ -33,6 +33,6 @@ du filename or path/to/directory
 4. In Mathematics, there is a formula called william's formula which can be used to determine whether or not a number is prime number. 
 The formula for number **j** is `[(j-1)!+1/j]`.
 
-5. In Linux, we can use ***`printenv`*** to list down all the enviroment variables name and their value.
+5. In Linux, we can use ***`printenv`*** to list down all the environment variables name and their value.
 
 That’s it for this week. Meeting you next week.
