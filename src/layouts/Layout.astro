@@ -6,7 +6,6 @@ interface Props {
 	title?: string;
 	description?: string | undefined;
 }
-
 const { title = "dshaw0004", description = "my personal website" } =
 	Astro.props;
 ---
@@ -16,7 +15,7 @@ const { title = "dshaw0004", description = "my personal website" } =
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" href="/its-d32.png" />
+		<link rel="icon" type="image/png" href="its-d32.png" />
 		<meta name="generator" content={Astro.generator} />
 		<SEO
 			charset="UTF-8"
@@ -93,5 +92,11 @@ const { title = "dshaw0004", description = "my personal website" } =
 				padding-top: 2rem;
 			}
 		</style>
+        <script>
+window.onload = function () {
+const pathname = window.location.pathname
+fetch('https://nuyx.pythonanywhere.com/view-counter?path=' + pathname).then(res => console.log(res.json))
+}
+</script>
 	</body>
 </html>
