@@ -93,10 +93,10 @@ const { title = "dshaw0004", description = "my personal website" } =
 			}
 		</style>
         <script>
-window.onload = function () {
-const pathname = window.location.pathname
-fetch('https://nuyx.pythonanywhere.com/view-counter?path=' + pathname).then(res => console.log(res.json))
-}
+        window.onload = function () {
+                const pathname = window.location.pathname;
+                fetch('https://nuyx.pythonanywhere.com/view-counter?path=' + pathname).then(res => console.log(res.json));
+        }
 </script>
 	</body>
 </html>
