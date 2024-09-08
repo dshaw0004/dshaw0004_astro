@@ -9,7 +9,7 @@ heroImage: "/whatilearned2.png"
 
 
 1. In Python Flask, we can use {% include '' %} to add other html, svg or xml file into current file. 
-Example - `{% include 'Card.html' %}
+Example - `{% include 'Card.html' %}`
 
 2. In vim, to move current line down by a specific number of lines we can use `:m +n` where n is the number of lines to move.
 Example - `:m +4` or `:m +2`
@@ -24,7 +24,7 @@ To go to next occurance press `n` and to go previous occurance press `shift-n` o
 
 5. In Mathematics, **tetration** is repeated exponentiation which is denoted by <sup>n</sup>a.
 Unlike exponentiation which is denoted by a<sup>n</n> **tetration** represent **a to the power of a, n-1 times,** i.e., a<sup>a<sup>.<sup>.<sup>a</sup></sup></sup></sup>
-Example - <sup>4</sup>2 means 2<sup>2<sup>2<sup>2<sup>2</sup></sup></sup></sup> which is equals to 65,536
+Example - <sup>4</sup>2 means 2<sup>2<sup>2<sup>2</sup></sup></sup> which is equals to 65,536
 Here is its break down, 2<sup>2<sup>2<sup>2</sup></sup></sup> = 2<sup>2<sup>4</sup></sup>
 = 2<sup>16</sup> = 65,536
 
