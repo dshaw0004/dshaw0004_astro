@@ -1,0 +1,31 @@
+---
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout>
+	<Header />
+	<main>
+        <a href="/">
+                <b>Coming Soon...</b>
+                <p>get back to civilization for now.</p>
+        </a>
+	</main>
+	<Footer />
+</Layout>
+<style>
+	main {
+		display: grid;
+		place-items: center;
+		min-height: 60vh;
+		font-size: 2rem;
+        text-align: center;
+	}
+    main a {
+        text-decoration: none;
+    }
+    main p {
+        font-size: 0.75rem;
+    }
+</style>

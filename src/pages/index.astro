@@ -3,6 +3,7 @@ import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
 import Layout from "@/layouts/Layout.astro";
 import "@/styles/bio.css";
+import "@/styles/homepage.css";
 ---
 
 <Layout>
@@ -11,47 +12,51 @@ import "@/styles/bio.css";
 		<div class="welcomeSection">
 			<h1>Hi, I am Dipankar</h1><p>Welcome to my site</p>
 		</div>
-		<section id="about" class="section aboutSection">
-			<div>
-				<img src={"/mypic.webp"} class="mypic" alt="placeholder image" />
-			</div>
-			<div>
-				<p class="bio">
-					Hi, my name is <strong>Dipankar Shaw</strong>, <wbr /> I'm a <strong
-						>Web Developer</strong
-					> with a good knowledge in <strong>NodeJs</strong> and <strong
-						>Python</strong
-					>.<wbr /> Over the time I&nbsp;developed a skill set in a range of technologies
-					and frameworks, including React, ExpressJs, Firebase and SCSS.<wbr /> Where
-					I&nbsp;really value clean and readable code. Also I'm passionate about
-					UX / UI. <br /><br />
-					<a href="/about" role="button">Know More...</a>
+		<section id="about" class="">
+			<!-- <div> -->
+			<!-- 	<img src={"/mypic.webp"} class="mypic" alt="placeholder image" /> -->
+			<!-- </div> -->
+            <h2>About Me:</h2>
+			<div class="bio">
+				<p>
+                Self-taught, versatile <b>Web Developer</b> with expertise in <b>Python</b>,
+                React, Flask, Firebase, 
+                and a passion for clean code and exceptional UX/UI design.
 				</p>
 			</div>
+            <div class="main-skills">
+				<ul class="skills-list ">
+                        <li>
+                                <div>
+                                        <h4>Python</h4>
+                                        <p>GUI Applications, Web Scrapers, REST APIs</p>
+                                        <a href="/skills/python" role="button">
+                                                Know More...
+                                        </a>
+                                </div>
+                        </li>
+                        <li>
+                                <div>
+                                        <h4>Web Development</h4>
+                                        <p>Basic webpage using HTML,CSS, JS and Single page Applications using React</p>
+                                        <a href="/skills/webdev" role="button">
+                                                Know More...
+                                        </a>
+                                </div>
+                        </li>
+                        <!-- <li> -->
+                        <!--         <div> -->
+                        <!--                 <h4>And More</h4> -->
+                        <!--                 <p>Not limited to these two.</p> -->
+                        <!--                 <a href="/skills/comingsoon" role="button"> -->
+                        <!--                         Know More... -->
+                        <!--                 </a> -->
+                        <!--         </div> -->
+                        <!-- </li> -->
+				</ul>
+
+            </div>
 		</section>
 	</main>
 	<Footer />
 </Layout>
-<style>
-	.welcomeSection {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-		font-family: monospace;
-		height: 100vh;
-		height: 100dvh;
-		grid-area: stack;
-	}
-	.welcomeSection > h1 {
-		font-size: clamp(1.75rem, 7.5vw, 6.5rem);
-		text-overflow: wrap;
-
-		color: #fffecc;
-	}
-	.welcomeSection > p {
-		font-size: clamp(1rem, 5vw, 3rem);
-		text-decoration: underline;
-		color: #deffff;
-	}
-</style>
