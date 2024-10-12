@@ -95,7 +95,15 @@ const { title = "dshaw0004", description = "my personal website" } =
         <script>
         window.onload = function () {
                 const pathname = window.location.pathname;
-                fetch('https://nuyx.pythonanywhere.com/view-counter?path=' + pathname).then(res => console.log(res.json));
+                const platform = navigator.platform;
+                fetch('https://nuyx.pythonanywhere.com/countview', {
+                        mode: 'no-cors',
+                        method: 'POST',
+                        headers: {
+                                'Content-Type': 'application/json', 
+                        },
+                        body: JSON.stringify({path: pathname, platform: platform})
+                })// this fetch is registering the visit in the backend. 
         }
 </script>
 	</body>
