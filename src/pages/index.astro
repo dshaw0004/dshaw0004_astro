@@ -15,35 +15,35 @@ import "@/styles/homepage.css";
                 <strong>A Python and Web Developer</strong>
                 <p>From <b>Kolkata, India</b></p>
             </div>
-			<div>
-                <div class="blob"></div>
+			<!-- <div> -->
                 <!-- <div class="blob"></div> -->
-                <!-- <div class="blob"></div> -->
-                <!-- <div class="blob"></div> -->
-				<!-- <img src={"/dots-no-bg.png"} class="mypic" alt="placeholder image" /> -->
-            </div>
-<script>
-        const blobs = document.querySelectorAll('.blob');
-        function genRadius(){
-                let tl = parseInt(Math.random()*100),
-                    tr = parseInt(Math.random()*100),
-                    bl = parseInt(Math.random()*100),
-                    br = parseInt(Math.random()*100);
-                return [tl, tr, br, bl]
-        }
-        function changeRadii(){
-                if (!blobs) return
-                blobs.forEach(blob => {
-                const radii = genRadius();
-                blob.style.borderTopLeftRadius = `${radii[0]}%`
-                blob.style.borderTopRightRadius = `${radii[1]}%`
-                blob.style.borderBottomLeftRadius = `${radii[2]}%`
-                blob.style.borderBottomRightRadius = `${radii[3]}%`
-                })
-        }
-        changeRadii();
-        setInterval(changeRadii, 4000)
-</script>
+                <!-- <!-1- <div class="blob"></div> -1-> -->
+                <!-- <!-1- <div class="blob"></div> -1-> -->
+                <!-- <!-1- <div class="blob"></div> -1-> -->
+			<!-- 	<!-1- <img src={"/dots-no-bg.png"} class="mypic" alt="placeholder image" /> -1-> -->
+            <!-- </div> -->
+<!-- <script> -->
+<!--         const blobs = document.querySelectorAll('.blob'); -->
+<!--         function genRadius(){ -->
+<!--                 let tl = parseInt(Math.random()*100), -->
+<!--                     tr = parseInt(Math.random()*100), -->
+<!--                     bl = parseInt(Math.random()*100), -->
+<!--                     br = parseInt(Math.random()*100); -->
+<!--                 return [tl, tr, br, bl] -->
+<!--         } -->
+<!--         function changeRadii(){ -->
+<!--                 if (!blobs) return -->
+<!--                 blobs.forEach(blob => { -->
+<!--                 const radii = genRadius(); -->
+<!--                 blob.style.borderTopLeftRadius = `${radii[0]}%` -->
+<!--                 blob.style.borderTopRightRadius = `${radii[1]}%` -->
+<!--                 blob.style.borderBottomLeftRadius = `${radii[2]}%` -->
+<!--                 blob.style.borderBottomRightRadius = `${radii[3]}%` -->
+<!--                 }) -->
+<!--         } -->
+<!--         changeRadii(); -->
+<!--         setInterval(changeRadii, 4000) -->
+<!-- </script> -->
         </div>
 		<section id="about" class="">
             <h2>About Me:</h2>
