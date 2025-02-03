@@ -1,0 +1,69 @@
+---
+import Card from "@/components/Card.astro";
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import Layout from "@/layouts/Layout.astro";
+import util from "@/styles/util.module.css";
+---
+
+<Layout>
+        <Header />
+        <main class="main-content">
+                <h1 aria-label="my skills in web development.">Web Developement</h1>
+                <p>
+                Web Developement is the process of designing, creating and maintaining websites for the internet. 
+                It involves a range of skills and technologies, including front-end development (such as HTML, CSS, JS, React etc), Back-end development (such as Python Flask, NodeJS etc),
+                database management and version control systems like git.
+                </p>
+                <p>Here are few of my websites:-</p>
+                <ul class={`${util.cardContainer} project-list`} aria-label="list of my projects">
+                        <Card
+                                title="codeQRcreator"
+                                href="https://dshaw0004.github.io/codeQRcreator"
+                                body="This site can convert any text to a QR Code. Also you can read any QR Code using this."
+                                />
+                        <Card
+                                title="TicTacToe"
+                                href="https://dshaw0004.github.io/TicTacToe"
+                                body="Online 2 player tictactoe game"
+                                />
+                        <Card
+                                title="Graph Maker"
+                                href="https://dshaw0004.github.io/graph-maker"
+                                body="This site helps you to create 2D graph so that you can use your precious time somewhere else."
+                                />
+                        <Card
+                                title="freeDictionary"
+                                href="https://dshaw0004.github.io/freeDictionary"
+                                body="An online free English to English dictionary."
+                                />
+                        <Card
+                                title="online editor"
+                                href="https://codewebon.web.app"
+                                body="An online code editor for HTML, CSS & JS."
+                                />
+                        <Card
+                                title="Weather App"
+                                href="https://dshaw0004.github.io/WeatherApp"
+                                body="My first react project. A weather app."
+                                />
+                        <Card
+                                title="PyApps"
+                                href="https://pyapps.web.app"
+                                body="I love to create windows apps using python in my free time. This site is for sharing those apps with everyone."
+                                />
+                        <!-- <Card -->
+                        <!--         title="Anonylchat" -->
+                        <!--         href="https://anonylchat.web.app" -->
+                        <!--         body="Anonylchat is a anonymous local chat app. Here you can chat with everyone on your chat room without disclosing your identity." -->
+                        <!--         /> -->
+                        <!-- <Card -->
+                        <!--         title="Coming Soon" -->
+                        <!--         href="/comingsoon" -->
+                        <!--         body="As I develop more sites using react, more projects will be added here." -->
+                        <!--         toplevellink={true} -->
+                        <!--         /> -->
+                        </ul>
+        </main>
+        <Footer />
+</Layout>

@@ -1,0 +1,79 @@
+---
+title: "We need a new browser"
+description: "we need a new good mobile web browser for developers."
+pubDate: "Sep 20 2023"
+heroImage: "/meowwantsnewbrowser.webp"
+---
+
+Yes you read right, we definately need a good mobile web browser for developers because there isn't any. You might say that there is a good mobile browser, **Google Chrome**.
+
+**Google Chrome** does give us access to new css and js asap but I want different things and **Chrome** does not provide those features.
+
+## What features do I want ?
+
+The features I want are present in all browser but only for desktops not for mobiles.
+Those are
+
+- developer mode
+- inspect element
+- console
+
+## What feature does mobile browsers offer ?
+
+**None of the above**
+
+Some mobiles browser have few special features that could be helpfull for developers but they does not provide any of the above features.
+
+## What I am thinking to do
+
+You might guessed it. I want to create a new open source browser for mobiles.
+Which will at least provides 1 specific feature of inspecting elements (HTML & CSS).
+After that adding console support and other features to it (if possible)
+
+## What's the problem
+
+This project have few probloms. First of them is _myself_.
+
+I don't know how can I make a web browser. My first thought was creating a website which will take input of url from the user then fetch it and set it to innerHTML of a div element.
+something like this
+
+```html
+<body>
+	<header>
+		<form>
+			<input type="text" placeholder="enter url" name="browserInputBar" /><input
+				type="submit"
+				value="search"
+			/>
+		</form>
+	</header>
+	<main><div id="display"></div></main>
+	<script type="module">
+		const form = document.querySelector("form");
+
+		async function fetchData(query) {
+			const res = await fetch("https://" + query);
+			const data = await res.body(); // I was checking this
+			/* I don't know what to use for HTML response .text, .json, .blob, .body or anything else*/
+			return data;
+		}
+
+		form.addEventListener("submit", (e) => {
+			e.preventDefault();
+			const query = form.browserInputBar.value;
+			const data = fetchData(query);
+			document.querySelector("#display").innerHTML = data;
+		});
+	</script>
+</body>
+```
+
+But this is not working. I am getting CORS error.
+
+I want your help to create the best browser for developers
+
+Here is the link to GitHub repo [developer-browser](https://github.com/dshaw0004/developer-browser)
+
+## My aim
+
+My aim is to create the best mobile web browser for mobile devices

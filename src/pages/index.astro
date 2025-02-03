@@ -1,0 +1,122 @@
+---
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import Layout from "@/layouts/Layout.astro";
+import "@/styles/bio.css";
+import "@/styles/homepage.css";
+---
+
+<Layout>
+	<Header title={"Dipankar Shaw"} />
+	<main>
+		<div class="heroSection">
+            <div class="right-side">
+                <h1>Hi, I am <span>Dipankar Shaw</span>,</h1>
+                <strong>A Python and Web Developer</strong>
+                <p>From <b>Kolkata, India</b></p>
+            </div>
+			<!-- <div> -->
+                <!-- <div class="blob"></div> -->
+                <!-- <!-1- <div class="blob"></div> -1-> -->
+                <!-- <!-1- <div class="blob"></div> -1-> -->
+                <!-- <!-1- <div class="blob"></div> -1-> -->
+			<!-- 	<!-1- <img src={"/dots-no-bg.png"} class="mypic" alt="placeholder image" /> -1-> -->
+            <!-- </div> -->
+<!-- <script> -->
+<!--         const blobs = document.querySelectorAll('.blob'); -->
+<!--         function genRadius(){ -->
+<!--                 let tl = parseInt(Math.random()*100), -->
+<!--                     tr = parseInt(Math.random()*100), -->
+<!--                     bl = parseInt(Math.random()*100), -->
+<!--                     br = parseInt(Math.random()*100); -->
+<!--                 return [tl, tr, br, bl] -->
+<!--         } -->
+<!--         function changeRadii(){ -->
+<!--                 if (!blobs) return -->
+<!--                 blobs.forEach(blob => { -->
+<!--                 const radii = genRadius(); -->
+<!--                 blob.style.borderTopLeftRadius = `${radii[0]}%` -->
+<!--                 blob.style.borderTopRightRadius = `${radii[1]}%` -->
+<!--                 blob.style.borderBottomLeftRadius = `${radii[2]}%` -->
+<!--                 blob.style.borderBottomRightRadius = `${radii[3]}%` -->
+<!--                 }) -->
+<!--         } -->
+<!--         changeRadii(); -->
+<!--         setInterval(changeRadii, 4000) -->
+<!-- </script> -->
+        </div>
+		<section id="about" class="">
+            <h2>About Me:</h2>
+			<div class="bio">
+				<p>
+                Self-taught, versatile <b>Web Developer</b> with expertise in <b>Python</b>,
+                React, Flask, Firebase, 
+                and a passion for clean code.
+				</p>
+			</div>
+            <div class="main-skills">
+				<ul class="skills-list ">
+                        <li>
+                                <div>
+                                        <h4>Python</h4>
+                                        <p>GUI Applications, Web Scrapers, REST APIs</p>
+                                        <a href="/skills/python" role="button">
+                                                Know More...
+                                        </a>
+                                </div>
+                        </li>
+                        <li>
+                                <div>
+                                        <h4>Web Development</h4>
+                                        <p>Basic webpage using HTML,CSS, JS and Single page Applications using React</p>
+                                        <a href="/skills/webdev" role="button">
+                                                Know More...
+                                        </a>
+                                </div>
+                        </li>
+                        <!-- <li> -->
+                        <!--         <div> -->
+                        <!--                 <h4>And More</h4> -->
+                        <!--                 <p>Not limited to these two.</p> -->
+                        <!--                 <a href="/skills/comingsoon" role="button"> -->
+                        <!--                         Know More... -->
+                        <!--                 </a> -->
+                        <!--         </div> -->
+                        <!-- </li> -->
+				</ul>
+
+            </div>
+		</section>
+		<section id="certificates" class="">
+            <h2>Certificates</h2>
+			<div class="bio">
+              <p>Being a Self-taught I have gained my knowledge through various sources on the internet.
+              Infosys Springboard is one of them. I also got certificates from there.</p>
+			</div>
+            <div class="main-skills">
+				<ul class="certificate-list ">
+                        <li>
+                                <div>
+                                        <h4>Python</h4>
+                                        <img src="/python-certificate.png" alt="my python certificate" height="100%">
+                                </div>
+                        </li>
+                        <li>
+                                <div>
+                                        <h4>HTML</h4>
+                                        <img src="/html5-certificate.png" alt="my html certificate" height="100%">
+                                </div>
+                        </li>
+                        <li>
+                                <div>
+                                        <h4>Bash Scripting</h4>
+                                        <img src="/bash-scripting-certificate.png" alt="my bash scripting certificate" height="100%">
+                                </div>
+                        </li>
+				</ul>
+
+            </div>
+		</section>
+	</main>
+	<Footer />
+</Layout>

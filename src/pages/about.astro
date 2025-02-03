@@ -1,0 +1,220 @@
+---
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import Layout from "@/layouts/Layout.astro";
+import "../styles/bio.css";
+---
+
+<Layout title="About Me - dshaw0004" description="Know more about me">
+	<Header title="About Me" />
+	<main class="mainSection main-content">
+		<section id="about" class="">
+			<h2 style="margin: 0.5em 1rem;">More about me</h2>
+			<p class="bio">
+				I also have a good knowledge of <strong>react native expo</strong>. I
+				love to create android or windows apps for my specific needs
+			</p>
+		</section>
+		<section class="skill-section" aria-label="my skill set">
+			<h2>Check out my skill set</h2>
+
+			<div class="scroller" data-speed="slow">
+				<ul class="skills-list major scroller__inner tag-list">
+					<li><a href="/skills/vanillaweb">HTML</a></li>
+					<li><a href="/skills/vanillaweb">CSS</a></li>
+					<li><a href="/skills/vanillaweb">JS</a></li>
+					<li><a href="/skills/reactjs">React JS</a></li>
+					<li><a href="/comingsoon">SCSS</a></li>
+					<li><a href="/skills/python">Python</a></li>
+				</ul>
+			</div>
+			<p>
+				<strong>Not finished yet.</strong>
+				<br />Those are the skills that I have very good knowledge. Now these
+				are the skills that I have somewhat good knowledge.
+			</p>
+			<br />
+			<div class="scroller" data-speed="fast">
+				<ul class="skills-list minor scroller__inner">
+					<li><a href="/comingsoon">TypeScript</a></li>
+					<li><a href="/comingsoon">Tailwind CSS</a></li>
+					<li><a href="/comingsoon">Firebase</a></li>
+					<li><a href="/comingsoon">ExpressJs</a></li>
+					<li><a href="/skills/astrojs">Astro JS</a></li>
+					<li><a href="/skills/nodejs">Node JS</a></li>
+					<li><a href="/comingsoon">React Native</a></li>
+				</ul>
+			</div>
+		</section>
+		<section
+			aria-labeledby="addition-skills"
+			aria-label="My non technical skills"
+		>
+			<h2 id="addition-skills">Let's talk about my addition skills</h2>
+			<div>
+				<ul class="skills-list minor">
+					<li><a href="/blog">Content Writing</a></li>
+					<li><a href="/comingsoon">Logo and SVG Drawing</a></li>
+					<li><a href="/comingsoon">Photo Editing</a></li>
+				</ul>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</Layout>
+<style>
+	.bio {
+		width: min(600px, 80%);
+		margin-inline: 1rem;
+		text-align: justify;
+	}
+</style>
+<style>
+	.skill-section {
+		padding: 0 1em;
+		margin-inline: auto;
+	}
+	:root {
+		--clr-primary-900: hsl(218, 33%, 9%);
+	}
+
+	.skills-list {
+		margin: 0;
+		padding-inline: 0;
+		list-style: none;
+	}
+
+	.skills-list:not(.scroller__inner) {
+		list-style: none;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 0.5em 1em;
+
+		margin-block: 1em;
+	}
+
+	.skills-list li {
+		border-radius: 1ch;
+		padding: 0.5rem 1rem;
+		text-align: center;
+
+		-webkit-backdrop-filter: blur(2px);
+		backdrop-filter: blur(2px);
+
+		background-color: #f0f0ff20;
+		color: var(--color);
+		box-shadow: 0 0.5rem 1rem -0.25rem var(--clr-primary-900);
+	}
+	.skills-list.major li {
+		background-color: #f0f0ff27;
+	}
+	.skills-list.minor li {
+		background-color: #f0f0ff10;
+	}
+	.skills-list li:hover,
+	.skills-list li:focus-within {
+		background-color: #f0f0ff40;
+		box-shadow: 0 0 4px rgb(var(--accent-dark));
+		transform: translateY(2px);
+	}
+	.skills-list li a {
+		font-weight: 600;
+		text-decoration: none;
+		display: inline-block;
+		height: 100%;
+		width: 100%;
+		line-height: 2;
+		border-radius: inherit;
+	}
+</style>
+<style>
+	.scroller {
+		max-width: 600px;
+		margin: 1rem auto;
+		border: 1px solid rgb(250, 235, 215, 0.25);
+	}
+
+	.scroller__inner {
+		padding-block: 1rem;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.scroller[data-animated="true"] {
+		overflow: hidden;
+		-webkit-mask: linear-gradient(
+			90deg,
+			transparent,
+			white 20%,
+			white 80%,
+			transparent
+		);
+		mask: linear-gradient(
+			90deg,
+			transparent,
+			white 20%,
+			white 80%,
+			transparent
+		);
+	}
+
+	.scroller[data-animated="true"] .scroller__inner {
+		width: max-content;
+		flex-wrap: nowrap;
+		animation: scroll var(--_animation-duration, 40s)
+			var(--_animation-direction, forwards) linear infinite;
+	}
+
+	.scroller[data-direction="right"] {
+		--_animation-direction: reverse;
+	}
+
+	.scroller[data-direction="left"] {
+		--_animation-direction: forwards;
+	}
+
+	.scroller[data-speed="fast"] {
+		--_animation-duration: 20s;
+	}
+
+	.scroller[data-speed="slow"] {
+		--_animation-duration: 60s;
+	}
+
+	@keyframes scroll {
+		to {
+			transform: translate(calc(-50% - 0.5rem));
+		}
+	}
+
+	/* general styles */
+</style>
+<script>
+	const scrollers = document.querySelectorAll(".scroller");
+
+	// If a user hasn't opted in for recuded motion, then we add the animation
+	if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+		addAnimation();
+	}
+
+	function addAnimation() {
+		scrollers.forEach((scroller) => {
+			// add data-animated="true" to every `.scroller` on the page
+			scroller.setAttribute("data-animated", true);
+
+			// Make an array from the elements within `.scroller-inner`
+			const scrollerInner = scroller.querySelector(".scroller__inner");
+			const scrollerContent = Array.from(scrollerInner.children);
+
+			// For each item in the array, clone it
+			// add aria-hidden to it
+			// add it into the `.scroller-inner`
+			scrollerContent.forEach((item) => {
+				const duplicatedItem = item.cloneNode(true);
+				duplicatedItem.setAttribute("aria-hidden", true);
+				scrollerInner.appendChild(duplicatedItem);
+			});
+		});
+	}
+</script>

@@ -1,0 +1,62 @@
+---
+import Card from "@/components/Card.astro";
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import Layout from "@/layouts/Layout.astro";
+import util from "@/styles/util.module.css";
+---
+
+<Layout>
+	<Header />
+	<main class="main-content">
+		<h1 aria-label="my skills in basic html, css and js">HTML, CSS & JS</h1>
+		<p>
+			Knowing the basics is the most important thing for any field. The basic
+			building blocks of Web Developement is <b>HTML</b>, <b>CSS</b> & <b>JS</b>
+		</p>
+		<p>
+			Here are the few example sites which are made by me using my knowledge of
+			basic web development
+		</p>
+		<ul
+			class={`${util.cardContainer} project-list`}
+			aria-label="list of my projects"
+		>
+			<Card
+				title="codeQRcreator"
+				href="https://dshaw0004.github.io/codeQRcreator"
+				body="This site can convert any text to a QR Code. Also you can read any QR Code using this."
+			/>
+			<Card
+				title="TicTacToe"
+				href="https://dshaw0004.github.io/TicTacToe"
+				body="Online 2 player tictactoe game"
+			/>
+			<Card
+				title="Graph Maker"
+				href="https://dshaw0004.github.io/graph-maker"
+				body="This site helps you to create 2D graph so that you can use your precious time somewhere else."
+			/>
+			<Card
+				title="freeDictionary"
+				href="https://dshaw0004.github.io/freeDictionary"
+				body="An online free English to English dictionary."
+			/>
+			<Card
+				title="online editor"
+				href="https://codewebon.web.app"
+				body="An online code editor for HTML, CSS & JS."
+			/>
+			<Card
+				title="Coming Soon"
+				href="/comingsoon"
+				body="As I develop more sites, more projects will be added here."
+				toplevellink={true}
+			/>
+		</ul>
+	</main>
+
+	<Footer />
+</Layout>
+
+<style></style>

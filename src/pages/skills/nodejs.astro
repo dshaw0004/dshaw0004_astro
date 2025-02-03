@@ -1,0 +1,45 @@
+---
+import Card from "@/components/Card.astro";
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import Layout from "@/layouts/Layout.astro";
+import utilcss from "@/styles/util.module.css";
+---
+
+<Layout>
+	<Header />
+	<main class="main-content">
+		<h1 aira-label="my skills in node js">Node JS</h1>
+		<p>
+			I am not a Full Stack or Backend Developer but I have some experience of
+			using NodeJS. I have created two <b>Telegram</b> bot using NodeJS and an API.
+		</p>
+		<ul
+			class={`${utilcss.cardContainer} project-list`}
+			aria-label="list of my projects"
+		>
+			<Card
+				title="Telegram image bot"
+				href="https://image-bot.dsx4.repl.co"
+				body="A telegram bot which response with images."
+			/>
+			<Card
+				title="Iphone API Unofficial"
+				href="https://dshaw0004.github.io/Iphone-API/"
+				body="API for Iphone specs."
+			/>
+			<Card
+				title="Telegram News Bot"
+				href="https://daily-news-bot.dsx4.repl.co/"
+				body="A telegram bot which serves news to its subscriber daily."
+			/>
+			<Card
+				title="Coming Soon..."
+				href="/comingsoon"
+				body="As I develop more sites using astro, more projects will be added here."
+				toplevellink={true}
+			/>
+		</ul>
+	</main>
+	<Footer />
+</Layout>

@@ -1,0 +1,179 @@
+:root {
+	--color: rgb(224, 204, 250);
+	--fg-dark: blanchedalmond;
+	--black: 15, 18, 25;
+	--gray: 96, 115, 159;
+	--gray-light: 229, 233, 240;
+	--gray-dark: 34, 41, 57;
+	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
+	--box-shadow: 0 2px 6px rgba(var(--gray), 25%),
+		0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
+	--dark-gradient: var(--black), rgb(40, 43, 50), rgb(75, 78, 85);
+	--accent: 136, 58, 234;
+	--accent-light: 224, 204, 250;
+	--accent-dark: 49, 10, 101;
+	--accent-gradient: linear-gradient(45deg, #efefef, #faded0 30%, white 60%);
+	--accent-light-gradient: linear-gradient(
+		45deg,
+		#fec5bb,
+		#fcd5ce,
+		#fae1dd,
+		#f8edeb,
+		#e8e8e4,
+		#d8e2dc,
+		#ece4db,
+		#ffe5d9,
+		#ffd7ba,
+		#fec89a
+	);
+	--accent-dark-gradient: linear-gradient(
+		45deg,
+		rgb(var(--accent)),
+		rgb(var(--accent-dark)) 25%,
+		black 60%
+	);
+}
+@font-face {
+	font-family: "Atkinson";
+	src: url("/fonts/atkinson-regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Atkinson";
+	src: url("/fonts/atkinson-bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+body {
+	font-family: "Atkinson", sans-serif;
+	margin: 0;
+	padding: 0;
+	min-height: 100dvh;
+	min-height: 100vh;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	line-height: 1.7;
+	background-repeat: no-repeat;
+    /* background-color: black !important; */
+    /* background-image: url('/dots-no-bg.png') !important; */
+    /* background-size: cover; */
+}
+.dark {
+	color: var(--fg-dark);
+	background-color: var(--accent-dark);
+	background-image: var(--accent-dark-gradient);
+}
+.light {
+	color: rgb(var(--black));
+	background-color: var(--accent-light);
+	background-image: var(--accent-light-gradient);
+}
+main {
+	max-width: calc(100% - 2em);
+	margin: auto;
+	padding: 3em 1em;
+}
+strong,
+b {
+	font-weight: 700;
+}
+p {
+	margin-bottom: 1em;
+}
+.prose p {
+	margin-bottom: 2em;
+}
+textarea {
+	width: calc(100% - 1em);
+	font-size: 16px;
+}
+input {
+	font-size: 16px;
+}
+table {
+	width: 100%;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+.blog-post code {
+	padding: 2px 5px;
+	/* background-color: rgb(var(--gray-light)); */
+	border-radius: 2px;
+}
+
+pre {
+	padding: 1.5em;
+	border-radius: 8px;
+	margin-block: 1em;
+}
+pre > code {
+	all: unset;
+}
+
+blockquote {
+	border-left: 4px solid var(--accent);
+	padding: 0 0 0 20px;
+	margin: 0px;
+	font-size: 1.333em;
+}
+
+@media (max-width: 720px) {
+	body {
+		font-size: 18px;
+	}
+	main {
+		padding: 1em;
+	}
+}
+
+.sr-only {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+	clip: rect(1px 1px 1px 1px);
+	/* maybe deprecated but we need to support legacy browsers */
+	clip: rect(1px, 1px, 1px, 1px);
+	/* modern browsers, clip-path works inwards from each corner */
+	clip-path: inset(50%);
+	/* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
+	white-space: nowrap;
+}
+a[role="button"] {
+	--color1: antiquewhite;
+	--color2: #1e1e1e;
+	padding: 0.45ch 0.75ch;
+
+	font-weight: 600;
+	border-radius: 1ch;
+	text-decoration: none;
+	background-color: var(--color1);
+	background-image: linear-gradient(var(--color1) 10%, var(--color2));
+	background-position: center bottom;
+	background-size: 100% 0px;
+	color: var(--color1);
+	outline: 1px solid currentColor;
+	background-color: transparent;
+	transition: background-size 250ms linear;
+}
+a[role="button"]:hover {
+    color: white;
+	/* color: var(--color2); */
+}
+/* ------------------ */
+/* util classes */
+.main-content {
+	max-width: 1200px;
+	margin-inline: auto;
+	min-height: 60vh;
+}
