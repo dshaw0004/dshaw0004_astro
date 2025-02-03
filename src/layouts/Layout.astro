@@ -96,7 +96,8 @@ const { title = "dshaw0004", description = "my personal website" } =
         window.onload = function () {
                 const pathname = window.location.pathname;
                 const platform = navigator.platform;
-                fetch('https://nuyx.pythonanywhere.com/countview', {
+                // fetch('https://nuyx.pythonanywhere.com/countview', {
+                fetch('http://localhost:5000/record-visit', {
                         mode: 'no-cors',
                         method: 'POST',
                         headers: {

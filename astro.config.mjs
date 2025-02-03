@@ -1,14 +1,12 @@
-import mdx from "@astrojs/mdx";
-import sitemap from "@astrojs/sitemap";
-import { defineConfig } from "astro/config";
+// @ts-check
+import { defineConfig } from 'astro/config';
+import robotxTxt from 'astro-robots-txt';
 
-import robotsTxt from "astro-robots-txt";
+import mdx from '@astrojs/mdx';
+
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://dshaw0004.netlify.com",
-	integrations: [mdx(), sitemap(), robotsTxt()],
-	experimental: {
-		viewTransitions: true,
-	},
+  integrations: [mdx(), sitemap(), robotxTxt()]
 });

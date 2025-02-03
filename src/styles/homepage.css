@@ -46,16 +46,16 @@
         border-radius: 4px;
         transition: border-radius 4s ease;
 }
-#about {
+section {
         min-height: 60vh;
 }
-#about h2 {
+section h2 {
         text-align: center;
         font-size: 2rem;
         text-decoration: underline;
         text-underline-offset: 0.5ch;
 }
-#about .bio {
+section .bio {
         max-width: 60ch;
         text-align: center;
         margin: 2ch auto 3ch auto;
@@ -70,12 +70,23 @@
         column-gap: 2.5rem;
         row-gap: 1rem;
 }
+.certificate-list{
+        list-style: none;
+        width: min(94%, 900px);
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 1.5rem;
+        row-gap: 1rem;
+
+}
 @media screen and (max-width: 700px){
         .skills-list {
                 grid-template-columns: 1fr;
         }
 }
-.skills-list li {
+.skills-list li,
+.certificate-list li{
         border-radius: 1ch;
         padding: 0.5em 0.75em;
 
@@ -86,12 +97,12 @@
         transition: transform linear;
 }
 .skills-list li:hover,
-.skills-list li:focus-within {
+.skills-list li:focus-within,
+.certificate-list li:hover,
+.certificate-list li:focus-within {
         background-color: #f0f0ff65;
         box-shadow: 0 0 4px rgb(var(--accent-dark));
         transform: translateY(-2px);
-}
-.skills-list li div {
 }
 .skills-list li a {
         font-weight: 600;
