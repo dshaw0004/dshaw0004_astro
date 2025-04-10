@@ -26,11 +26,20 @@
 		#ffd7ba,
 		#fec89a
 	);
-	--accent-dark-gradient: linear-gradient(
+	/* --accent-dark-gradient: linear-gradient(
 		45deg,
 		rgb(var(--accent)),
 		rgb(var(--accent-dark)) 25%,
-		black 60%
+		#001212 60%
+	); */
+	--accent-dark-gradient: linear-gradient(
+		45deg, 
+		#000001,
+		#000012,
+		#000123,
+		#001234,
+		#012345,
+		#123456
 	);
 }
 @font-face {

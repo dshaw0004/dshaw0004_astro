@@ -4,90 +4,174 @@ import Header from "@/components/Header.astro";
 import Layout from "@/layouts/Layout.astro";
 import "@/styles/bio.css";
 import "@/styles/homepage.css";
+// ToDo: improve the responsiveness of the homepage
+
 ---
 
 <Layout>
 	<Header title={"Dipankar Shaw"} />
 	<main>
 		<div class="heroSection">
+            <div class="left-side">
+                <img src="/mypicnobg.png" alt="Dipankar Shaw" class="profile-image" />
+            </div>
             <div class="right-side">
-                <h1>Hi, I am <span>Dipankar Shaw</span>,</h1>
-                <strong>A Python and Web Developer</strong>
-                <p>From <b>Kolkata, India</b></p>
+                <h1>Hi, I am <span>Dipankar Shaw</span></h1>
+                <strong class="subtitle">Python & Web Developer</strong>
+                <p class="location">From <b>Kolkata, India</b></p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="primary-button">Get in Touch</a>
+                    <a href="/under-construction" class="secondary-button">View Projects</a>
+                </div>
             </div>
         </div>
-		<section id="about" class="">
-            <h2>About Me:</h2>
+		<section id="about" class="about-section">
+            <h2>About Me</h2>
 			<div class="bio">
 				<p>
-                Self-taught, versatile <b>Web Developer</b> with expertise in <b>Python</b>,
-                React, Flask, Firebase, 
-                and a passion for clean code.
+                I'm a self-taught, versatile <b>Web Developer</b> with expertise in <b>Python</b>,
+                React, Flask, and Firebase. I'm passionate about creating clean, efficient code
+                and building user-friendly applications that solve real-world problems.
 				</p>
 			</div>
             <div class="main-skills">
-				<ul class="skills-list ">
-                        <li>
-                                <div>
-                                        <h4>Python</h4>
-                                        <p>GUI Applications, Web Scrapers, REST APIs</p>
-                                        <a href="/skills/python" role="button">
-                                                Know More...
-                                        </a>
-                                </div>
-                        </li>
-                        <li>
-                                <div>
-                                        <h4>Web Development</h4>
-                                        <p>Basic webpage using HTML,CSS, JS and Single page Applications using React</p>
-                                        <a href="/skills/webdev" role="button">
-                                                Know More...
-                                        </a>
-                                </div>
-                        </li>
-                        <!-- <li> -->
-                        <!--         <div> -->
-                        <!--                 <h4>And More</h4> -->
-                        <!--                 <p>Not limited to these two.</p> -->
-                        <!--                 <a href="/skills/comingsoon" role="button"> -->
-                        <!--                         Know More... -->
-                        <!--                 </a> -->
-                        <!--         </div> -->
-                        <!-- </li> -->
+				<ul class="skills-list">
+                    <li>
+                        <div>
+                            <h4>Python Development</h4>
+                            <p>Building robust applications, web scrapers, and REST APIs</p>
+                            <ul class="skill-tags">
+                                <li>Flask</li>
+                                <li>FastAPI</li>
+                                <li>Pandas</li>
+                                <li>Automation</li>
+                            </ul>
+                            <a href="/skills/python" role="button" class="skill-link">
+                                Explore Python Projects →
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h4>Web Development</h4>
+                            <p>Creating modern, responsive web applications</p>
+                            <ul class="skill-tags">
+                                <li>React</li>
+                                <li>HTML/CSS</li>
+                                <li>JavaScript</li>
+                                <li>Firebase</li>
+                            </ul>
+                            <a href="/skills/webdev" role="button" class="skill-link">
+                                View Web Projects →
+                            </a>
+                        </div>
+                    </li>
 				</ul>
-
             </div>
 		</section>
-		<section id="certificates" class="">
-            <h2>Certificates</h2>
+		<section id="certificates" class="certificates-section">
+            <h2>Certifications</h2>
 			<div class="bio">
-              <p>Being a Self-taught I have gained my knowledge through various sources on the internet.
-              Infosys Springboard is one of them. I also got certificates from there.</p>
+              <p>As a self-taught developer, I've gained knowledge through various online platforms. 
+              Here are some of my notable certifications from Infosys Springboard and other platforms.</p>
 			</div>
             <div class="main-skills">
-				<ul class="certificate-list ">
-                        <li>
-                                <div>
-                                        <h4>Python</h4>
-                                        <img src="/python-certificate.png" alt="my python certificate" height="100%">
-                                </div>
-                        </li>
-                        <li>
-                                <div>
-                                        <h4>JavaScript</h4>
-                                        <img src="/javascript-certificate.png" alt="my javascript certificate" height="100%">
-                                </div>
-                        </li>
-                        <li>
-                                <div>
-                                        <h4>Bash Scripting</h4>
-                                        <img src="/bash-scripting-certificate.png" alt="my bash scripting certificate" height="100%">
-                                </div>
-                        </li>
+				<ul class="certificate-list">
+                    <li>
+                        <div class="certificate-card">
+                            <h4>Python Programming</h4>
+                            <div class="certificate-image">
+                                <img src="/python-certificate.png" alt="Python Certificate" loading="lazy" />
+                            </div>
+                            <p class="certificate-date">Issued: 2024</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="certificate-card">
+                            <h4>JavaScript Development</h4>
+                            <div class="certificate-image">
+                                <img src="/javascript-certificate.png" alt="JavaScript Certificate" loading="lazy" />
+                            </div>
+                            <p class="certificate-date">Issued: 2025</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="certificate-card">
+                            <h4>Bash Scripting</h4>
+                            <div class="certificate-image">
+                                <img src="/bash-scripting-certificate.png" alt="Bash Scripting Certificate" loading="lazy" />
+                            </div>
+                            <p class="certificate-date">Issued: 2025</p>
+                        </div>
+                    </li>
 				</ul>
-
+                <div class="view-more-container">
+                    <a href="/certificates" class="view-more-button">View All Certificates →</a>
+                </div>
             </div>
 		</section>
+        <section id="contact" class="contact-section">
+            <h2>Let's Connect</h2>
+            <div class="bio">
+                <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
+            </div>
+            <div class="contact-container">
+                <form class="contact-form" id="contact-form" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required placeholder="What's this about?">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required placeholder="Your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+            <script>
+                const form = document.getElementById('contact-form');
+                if (form instanceof HTMLFormElement) {
+                    form.addEventListener('submit', (event) => {
+                        event.preventDefault(); // Prevent the default form submission
+            
+                    const formData = new FormData(form);
+            
+                    fetch('https://dapi-0rv5.onrender.com/contact/new', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            name: formData.get('name'),
+                            email: formData.get('email'),
+                            subject: formData.get('subject'),
+                            message: formData.get('message'),
+                        }),
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            alert('Message sent successfully!');
+                            form.reset();
+                        } else {
+                            alert('An error occurred. Please try again.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('An error occurred. Please check console and try again.'); // detailed error
+                    });
+                });
+            }
+            </script>
+        </section>
 	</main>
 	<Footer />
 </Layout>

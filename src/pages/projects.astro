@@ -1,0 +1,55 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import "@/styles/projects.css";
+---
+
+<Layout>
+    <Header title="My Projects" />
+    <main class="projects-page">
+        <h1>My Projects</h1>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="/project-placeholder.png" alt="Project 1" loading="lazy" />
+                </div>
+                <div class="project-content">
+                    <h3>Project Name</h3>
+                    <p class="project-description">A brief description of the project and its purpose.</p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>React</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" target="_blank" rel="noopener" class="project-link">Live Demo</a>
+                        <a href="#" target="_blank" rel="noopener" class="project-link">Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="/project-placeholder.png" alt="Project 2" loading="lazy" />
+                </div>
+                <div class="project-content">
+                    <h3>Project Name</h3>
+                    <p class="project-description">A brief description of the project and its purpose.</p>
+                    <div class="project-tags">
+                        <span>JavaScript</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" target="_blank" rel="noopener" class="project-link">Live Demo</a>
+                        <a href="#" target="_blank" rel="noopener" class="project-link">Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more project cards here -->
+        </div>
+    </main>
+    <Footer />
+</Layout> 
