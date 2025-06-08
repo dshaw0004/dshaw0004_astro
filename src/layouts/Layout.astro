@@ -59,6 +59,41 @@ const { title = "dshaw0004", description = "my personal website" } =
 		/>
 	</head>
 	<body class="dark">
+		  <div aria-hidden="true" class="background-text-container">
+    <style>
+      .background-text-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: -10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .background-text{
+        font-family:  Courier, monospace;
+        white-space: nowrap;
+        font-size: 20rem;
+        color: rgba(69, 69, 69, 0.1);
+        font-weight: bold;
+        background: linear-gradient(rgba(69, 69, 69, 0.1), transparent);
+        filter: blur(5px);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+
+      @media (max-width: 768px) {
+        .background-text {
+          font-size: 10rem;
+        }
+      }  
+    </style>
+    <p class="background-text">dshaw</p>
+  </div>
 		<slot />
 		<style is:global>
 			* {
@@ -96,7 +131,7 @@ const { title = "dshaw0004", description = "my personal website" } =
         window.onload = function () {
                 const pathname = window.location.pathname;
                 const platform = navigator.platform;
-                fetch('https://dapi-0rv5.onrender.com/v1/analytics/analytics/visit-records', {
+                fetch('https://dapi-0rv5.onrender.com/v1/analytics/visit-records', {
                         mode: 'no-cors',
                         method: 'POST',
                         headers: {

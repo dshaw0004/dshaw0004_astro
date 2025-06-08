@@ -146,14 +146,14 @@ import "@/styles/homepage.css";
 
         const formData = new FormData(form);
 
-        fetch('https://dapi-0rv5.onrender.com/contact/new', {
+        fetch('https://dapi-0rv5.onrender.com/v1/message/send', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
             name: formData.get('name'),
-            email: formData.get('email'),
+            contact: formData.get('email'),
             subject: formData.get('subject'),
             message: formData.get('message'),
           }),
