@@ -1,0 +1,150 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+
+// Project data - you can move this to a separate data file later
+const projects = [
+  {
+    title: "AI Mock Exam",
+    description: "AI based mock test app for my exam preparation.",
+    image: "/its-d128.png",
+    tags: ["Python", "FastAPI", "React", "TailwindCSS"],
+    github: "https://github.com/dshaw0004/makautmocktest",
+    demo: "https://makautmocktest.netlify.app",
+    featured: true
+  },
+  {
+    title: "Portfolio Website",
+    description: "My personal portfolio website built with Astro.",
+    image: "/its-d128.png",
+    tags: ["Astro", "TailwindCSS", "JavaScript"],
+    github: "https://github.com/dshaw0004/dshaw0004_astro",
+    demo: "https://dipankarshaw.web.app",
+    featured: true
+  },
+  {
+    title: "Safe Gold Tracker",
+    description: "Track the price and trends of digital gold.",
+    image: "https://safegold.web.app/gold-bar-icon.svg",
+    tags: ["HTML", "CSS", "JS", "API Integration"],
+    github: "https://github.com/dshaw0004",
+    demo: "https://safegold.web.app",
+    featured: false
+  },
+  {
+    title: "APIs",
+    description: "A collection of APIs I built for various purposes.",
+    image: "/its-d128.png",
+    tags: ["Python", "FastAPI", "Sequel Database", "API"],
+    github: "https://github.com/dshaw0004",
+    demo: "https://rapidapi.com/user/dshaw0004",
+    featured: true
+    },
+    {
+    title: "App Basket",
+    description: "A web app to share native apps for different platforms built by me.",
+    image: "/its-d128.png",
+    tags: ["React", "TypeScript", "TailwindCSS", "API Integration"],
+    github: "https://github.com/dshaw0004",
+    demo: "https://appbasket.web.app",
+    featured: false
+    },
+    {
+    title: "TextPad",
+    description: "A simple text editor progressive web app for mobile devices because they don't have one.",
+    image: "https://textpad.web.app/assets/favicon.svg",
+    github: "https://github.com/dshaw0004/monotree/tree/main/webapps/web-pad",
+    demo: "https://textpad.web.app",
+    tags: ["HTML", "CSS", "JavaScript", "PWA"],
+    featured: true
+    }
+];
+---
+
+<Layout title="Projects | Dipankar Shaw">
+  <Header title="My Projects" />
+  <main class="min-h-screen text-center m-0 w-full">
+    {/* Hero Section */}
+    <div class="container mx-auto px-4 py-16 text-center w-[80%] lg:w-[60%]">
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-8 text-gray-300">
+        Featured Projects
+      </h1>
+      <p class="text-gray-500  mb-12 max-w-2xl mx-auto text-center">
+        Here are some of my notable projects that showcase my skills in web development,
+        Python programming, and problem-solving.
+      </p>
+      <hr/><br/>
+
+      {/* Featured Projects Grid */}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        {projects.map((project) => (
+          <div class="bg-[#000012] rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-teal-900" key={project.title}>
+            <div class="relative bg-teal-900 rounded-t-2xl overflow-hidden">
+              <img 
+                src={project.image} 
+                alt={project.title}
+                class="w-full h-48 object-cover"
+                loading="lazy"
+              />
+              <div class="absolute top-4 right-4 space-x-2">
+                {project.github && (
+                  <a href={project.github} target="_blank" rel="noopener noreferrer"
+                    aria-label="link to GitHub Repository"
+                    class="">
+                    <svg class="w-6 lg:w-8 h-6 lg:h-8" aria-label="github logo icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+                    </svg>
+                  </a>
+                )}
+                {project.demo && (
+                  <a href={project.demo} target="_blank" rel="noopener noreferrer"
+                    class="" aria-label="link to Live Demo">
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-label="link to live demo" class="w-6 lg:w-8 h-6 lg:h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                )}
+              </div>
+            </div>
+            <div class="p-6 border-t border-gray-800 ">
+              <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">
+                {project.title}
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                {project.description}
+              </p>
+              <div class="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span class="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* GitHub Activity Section */}
+      <div class="text-center">
+        <h2 class="text-3xl font-bold mb-6 text-gray-800 dark:text-white">More on GitHub</h2>
+        <p class="text-gray-600 dark:text-gray-300 mb-8">
+          Check out my GitHub profile for more projects and contributions.
+        </p>
+        <a 
+          href="https://github.com/dshaw0004" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
+        >
+          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+          </svg>
+          View GitHub Profile
+        </a>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

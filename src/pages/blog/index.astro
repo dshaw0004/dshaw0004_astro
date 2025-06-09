@@ -12,8 +12,8 @@ const posts = (await getCollection("blog")).sort(
 
 <Layout title="My Blogs" description="Here is few blogs written by me">
 	<Header title="My Blogs" />
-	<main>
-		<section>
+  <main class="w-full">
+    <section class="w-[80%] lg:w-[60%] mx-auto">
 			<ul>
 				{
 					posts.map((post) => (
@@ -38,9 +38,6 @@ const posts = (await getCollection("blog")).sort(
 	</main>
 	<Footer />
 	<style>
-		main {
-			width: 960px;
-		}
 		ul {
 			display: flex;
 			flex-wrap: wrap;
