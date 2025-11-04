@@ -15,7 +15,7 @@ const { title = "dshaw0004", description = "my personal website" } =
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" href="its-d32.png" />
+		<link rel="icon" type="image/png" href="/its-d32.png" />
 		<meta name="generator" content={Astro.generator} />
 		<SEO
 			charset="UTF-8"
@@ -25,11 +25,11 @@ const { title = "dshaw0004", description = "my personal website" } =
 			openGraph={{
 				basic: {
 					title: "Dipankar Shaw",
-					image: "its-d32.png",
+					image: "/its-d32.png",
 					type: "website",
 				},
 				image: {
-					url: "its-d128.png",
+					url: "/its-d128.png",
 					height: 360,
 					width: 360,
 					alt: "dshaw0004",
@@ -45,7 +45,7 @@ const { title = "dshaw0004", description = "my personal website" } =
 			}}
 			extend={{
 				// extending the default link tags
-				link: [{ rel: "icon", href: "its-d32.png", type: "image/png" }],
+				link: [{ rel: "icon", href: "/its-d32.png", type: "image/png" }],
 				// extending the default meta tags
 				// meta: [
 				//   {
@@ -90,7 +90,7 @@ const { title = "dshaw0004", description = "my personal website" } =
         .background-text {
           font-size: 10rem;
         }
-      }  
+      }
     </style>
     <p class="background-text">dshaw</p>
   </div>
@@ -131,10 +131,10 @@ const { title = "dshaw0004", description = "my personal website" } =
                         mode: 'no-cors',
                         method: 'POST',
                         headers: {
-                                'Content-Type': 'application/json', 
+                                'Content-Type': 'application/json',
                         },
                         body: JSON.stringify({path: pathname, platform: platform})
-                })// this fetch is registering the visit in the backend. 
+                })// this fetch is registering the visit in the backend.
         }
 </script>
 	</body>
