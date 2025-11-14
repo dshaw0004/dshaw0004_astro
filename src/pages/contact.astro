@@ -9,12 +9,19 @@ import Layout from "@/layouts/Layout.astro";
 	<main class="main-content">
 		<section class="sendmsg">
 			<h2 class="title">send me a message</h2>
+			
+			<!-- Toast notification -->
+			<div id="toast" class="toast" role="alert" aria-live="polite">
+				<span id="toast-message"></span>
+			</div>
+			
 			<form>
-				<div>
+				<div class="form-group">
 					<label for="yourname">Enter name:</label>
-					<input name="yourname" type="text" id="name" required />
+					<input name="yourname" type="text" id="name" required minlength="2" />
+					<span class="error-message" id="name-error"></span>
 				</div>
-				<div>
+				<div class="form-group">
 					<label for="yourcontact"
 						>Enter contact details<abbr
 							title="provide your contact details like email or contact number so that I can contact you back"
@@ -49,14 +56,25 @@ import Layout from "@/layouts/Layout.astro";
 							></abbr
 						>:</label
 					>
-					<input name="yourcontact" id="contact" required />
+					<input name="yourcontact" type="email" id="contact" required placeholder="your.email@example.com" />
+					<span class="error-message" id="contact-error"></span>
 				</div>
-				<div>
+				<div class="form-group">
 					<label for="yourmessage">Enter your message:</label>
-					<textarea name="yourmessage" rows="5" id="message"></textarea>
+					<textarea name="yourmessage" rows="5" id="message" required minlength="10"></textarea>
+					<span class="error-message" id="message-error"></span>
 				</div>
 				<div class="submit-btn">
-					<input type="submit" value="send" class="btn" id="submitBtn" />
+					<button type="submit" class="btn" id="submitBtn">
+						<span class="btn-text">Send Message</span>
+						<span class="btn-loader" style="display: none;">
+							<svg class="spinner" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" opacity="0.25"/>
+								<path d="M12 2 A10 10 0 0 1 22 12" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+							</svg>
+							Sending...
+						</span>
+					</button>
 				</div>
 			</form>
 			<Footer />
@@ -66,71 +84,284 @@ import Layout from "@/layouts/Layout.astro";
 <script>
 	const form = document.querySelector("form");
 	const btn = document.getElementById("submitBtn");
+	const btnText = document.querySelector(".btn-text");
+	const btnLoader = document.querySelector(".btn-loader");
+	const toast = document.getElementById("toast");
+	const toastMessage = document.getElementById("toast-message");
+
+	// Toast notification function
+	function showToast(message: string, type: 'success' | 'error' | 'info' = 'info') {
+		if (!toast || !toastMessage) return;
+		
+		toastMessage.textContent = message;
+		toast.className = `toast toast-${type} toast-show`;
+		
+		setTimeout(() => {
+			toast.className = 'toast';
+		}, 4000);
+	}
+
+	// Form validation
+	function validateForm(): boolean {
+		let isValid = true;
+		const nameInput = document.getElementById("name") as HTMLInputElement;
+		const contactInput = document.getElementById("contact") as HTMLInputElement;
+		const messageInput = document.getElementById("message") as HTMLTextAreaElement;
+		
+		const nameError = document.getElementById("name-error");
+		const contactError = document.getElementById("contact-error");
+		const messageError = document.getElementById("message-error");
+
+		// Clear previous errors
+		[nameError, contactError, messageError].forEach(el => {
+			if (el) el.textContent = '';
+		});
+
+		// Validate name
+		if (nameInput && nameInput.value.trim().length < 2) {
+			if (nameError) nameError.textContent = 'Name must be at least 2 characters';
+			isValid = false;
+		}
+
+		// Validate email
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		if (contactInput && !emailRegex.test(contactInput.value)) {
+			if (contactError) contactError.textContent = 'Please enter a valid email address';
+			isValid = false;
+		}
+
+		// Validate message
+		if (messageInput && messageInput.value.trim().length < 10) {
+			if (messageError) messageError.textContent = 'Message must be at least 10 characters';
+			isValid = false;
+		}
+
+		return isValid;
+	}
+
 	form?.addEventListener("submit", async (e) => {
 		e.preventDefault();
-		btn?.setAttribute("disabled", "true");
-		const contact = form.contact.value;
-		const name = form.name.value;
-		const msg = form.message.value;
-
-		const res = await fetch("https://dshaw0004.onrender.com/addnewmsg", {
-			method: "post",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({
-				senderName: name,
-				senderContact: contact,
-				message: msg,
-			}),
-		});
-		if (res.ok) {
-			alert("message send");
+		
+		if (!validateForm()) {
+			showToast('Please fix the errors in the form', 'error');
+			return;
 		}
-		btn?.removeAttribute("disabled");
+
+		// Show loading state
+		btn?.setAttribute("disabled", "true");
+		if (btnText) btnText.style.display = 'none';
+		if (btnLoader) btnLoader.style.display = 'flex';
+
+		const contact = (form as any).contact.value;
+		const name = (form as any).name.value;
+		const msg = (form as any).message.value;
+
+		try {
+			const res = await fetch("https://dshaw0004.onrender.com/addnewmsg", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({
+					senderName: name,
+					senderContact: contact,
+					message: msg,
+				}),
+			});
+
+			if (res.ok) {
+				showToast('✓ Message sent successfully! I\'ll get back to you soon.', 'success');
+				form.reset();
+			} else {
+				const errorData = await res.json().catch(() => ({}));
+				showToast(`Failed to send message: ${errorData.message || 'Server error'}`, 'error');
+			}
+		} catch (error) {
+			console.error('Error sending message:', error);
+			showToast('Failed to send message. Please check your internet connection and try again.', 'error');
+		} finally {
+			// Hide loading state
+			btn?.removeAttribute("disabled");
+			if (btnText) btnText.style.display = 'inline';
+			if (btnLoader) btnLoader.style.display = 'none';
+		}
+	});
+
+	// Real-time validation
+	['name', 'contact', 'message'].forEach(fieldId => {
+		const field = document.getElementById(fieldId);
+		field?.addEventListener('blur', validateForm);
 	});
 </script>
 <style>
 	section {
 		min-height: 90vh;
+		position: relative;
 	}
+	
+	/* Toast notification styles */
+	.toast {
+		position: fixed;
+		top: -100px;
+		left: 50%;
+		transform: translateX(-50%);
+		padding: 1rem 1.5rem;
+		border-radius: 0.5rem;
+		font-size: 1rem;
+		font-weight: 500;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+		transition: top 0.3s ease-in-out;
+		z-index: 1000;
+		max-width: 90%;
+		text-align: center;
+	}
+	
+	.toast-show {
+		top: 2rem;
+	}
+	
+	.toast-success {
+		background-color: #10b981;
+		color: white;
+	}
+	
+	.toast-error {
+		background-color: #ef4444;
+		color: white;
+	}
+	
+	.toast-info {
+		background-color: #3b82f6;
+		color: white;
+	}
+	
 	form {
 		width: min(700px, 80%);
-
 		display: grid;
-		row-gap: 00.5em;
-
-		/* justify-items: center; */
-
+		row-gap: 1.5em;
 		border: 1px solid antiquewhite;
 		border-radius: 1ch;
 		margin-inline: auto;
-		padding: 0.5em 1em;
+		padding: 1.5em 2em;
 	}
+	
+	.form-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5em;
+	}
+	
 	label {
 		margin-right: 1ch;
+		font-weight: 500;
+		display: flex;
+		align-items: center;
+		gap: 0.5ch;
 	}
+	
 	input,
 	textarea {
 		background-color: rgb(75, 75, 175, 0.45);
+		padding: 0.75rem;
+		border-radius: 0.5rem;
+		border: 2px solid transparent;
+		transition: all 0.2s ease;
+		font-size: 1rem;
 	}
+	
+	input:focus,
+	textarea:focus {
+		outline: none;
+		border-color: #06b6d4;
+		background-color: rgb(75, 75, 175, 0.6);
+	}
+	
+	input:invalid:not(:placeholder-shown),
+	textarea:invalid:not(:placeholder-shown) {
+		border-color: #ef4444;
+	}
+	
 	textarea {
-		resize: none;
-		margin: auto;
-		display: block;
+		resize: vertical;
+		min-height: 120px;
+		font-family: inherit;
 	}
+	
+	.error-message {
+		color: #ef4444;
+		font-size: 0.875rem;
+		min-height: 1.25rem;
+		margin-top: -0.25rem;
+	}
+	
 	.submit-btn {
 		text-align: center;
+		margin-top: 0.5rem;
 	}
+	
 	.btn {
-		padding: 0.5ch 1ch;
-		border-radius: 1ch;
-		border-style: solid;
-		border-color: antiquewhite;
-		border-width: 1px;
+		padding: 0.75rem 2rem;
+		border-radius: 0.5rem;
+		border: 2px solid antiquewhite;
+		background-color: #06b6d4;
+		color: white;
+		font-size: 1rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		min-width: 150px;
 	}
-</style>
-
-<style>
+	
+	.btn:hover:not(:disabled) {
+		background-color: #0891b2;
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
+	}
+	
+	.btn:disabled {
+		opacity: 0.7;
+		cursor: not-allowed;
+	}
+	
+	.btn-loader {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+	
+	.spinner {
+		width: 1.25rem;
+		height: 1.25rem;
+		animation: spin 1s linear infinite;
+	}
+	
+	@keyframes spin {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
+	
 	.title {
 		text-align: center;
+		font-size: 2rem;
+		margin-bottom: 2rem;
+		text-transform: capitalize;
+	}
+	
+	/* Responsive design */
+	@media (max-width: 768px) {
+		form {
+			padding: 1rem;
+		}
+		
+		.toast {
+			font-size: 0.875rem;
+			padding: 0.75rem 1rem;
+		}
 	}
 </style>
