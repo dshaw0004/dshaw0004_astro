@@ -58,9 +58,15 @@ Based on my analysis of your Astro-based portfolio, here are actionable improvem
 9. **Add Smooth Scroll**
    - For anchor links like "Get in Touch" button that scrolls to #contact
 
-10. **Improve Typography Hierarchy**
-    - Consider using custom fonts (e.g., Inter, Poppins) for better branding
-    - Add more visual distinction between sections
+10. ~~**Improve Typography Hierarchy**~~ ✅ **DONE**
+    - ~~Consider using custom fonts (e.g., Inter, Poppins) for better branding~~
+    - ~~Add more visual distinction between sections~~
+    - **Implemented features:**
+      - Added Google Fonts: Inter (body & headings) and JetBrains Mono (code)
+      - Implemented responsive typography with clamp() for fluid scaling
+      - Added proper font-weight hierarchy (800 for h1, 700 for h2, 600 for h3/h4)
+      - Improved letter-spacing and line-height for better readability
+      - Used preconnect for optimal font loading performance
 
 ---
 
@@ -71,9 +77,16 @@ Based on my analysis of your Astro-based portfolio, here are actionable improvem
     - Use Astro's `<Image>` component for automatic optimization
     - Add proper width/height attributes to prevent layout shifts
 
-12. **Lazy Load Images**
-    - Blog hero images and project thumbnails should use `loading="lazy"`
-    - Already done for certificates, apply everywhere
+12. ~~**Lazy Load Images**~~ ✅ **DONE**
+    - ~~Blog hero images and project thumbnails should use `loading="lazy"`~~
+    - ~~Already done for certificates, apply everywhere~~
+    - **Implemented features:**
+      - Added `loading="lazy"` to all blog post hero images
+      - Added `loading="lazy"` to all project thumbnails
+      - Added `loading="lazy"` to all certificate images (home.astro, certificates.astro)
+      - Added `fetchpriority="high"` to above-the-fold hero image on homepage
+      - Improved all alt text descriptions for better accessibility and SEO
+      - Fixed incorrect certificate image references (HTML and CSS certificates)
 
 13. **Analytics Optimization**
     - Current analytics fetch uses `mode: 'no-cors'` which prevents error handling

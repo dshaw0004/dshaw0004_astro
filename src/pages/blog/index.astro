@@ -23,7 +23,8 @@ const posts = (await getCollection("blog")).sort(
 									width={720}
 									height={360}
 									src={post.data.heroImage}
-									alt="cover picture of this blog"
+									alt={`Cover image for ${post.data.title}`}
+									loading="lazy"
 								/>
 								<h4 class="title">{post.data.title}</h4>
 								<p class="date">
