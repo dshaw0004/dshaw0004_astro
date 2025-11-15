@@ -78,6 +78,7 @@ body {
   overflow-wrap: break-word;
   line-height: 1.7;
   background-repeat: no-repeat;
+  transition: background-color 0.3s ease, color 0.3s ease;
   /* background-color: black !important; */
   /* background-image: url('/dots-no-bg.png') !important; */
   /* background-size: cover; */
@@ -211,4 +212,14 @@ a[role="button"]:hover {
   max-width: 1200px;
   margin-inline: auto;
   min-height: 60vh;
+}
+
+/* Smooth scroll for the entire document */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optional: Add offset for fixed headers if needed */
+:target {
+  scroll-margin-top: 2rem;
 }

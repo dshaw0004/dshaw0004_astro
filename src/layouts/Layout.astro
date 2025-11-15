@@ -65,7 +65,15 @@ const { title = "dshaw0004", description = "my personal website" } =
 			}}
 		/>
 	</head>
-	<body class="dark">
+	<body>
+		<script is:inline>
+			// Initialize theme immediately to prevent flash
+			(function() {
+				const theme = localStorage.getItem('theme') || 
+					(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+				document.body.classList.add(theme);
+			})();
+		</script>
 		  <div aria-hidden="true" class="background-text-container">
     <style>
       .background-text-container {

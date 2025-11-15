@@ -4,6 +4,7 @@ import Footer from "@/components/Footer.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
 import Header from "@/components/Header.astro";
 import Layout from "@/layouts/Layout.astro";
+import SkeletonLoader from "@/components/SkeletonLoader.astro";
 
 const posts = (await getCollection("blog")).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -38,6 +39,29 @@ const posts = (await getCollection("blog")).sort(
 		</section>
 	</main>
 	<Footer />
+	<script>
+		// Hide skeleton loaders when images load
+		document.addEventListener('DOMContentLoaded', () => {
+			const images = document.querySelectorAll('.blog-image');
+			images.forEach((img) => {
+				if (img instanceof HTMLImageElement) {
+					const container = img.closest('.image-container');
+					const skeleton = container?.querySelector('[data-skeleton]');
+					
+					if (img.complete) {
+						skeleton?.classList.add('skeleton-hidden');
+						img.style.display = 'block';
+					} else {
+						img.style.display = 'none';
+						img.addEventListener('load', () => {
+							skeleton?.classList.add('skeleton-hidden');
+							img.style.display = 'block';
+						});
+					}
+				}
+			});
+		});
+	</script>
 	<style>
 		ul {
 			display: flex;
@@ -46,6 +70,14 @@ const posts = (await getCollection("blog")).sort(
 			list-style-type: none;
 			margin: 0;
 			padding: 0;
+		}
+		.image-container {
+			position: relative;
+			width: 100%;
+		}
+		.blog-image {
+			width: 100%;
+			display: block;
 		}
 		ul li {
 			width: calc(50% - 1rem);

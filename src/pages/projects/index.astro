@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
+import SkeletonLoader from "@/components/SkeletonLoader.astro";
 
 // Project data - you can move this to a separate data file later
 const projects = [
@@ -108,12 +109,15 @@ const projects = [
         {projects.map((project) => (
           <div class="bg-[#000012] rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-teal-900" key={project.title}>
             <div class="relative bg-teal-900 rounded-t-2xl overflow-hidden">
-              <img 
-                src={project.image} 
-                alt={`Screenshot of ${project.title}`}
-                class="w-full h-48 object-cover"
-                loading="lazy"
-              />
+              <div class="project-image-container">
+                <SkeletonLoader aspectRatio="2/1" borderRadius="0" />
+                <img 
+                  src={project.image} 
+                  alt={`Screenshot of ${project.title}`}
+                  class="w-full h-48 object-cover project-image"
+                  loading="lazy"
+                />
+              </div>
               <div class="absolute top-4 right-4 space-x-2">
                 {project.github && (
                   <a href={project.github} target="_blank" rel="noopener noreferrer"
@@ -174,4 +178,41 @@ const projects = [
     </div>
   </main>
   <Footer />
+  <script>
+    // Hide skeleton loaders when images load
+    document.addEventListener('DOMContentLoaded', () => {
+      const images = document.querySelectorAll('.project-image');
+      images.forEach((img) => {
+        if (img instanceof HTMLImageElement) {
+          const container = img.closest('.project-image-container');
+          const skeleton = container?.querySelector('[data-skeleton]');
+          
+          if (img.complete) {
+            skeleton?.classList.add('skeleton-hidden');
+            img.style.display = 'block';
+          } else {
+            img.style.display = 'none';
+            img.addEventListener('load', () => {
+              skeleton?.classList.add('skeleton-hidden');
+              img.style.display = 'block';
+            });
+          }
+        }
+      });
+    });
+  </script>
+  <style>
+    .project-image-container {
+      position: relative;
+      width: 100%;
+      height: 12rem; /* h-48 equivalent */
+    }
+    .project-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </Layout>

@@ -28,9 +28,18 @@ Based on my analysis of your Astro-based portfolio, here are actionable improvem
 
 ### 🎨 **Design & UX Improvements**
 
-5. **Add Dark/Light Mode Toggle**
-   - Currently locked to dark mode (`<body class="dark">`)
-   - Add a theme switcher for better accessibility
+5. ~~**Add Dark/Light Mode Toggle**~~ ✅ **DONE**
+   - ~~Currently locked to dark mode (`<body class="dark">`)~~ ✅
+   - ~~Add a theme switcher for better accessibility~~ ✅
+   - **Implemented features:**
+     - Created ThemeToggle component with sun/moon icons
+     - Smooth animated transitions between themes
+     - Persistent theme preference using localStorage
+     - Respects user's system preference on first visit
+     - Prevents flash of wrong theme on page load with inline script
+     - Accessible with proper ARIA labels and keyboard navigation
+     - Integrated into header navigation
+     - Smooth color transitions in CSS
 
 6. ~~**Improve Contact Form UX**~~ ✅ **DONE**
    - ~~Add loading state during form submission~~ ✅
@@ -47,16 +56,30 @@ Based on my analysis of your Astro-based portfolio, here are actionable improvem
      - Form reset after successful submission
      - Responsive design for mobile devices
 
-7. **Add Skeleton Loaders**
-   - For blog posts and project cards while images load
-   - Improves perceived performance
+7. ~~**Add Skeleton Loaders**~~ ✅ **DONE**
+   - ~~For blog posts and project cards while images load~~ ✅
+   - ~~Improves perceived performance~~ ✅
+   - **Implemented features:**
+     - Created reusable SkeletonLoader component with shimmer animation
+     - Applied to blog post hero images in blog index
+     - Applied to project card thumbnails in projects page
+     - Automatic hiding when images load (with fallback for already loaded images)
+     - Adapts to light/dark theme automatically
+     - Configurable aspect ratio and border radius
+     - Smooth loading experience with 2s shimmer animation
 
 8. **Mobile Navigation**
    - Header links disappear on small screens (social links hidden < 720px)
    - Add a hamburger menu for mobile devices
 
-9. **Add Smooth Scroll**
-   - For anchor links like "Get in Touch" button that scrolls to #contact
+9. ~~**Add Smooth Scroll**~~ ✅ **DONE**
+   - ~~For anchor links like "Get in Touch" button that scrolls to #contact~~ ✅
+   - **Implemented features:**
+     - Added `scroll-behavior: smooth` to global CSS
+     - Works for all anchor links site-wide (e.g., #contact, #about, #certificates)
+     - Added `scroll-margin-top` for proper offset when scrolling to targets
+     - Smooth scrolling animations for better UX
+     - No JavaScript required - pure CSS solution
 
 10. ~~**Improve Typography Hierarchy**~~ ✅ **DONE**
     - ~~Consider using custom fonts (e.g., Inter, Poppins) for better branding~~
