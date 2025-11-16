@@ -85,13 +85,25 @@ body {
 }
 
 .dark {
-  color: var(--fg-dark);
+  --color: rgb(224, 204, 250);
+  --accent: 136, 58, 234;
+  --accent-rgb: rgb(136, 58, 234);
+  --text-primary: blanchedalmond;
+  --text-secondary: rgb(224, 204, 250);
+  --text-on-accent: white;
+  color: var(--text-primary);
   background-color: var(--accent-dark);
   background-image: var(--accent-dark-gradient);
 }
 
 .light {
-  color: rgb(var(--black));
+  --color: rgb(49, 10, 101);
+  --accent: 136, 58, 234;
+  --accent-rgb: rgb(136, 58, 234);
+  --text-primary: rgb(var(--black));
+  --text-secondary: rgb(49, 10, 101);
+  --text-on-accent: white;
+  color: var(--text-primary);
   background-color: var(--accent-light);
   background-image: var(--accent-light-gradient);
 }
@@ -202,7 +214,7 @@ a[role="button"] {
 }
 
 a[role="button"]:hover {
-  color: white;
+  color: var(--text-on-accent);
   /* color: var(--color2); */
 }
 

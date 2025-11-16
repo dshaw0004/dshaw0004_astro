@@ -40,6 +40,19 @@ Based on my analysis of your Astro-based portfolio, here are actionable improvem
      - Accessible with proper ARIA labels and keyboard navigation
      - Integrated into header navigation
      - Smooth color transitions in CSS
+   - **Fixed CSS Variables for Theme Switching:**
+     - Added theme-specific text color variables: `--text-primary`, `--text-secondary`, `--text-on-accent`
+     - Dark theme: Light text colors (blanchedalmond, #e0ccfa) on dark background
+     - Light theme: Dark text colors (rgb(15,18,25), #310a65) on light background
+     - Fixed all hardcoded colors across 6 CSS files:
+       - `src/styles/global.css` - Base theme variables
+       - `src/styles/homepage.css` - Hero section, buttons, forms (5 fixes)
+       - `src/styles/certificates.css` - Certificate cards and buttons (3 fixes)
+       - `src/styles/projects.css` - Project cards, descriptions, tags (5 fixes)
+       - `src/styles/under-construction.css` - Construction page elements (9 fixes)
+     - All `var(--accent)` changed to `rgb(var(--accent))` for proper RGB handling
+     - Text colors now properly inherit and adapt to theme
+     - Buttons maintain white text on accent colored backgrounds in both themes
 
 6. ~~**Improve Contact Form UX**~~ ✅ **DONE**
    - ~~Add loading state during form submission~~ ✅

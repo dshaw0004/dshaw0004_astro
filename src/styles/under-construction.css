@@ -39,7 +39,7 @@
 .construction-container h1 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    color: var(--accent);
+    color: rgb(var(--accent));
     text-shadow: 0 2px 4px rgba(var(--accent-dark), 0.2);
 }
 
@@ -53,7 +53,8 @@
 
 .subtitle {
     font-size: 1.2rem;
-    color: #666;
+    color: var(--text-primary);
+    opacity: 0.7;
 }
 
 .construction-animation {
@@ -104,7 +105,7 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: var(--accent);
+    background-color: rgb(var(--accent));
     animation: pulse 1.5s ease-in-out infinite;
 }
 
@@ -157,14 +158,15 @@
 .progress-fill {
     width: 60%;
     height: 100%;
-    background-color: var(--accent);
+    background-color: rgb(var(--accent));
     border-radius: 4px;
     animation: progress 2s ease-in-out infinite;
 }
 
 .progress-text {
     font-size: 0.9rem;
-    color: #666;
+    color: var(--text-primary);
+    opacity: 0.7;
 }
 
 .status-info {
@@ -182,13 +184,14 @@
 
 .status-label {
     font-size: 0.9rem;
-    color: #666;
+    color: var(--text-primary);
+    opacity: 0.7;
     margin-bottom: 0.25rem;
 }
 
 .status-value {
     font-size: 1.1rem;
-    color: var(--accent);
+    color: rgb(var(--accent));
     font-weight: 600;
 }
 
@@ -201,13 +204,13 @@
     align-items: center;
     gap: 0.5rem;
     padding: 1rem 2rem;
-    background-color: var(--accent);
-    color: white;
+    background-color: rgb(var(--accent));
+    color: var(--text-on-accent);
     text-decoration: none;
     border-radius: 0.75rem;
     font-weight: 600;
     transition: all 0.3s ease;
-    border: 2px solid var(--accent);
+    border: 2px solid rgb(var(--accent));
     margin-top: 2rem;
 }
 
@@ -219,7 +222,7 @@
 
 .back-home:hover {
     background-color: transparent;
-    color: var(--accent);
+    color: rgb(var(--accent));
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(var(--accent-dark), 0.2);
 }
