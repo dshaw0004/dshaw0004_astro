@@ -1,0 +1,748 @@
+---
+import V2Layout from '@/layouts/V2Layout.astro';
+import V2Header from '@/components/v2/V2Header.astro';
+import V2Footer from '@/components/v2/V2Footer.astro';
+---
+
+<V2Layout title="Dipankar Shaw • Full Stack Developer">
+  <!-- Page wrapper -->
+  <div class="mx-auto flex min-h-screen max-w-6xl flex-col gap-16 px-4 pb-16 pt-6 sm:px-6 lg:px-8 lg:pt-10">
+    <!-- NAVBAR -->
+    <V2Header currentPage="home" />
+
+    <!-- HERO -->
+    <main id="hero" class="flex flex-1 flex-col gap-16">
+      <section class="grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] md:items-center">
+        <!-- Hero left -->
+        <div class="space-y-7">
+          <div class="inline-flex items-center gap-2 rounded-full border border-teal-400/40 bg-slate-900/80 px-3 py-1 text-[0.7rem] font-medium text-teal-200 shadow-sm shadow-teal-500/40">
+            <span class="inline-flex h-1.5 w-1.5 rounded-full bg-teal-400"></span>
+            <span>Full Stack Developer • Intern • Progressive Web &amp; App Builder</span>
+          </div>
+
+          <div class="space-y-3">
+            <h1 class="text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl lg:text-6xl" style="font-family: 'Space Grotesk', system-ui, sans-serif;">
+              Crafting fast, spirited experiences
+              <span class="bg-gradient-to-r from-teal-300 via-cyan-300 to-purple-300 bg-clip-text text-transparent">
+                across web &amp; mobile.
+              </span>
+            </h1>
+            <p class="max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
+              I'm <span class="font-medium text-teal-200">Dipankar Shaw</span>, a full stack developer from India, early in my journey and obsessed with building clean, performant products — from PWAs and web apps to Android and CLI tools.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-3">
+            <a href="#featured-projects" class="inline-flex items-center gap-2 rounded-full bg-teal-400/90 px-4 py-1.5 text-xs font-medium tracking-tight text-slate-950 shadow-md shadow-teal-500/50 transition hover:bg-teal-300">
+              <span>View featured work</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M5 12h14" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="m13 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </a>
+            <a href="#contact" class="inline-flex items-center gap-2 rounded-full border border-slate-700/80 bg-slate-900/80 px-4 py-1.5 text-xs font-medium text-slate-200 shadow-sm shadow-slate-900/70 transition hover:border-teal-400/70 hover:bg-slate-900">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4 4h16v16H4z"></path>
+                <path d="m4 7 7.03 4.39a2 2 0 0 0 1.94 0L20 7"></path>
+              </svg>
+              <span>Quick collaboration</span>
+            </a>
+          </div>
+
+          <!-- Quick meta -->
+          <div class="grid gap-4 text-xs text-slate-300 sm:grid-cols-3">
+            <div class="rounded-xl border border-slate-800/80 bg-slate-950/60 p-3">
+              <div class="text-[0.65rem] uppercase tracking-[0.18em] text-slate-400">Focus</div>
+              <div class="mt-1 text-sm font-medium text-teal-200">Full Stack • PWAs</div>
+              <p class="mt-1 text-xs leading-relaxed text-slate-400">
+                Node, Bun, TypeScript, React, Vue, Python and fast backends.
+              </p>
+            </div>
+            <div class="rounded-xl border border-slate-800/80 bg-slate-950/60 p-3">
+              <div class="text-[0.65rem] uppercase tracking-[0.18em] text-slate-400">Current</div>
+              <div class="mt-1 text-sm font-medium text-teal-200">Full Stack Intern</div>
+              <p class="mt-1 text-xs leading-relaxed text-slate-400">
+                Learning in public and shipping real-world features.
+              </p>
+            </div>
+            <div class="rounded-xl border border-slate-800/80 bg-slate-950/60 p-3">
+              <div class="text-[0.65rem] uppercase tracking-[0.18em] text-slate-400">Builds</div>
+              <div class="mt-1 text-sm font-medium text-teal-200">Web • Android • CLI</div>
+              <p class="mt-1 text-xs leading-relaxed text-slate-400">
+                From small tools to polished apps &amp; internal dashboards.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero right: Vim + stack panel -->
+        <div class="space-y-4 md:space-y-6">
+          <!-- Vim-inspired code card -->
+          <div class="group relative overflow-hidden rounded-2xl border border-slate-800/90 bg-gradient-to-br from-slate-950/90 via-slate-950 to-slate-950 shadow-2xl shadow-black/60">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_10%_0%,rgba(34,211,238,0.18),transparent_60%),radial-gradient(circle_at_90%_0%,rgba(56,189,248,0.1),transparent_55%),radial-gradient(circle_at_10%_100%,rgba(45,212,191,0.18),transparent_55%)] opacity-90"></div>
+            <div class="relative flex flex-col gap-3 p-4 sm:p-5">
+              <!-- Top bar -->
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <span class="h-2 w-2 rounded-full bg-rose-500/80"></span>
+                  <span class="h-2 w-2 rounded-full bg-amber-400/80"></span>
+                  <span class="h-2 w-2 rounded-full bg-emerald-400/80"></span>
+                </div>
+                <div class="flex items-center gap-2 text-[0.7rem] text-slate-300">
+                  <span class="rounded-full border border-slate-700/80 bg-slate-900/70 px-2 py-0.5 font-mono">
+                    INSERT
+                  </span>
+                  <span class="font-mono text-[0.65rem] text-slate-400">
+                    .config/nvim/init.lua
+                  </span>
+                </div>
+              </div>
+
+              <!-- Code window -->
+              <div class="relative mt-2 rounded-xl border border-slate-800/80 bg-slate-950/70 p-3 font-mono text-xs leading-relaxed text-slate-200 sm:p-4">
+                <pre class="overflow-x-auto whitespace-pre text-[0.7rem] sm:text-xs" set:html={`<span class="text-slate-500">-- Dipankar's dev environment</span>
+<span class="text-teal-300">local</span> stack = {
+  frontend = { <span class="text-emerald-300">"React"</span>, <span class="text-emerald-300">"Vue"</span>, <span class="text-emerald-300">"React Native"</span> },
+  backend  = { <span class="text-emerald-300">"Node"</span>, <span class="text-emerald-300">"Bun"</span>, <span class="text-emerald-300">"FastAPI"</span>, <span class="text-emerald-300">"Flask"</span> },
+  lang     = { <span class="text-emerald-300">"TypeScript"</span>, <span class="text-emerald-300">"JavaScript"</span>, <span class="text-emerald-300">"Python"</span> },
+}
+
+<span class="text-teal-300">local</span> loves = {
+  editor = <span class="text-emerald-300">"Neovim"</span>,
+  apps   = { <span class="text-emerald-300">"PWAs"</span>, <span class="text-emerald-300">"web"</span>, <span class="text-emerald-300">"android"</span>, <span class="text-emerald-300">"CLI"</span> }
+}
+
+<span class="text-teal-300">local</span> function build(product)
+  <span class="text-teal-300">return</span> {
+    fast      = <span class="text-emerald-300">true</span>,
+    type_safe = <span class="text-emerald-300">true</span>,
+    crafted   = <span class="text-emerald-300">"with care"</span>,
+    by        = <span class="text-emerald-300">"Dipankar"</span>,
+  }
+end`}></pre>
+                <div class="mt-3 flex items-center justify-between text-[0.65rem] text-slate-400">
+                  <span class="font-mono">NORMAL · utf-8 · unix</span>
+                  <span class="font-mono">:wq — shipping ideas, not just code</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills tile preview -->
+          <div class="grid gap-3 sm:grid-cols-3">
+            <div class="rounded-xl border border-slate-800/80 bg-slate-950/70 p-3">
+              <div class="flex items-center justify-between">
+                <span class="text-[0.65rem] uppercase tracking-[0.18em] text-slate-400">Frontend</span>
+                <span class="rounded-full bg-teal-500/10 px-2 py-0.5 text-[0.65rem] text-teal-300">UI / UX</span>
+              </div>
+              <ul class="mt-2 space-y-1 text-xs text-slate-200">
+                <li>React • Next-style patterns</li>
+                <li>Vue • Composition patterns</li>
+                <li>React Native • PWAs</li>
+              </ul>
+            </div>
+            <div class="rounded-xl border border-slate-800/80 bg-slate-950/70 p-3">
+              <div class="flex items-center justify-between">
+                <span class="text-[0.65rem] uppercase tracking-[0.18em] text-slate-400">Backend</span>
+                <span class="rounded-full bg-cyan-500/10 px-2 py-0.5 text-[0.65rem] text-cyan-300">APIs</span>
+              </div>
+              <ul class="mt-2 space-y-1 text-xs text-slate-200">
+                <li>Node • Bun • Express</li>
+                <li>Python • FastAPI • Flask</li>
+                <li>RESTful &amp; JSON APIs</li>
+              </ul>
+            </div>
+            <div class="rounded-xl border border-slate-800/80 bg-slate-950/70 p-3">
+              <div class="flex items-center justify-between">
+                <span class="text-[0.65rem] uppercase tracking-[0.18em] text-slate-400">Tooling</span>
+                <span class="rounded-full bg-purple-500/10 px-2 py-0.5 text-[0.65rem] text-purple-200">DX</span>
+              </div>
+              <ul class="mt-2 space-y-1 text-xs text-slate-200">
+                <li>TypeScript • Testing</li>
+                <li>Git • GitHub • GitLab</li>
+                <li>Neovim (of course)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="space-y-6">
+        <div class="flex items-center justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl" style="font-family: 'Space Grotesk', system-ui, sans-serif;">
+              About
+            </h2>
+            <p class="mt-1 text-base text-slate-300">
+              Early in the journey, serious about fundamentals and impact.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
+          <div class="space-y-3 text-base leading-relaxed text-slate-200">
+            <p>
+              I'm a full stack software developer and intern from India, focused on building reliable products that feel fast and intentional. I enjoy designing flows, not just writing code — from the API contract to the last micro-interaction.
+            </p>
+            <p>
+              My comfort zone spans <span class="text-teal-200">Node / Bun, TypeScript, React, Vue, Python, FastAPI &amp; Flask</span>. I love shipping <span class="text-teal-200">progressive web apps, production-ready web apps, Android apps, and focused CLI tools</span>.
+            </p>
+            <p>
+              When I'm not learning something new in the ecosystem, I'm probably tweaking my <span class="text-teal-200">Vim / Neovim setup</span>, chasing a faster workflow and a calmer coding environment.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            <div class="rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4">
+              <div class="flex items-center justify-between text-xs text-slate-400">
+                <span class="uppercase tracking-[0.18em]">Current status</span>
+                <span class="rounded-full bg-teal-500/10 px-2 py-0.5 text-[0.65rem] text-teal-300">
+                  Open to side projects
+                </span>
+              </div>
+              <div class="mt-3 space-y-1 text-sm text-slate-200">
+                <div class="flex items-center justify-between">
+                  <span>Role</span>
+                  <span class="text-slate-300">Full Stack Developer Intern</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span>Timezone</span>
+                  <span class="text-slate-300">IST (UTC+5:30)</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span>Focus in 2025</span>
+                  <span class="text-slate-300">Scalable PWAs &amp; API design</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-2xl border border-slate-800/80 bg-gradient-to-br from-cyan-500/20 via-teal-500/10 to-purple-700/20 p-4">
+              <div class="flex items-start gap-3">
+                <div class="mt-1 h-6 w-6 rounded-full border border-teal-300/80 bg-slate-950/70 text-[0.7rem] font-medium text-teal-200 shadow-sm shadow-teal-500/40" style="font-family: 'Space Grotesk', system-ui, sans-serif;">
+                  <span class="flex h-full w-full items-center justify-center">V</span>
+                </div>
+                <div class="space-y-1">
+                  <h3 class="text-sm font-medium tracking-tight text-slate-50">
+                    Keyboard-first builder
+                  </h3>
+                  <p class="text-sm text-slate-200">
+                    I work primarily in <span class="text-teal-200">Vim / Neovim</span>, which nudges me toward clean, composable code and a distraction-free mindset. This also shows up in how I design UIs — fast, minimal, and focused.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS / STACK -->
+      <section id="skills" class="space-y-6">
+        <div class="flex items-center justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl" style="font-family: 'Space Grotesk', system-ui, sans-serif;">
+              Tech stack
+            </h2>
+            <p class="mt-1 text-base text-slate-300">
+              Modern tools across the stack, tuned for shipping quickly and safely.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
+          <!-- Languages & frameworks -->
+          <div class="grid gap-4 sm:grid-cols-2">
+            <!-- Languages -->
+            <div class="rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4">
+              <div class="flex items-center justify-between">
+                <div class="text-xs uppercase tracking-[0.18em] text-slate-400">Languages</div>
+                <div class="rounded-full bg-slate-900/80 px-2 py-0.5 text-[0.65rem] text-slate-300">
+                  Type-safe where it matters
+                </div>
+              </div>
+              <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                <span class="rounded-full bg-teal-500/10 px-2.5 py-1 text-teal-200">TypeScript</span>
+                <span class="rounded-full bg-cyan-500/10 px-2.5 py-1 text-cyan-200">JavaScript</span>
+                <span class="rounded-full bg-purple-500/10 px-2.5 py-1 text-purple-200">Python</span>
+              </div>
+            </div>
+
+            <!-- Frontend -->
+            <div class="rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4">
+              <div class="flex items-center justify-between">
+                <div class="text-xs uppercase tracking-[0.18em] text-slate-400">Frontend</div>
+                <div class="rounded-full bg-slate-900/80 px-2 py-0.5 text-[0.65rem] text-slate-300">
+                  Interfaces first
+                </div>
+              </div>
+              <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                <span class="rounded-full bg-teal-500/15 px-2.5 py-1 text-teal-200">React</span>
+                <span class="rounded-full bg-teal-500/15 px-2.5 py-1 text-teal-200">React Native</span>
+                <span class="rounded-full bg-cyan-500/15 px-2.5 py-1 text-cyan-200">Vue</span>
+                <span class="rounded-full bg-slate-700/50 px-2.5 py-1 text-slate-200">PWAs</span>
+              </div>
+            </div>
+
+            <!-- Backend -->
+            <div class="rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4">
+              <div class="flex items-center justify-between">
+                <div class="text-xs uppercase tracking-[0.18em] text-slate-400">Backend</div>
+                <div class="rounded-full bg-slate-900/80 px-2 py-0.5 text-[0.65rem] text-slate-300">
+                  APIs &amp; services
+                </div>
+              </div>
+              <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                <span class="rounded-full bg-teal-500/15 px-2.5 py-1 text-teal-200">Node.js</span>
+                <span class="rounded-full bg-teal-500/15 px-2.5 py-1 text-teal-200">Bun</span>
+                <span class="rounded-full bg-purple-500/15 px-2.5 py-1 text-purple-200">FastAPI</span>
+                <span class="rounded-full bg-purple-500/15 px-2.5 py-1 text-purple-200">Flask</span>
+              </div>
+            </div>
+
+            <!-- Platforms -->
+            <div class="rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4">
+              <div class="flex items-center justify-between">
+                <div class="text-xs uppercase tracking-[0.18em] text-slate-400">Platforms</div>
+                <div class="rounded-full bg-slate-900/80 px-2 py-0.5 text-[0.65rem] text-slate-300">
+                  Where things ship
+                </div>
+              </div>
+              <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                <span class="rounded-full bg-slate-700/60 px-2.5 py-1 text-slate-200">Web</span>
+                <span class="rounded-full bg-slate-700/60 px-2.5 py-1 text-slate-200">Android</span>
+                <span class="rounded-full bg-slate-700/60 px-2.5 py-1 text-slate-200">CLI</span>
+                <span class="rounded-full bg-slate-700/60 px-2.5 py-1 text-slate-200">Progressive Web Apps</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Animated timeline / preference card -->
+          <div class="space-y-4">
+            <div class="rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4">
+              <div class="flex items-center justify-between">
+                <div class="text-xs uppercase tracking-[0.18em] text-slate-400">Workflow</div>
+                <div class="flex items-center gap-1 text-[0.65rem] text-slate-400">
+                  <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                  <span>Iterate &amp; learn fast</span>
+                </div>
+              </div>
+              <ol class="mt-3 space-y-2 text-xs text-slate-200">
+                <li class="flex items-start gap-2">
+                  <span class="mt-[0.15rem] h-1.5 w-1.5 rounded-full bg-teal-400"></span>
+                  <div>
+                    <span class="font-medium text-teal-200">1. Understand the problem</span>
+                    <p class="text-slate-300">
+                      Clarify constraints, success metrics, and the people using the product.
+                    </p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-[0.15rem] h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
+                  <div>
+                    <span class="font-medium text-cyan-200">2. Design APIs &amp; data</span>
+                    <p class="text-slate-300">
+                      Start from contracts and data models before touching pixels.
+                    </p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-[0.15rem] h-1.5 w-1.5 rounded-full bg-purple-400"></span>
+                  <div>
+                    <span class="font-medium text-purple-200">3. Ship iteratively</span>
+                    <p class="text-slate-300">
+                      Small, frequent releases with room for feedback and learning.
+                    </p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+
+            <div class="rounded-2xl border border-slate-800/80 bg-gradient-to-br from-slate-950 via-slate-950/90 to-purple-900/40 p-4">
+              <div class="flex items-center justify-between">
+                <div class="text-xs uppercase tracking-[0.18em] text-slate-400">Comfort zone</div>
+                <div class="rounded-full bg-teal-500/10 px-2 py-0.5 text-[0.65rem] text-teal-200">
+                  Always expanding
+                </div>
+              </div>
+              <div class="mt-3 flex items-center justify-between text-xs text-slate-200">
+                <span>TypeScript</span>
+                <span class="w-2/3 rounded-full bg-slate-800">
+                  <span class="block h-1.5 w-5/6 rounded-full bg-teal-400"></span>
+                </span>
+              </div>
+              <div class="mt-2 flex items-center justify-between text-xs text-slate-200">
+                <span>Node / Bun</span>
+                <span class="w-2/3 rounded-full bg-slate-800">
+                  <span class="block h-1.5 w-4/5 rounded-full bg-cyan-400"></span>
+                </span>
+              </div>
+              <div class="mt-2 flex items-center justify-between text-xs text-slate-200">
+                <span>Python APIs</span>
+                <span class="w-2/3 rounded-full bg-slate-800">
+                  <span class="block h-1.5 w-3/4 rounded-full bg-purple-400"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURED PROJECTS (Portfolio highlights) -->
+      <section id="featured-projects" class="space-y-6">
+        <div class="flex items-center justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl" style="font-family: 'Space Grotesk', system-ui, sans-serif;">
+              Featured work
+            </h2>
+            <p class="mt-1 text-base text-slate-300">
+              A few selected projects that represent how I think about products.
+            </p>
+          </div>
+          <a href="#projects" class="hidden items-center gap-1 text-xs font-medium text-slate-300 hover:text-teal-300 md:inline-flex">
+            <span>View all projects</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M5 12h14" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="m13 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
+          <!-- Big feature card -->
+          <article class="group relative overflow-hidden rounded-2xl border border-slate-800/80 bg-gradient-to-br from-slate-950 via-slate-950 to-purple-950/50 p-4 sm:p-5">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,rgba(45,212,191,0.22),transparent_60%),radial-gradient(circle_at_100%_100%,rgba(56,189,248,0.18),transparent_60%)] opacity-70 group-hover:opacity-90 transition-opacity"></div>
+            <div class="relative flex flex-col gap-4">
+              <div class="flex items-center justify-between gap-3">
+                <div>
+                  <h3 class="text-lg font-semibold tracking-tight text-slate-50">
+                    Offline-first Task PWA
+                  </h3>
+                  <p class="mt-1 text-sm text-slate-200">
+                    A progressive web app for managing tasks that works reliably offline, syncs on reconnect, and feels native on Android.
+                  </p>
+                </div>
+                <span class="hidden rounded-full bg-teal-500/20 px-2.5 py-1 text-xs font-medium text-teal-100 sm:inline-flex">
+                  PWA • React • FastAPI
+                </span>
+              </div>
+
+              <div class="grid gap-3 text-xs text-slate-200 sm:grid-cols-3">
+                <div class="rounded-xl border border-slate-800/80 bg-slate-950/80 p-2.5">
+                  <div class="text-[0.65rem] uppercase tracking-[0.18em] text-slate-400">Role</div>
+                  <div class="mt-1 text-xs text-slate-100">Design, Frontend, Backend</div>
+                </div>
+                <div class="rounded-xl border border-slate-800/80 bg-slate-950/80 p-2.5">
+                  <div class="text-[0.65rem] uppercase tracking-[0.18em] text-slate-400">Highlights</div>
+                  <div class="mt-1 text-xs text-slate-100">Offline sync, push notifications</div>
+                </div>
+                <div class="rounded-xl border border-slate-800/80 bg-slate-950/80 p-2.5">
+                  <div class="text-[0.65rem] uppercase tracking-[0.18em] text-slate-400">Stack</div>
+                  <div class="mt-1 text-xs text-slate-100">React, TypeScript, FastAPI</div>
+                </div>
+              </div>
+
+              <div class="mt-1 flex flex-wrap gap-2 text-[0.7rem] text-slate-200">
+                <span class="rounded-full bg-slate-900/80 px-2.5 py-1">Service workers</span>
+                <span class="rounded-full bg-slate-900/80 px-2.5 py-1">IndexedDB caching</span>
+                <span class="rounded-full bg-slate-900/80 px-2.5 py-1">Mobile-first experience</span>
+              </div>
+
+              <div class="mt-1 flex flex-wrap items-center justify-between gap-3">
+                <div class="flex flex-wrap gap-2 text-[0.7rem] text-slate-300">
+                  <a href="#" class="inline-flex items-center gap-1 rounded-full bg-teal-500/15 px-2.5 py-1 text-teal-200 hover:bg-teal-500/25">
+                    <span>Live demo</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M7 17 17 7" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M7 7h10v10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </a>
+                  <a href="#" class="inline-flex items-center gap-1 rounded-full bg-slate-900/80 px-2.5 py-1 hover:bg-slate-800/80">
+                    <span>Source</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M15 22v-2.88a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 19 5.77 5.07 5.07 0 0 0 18.91 2S17.73 1.65 15 3.46a13.38 13.38 0 0 0-6 0C6.27 1.65 5.09 2 5.09 2A5.07 5.07 0 0 0 5 5.77 5.44 5.44 0 0 0 3.5 9.51c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 19.14V22" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </a>
+                </div>
+                <span class="text-[0.7rem] text-slate-400">
+                  Optimized for low connectivity &amp; imperfect networks.
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Two smaller feature cards -->
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+            <article class="flex flex-col justify-between rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4">
+              <div>
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-sm font-semibold tracking-tight text-slate-50">
+                    CLI Deploy Toolkit
+                  </h3>
+                  <span class="rounded-full bg-slate-900/80 px-2 py-0.5 text-[0.65rem] text-slate-300">
+                    Node • TypeScript
+                  </span>
+                </div>
+              <p class="mt-2 text-xs text-slate-300">
+                  A command-line tool that simplifies deployment scripts for small projects, with a focus on readable logs and smooth DX.
+                </p>
+              </div>
+              <div class="mt-3 flex items-center justify-between text-[0.7rem] text-slate-300">
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="rounded-full bg-slate-900/80 px-2 py-0.5">CLI UX</span>
+                  <span class="rounded-full bg-slate-900/80 px-2 py-0.5">Colorized logs</span>
+                </div>
+                <a href="#" class="inline-flex items-center gap-1 text-[0.7rem] text-teal-300 hover:text-teal-200">
+                  <span>Details</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M5 12h14" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="m13 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="flex flex-col justify-between rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4">
+              <div>
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-sm font-semibold tracking-tight text-slate-50">
+                    Learning Log Blog
+                  </h3>
+                  <span class="rounded-full bg-slate-900/80 px-2 py-0.5 text-[0.65rem] text-slate-300">
+                    MDX • Static
+                  </span>
+                </div>
+                <p class="mt-2 text-xs text-slate-300">
+                  A minimal, fast blog where I document what I learn about full stack development, Vim, and product thinking.
+                </p>
+              </div>
+              <div class="mt-3 flex items-center justify-between text-[0.7rem] text-slate-300">
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="rounded-full bg-slate-900/80 px-2 py-0.5">Writing in public</span>
+                  <span class="rounded-full bg-slate-900/80 px-2 py-0.5">Syntax highlighting</span>
+                </div>
+                <a href="/v2/blog" class="inline-flex items-center gap-1 text-[0.7rem] text-teal-300 hover:text-teal-200">
+                  <span>Read posts</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M5 12h14" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="m13 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ROUTES / PAGES (Blog, Store, Projects, Contact) -->
+      <section id="routes" class="space-y-6">
+        <div class="flex items-center justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl" style="font-family: 'Space Grotesk', system-ui, sans-serif;">
+              Explore the rest
+            </h2>
+            <p class="mt-1 text-base text-slate-300">
+              Dedicated pages for writing, apps, experiments, and getting in touch.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <!-- Blog -->
+          <a id="blog" href="/v2/blog" class="group flex flex-col justify-between rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4">
+            <div>
+              <div class="flex items-center justify-between gap-2">
+                <h3 class="text-sm font-semibold tracking-tight text-slate-50">Blog</h3>
+                <span class="rounded-full bg-slate-900/80 px-2 py-0.5 text-[0.65rem] text-slate-300 group-hover:bg-teal-500/15 group-hover:text-teal-200">
+                  /blog
+                </span>
+              </div>
+              <p class="mt-2 text-xs text-slate-300">
+                Notes, deep dives, and small learnings from real-world projects and experiments.
+              </p>
+            </div>
+            <div class="mt-3 flex items-center justify-between text-[0.7rem] text-slate-400">
+              <span>Dev logs • Vim • Architecture</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-teal-300 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M5 12h14" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="m13 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Store -->
+          <a href="/v2/store" class="group flex flex-col justify-between rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4" id="store">
+            <div>
+              <div class="flex items-center justify-between gap-2">
+                <h3 class="text-sm font-semibold tracking-tight text-slate-50">Store</h3>
+                <span class="rounded-full bg-slate-900/80 px-2 py-0.5 text-[0.65rem] text-slate-300 group-hover:bg-teal-500/15 group-hover:text-teal-200">
+                  /store
+                </span>
+              </div>
+              <p class="mt-2 text-xs text-slate-300">
+                A curated collection of apps, small tools, and utilities I've built.
+              </p>
+            </div>
+            <div class="mt-3 flex items-center justify-between text-[0.7rem] text-slate-400">
+              <span>PWAs • Android • CLI tools</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-teal-300 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M5 12h14" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="m13 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Projects page -->
+          <a id="projects" href="#all-projects" class="group flex flex-col justify-between rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4">
+            <div>
+              <div class="flex items-center justify-between gap-2">
+                <h3 class="text-sm font-semibold tracking-tight text-slate-50">Projects</h3>
+                <span class="rounded-full bg-slate-900/80 px-2 py-0.5 text-[0.65rem] text-slate-300 group-hover:bg-teal-500/15 group-hover:text-teal-200">
+                  /projects
+                </span>
+              </div>
+              <p class="mt-2 text-xs text-slate-300">
+                A detailed list of experiments, shipped features, and learning projects.
+              </p>
+            </div>
+            <div class="mt-3 flex items-center justify-between text-[0.7rem] text-slate-400">
+              <span>Web • APIs • Experiments</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-teal-300 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M5 12h14" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="m13 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Contact page -->
+          <a href="#contact-page" class="group flex flex-col justify-between rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4" id="contact-page">
+            <div>
+              <div class="flex items-center justify-between gap-2">
+                <h3 class="text-sm font-semibold tracking-tight text-slate-50">Contact</h3>
+                <span class="rounded-full bg-slate-900/80 px-2 py-0.5 text-[0.65rem] text-slate-300 group-hover:bg-teal-500/15 group-hover:text-teal-200">
+                  /contact
+                </span>
+              </div>
+              <p class="mt-2 text-xs text-slate-300">
+                Reach out for collaborations, internships, or building something new.
+              </p>
+            </div>
+            <div class="mt-3 flex items-center justify-between text-[0.7rem] text-slate-400">
+              <span>Email • Social • Quick note</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-teal-300 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M5 12h14" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="m13 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="space-y-6">
+        <div class="flex items-center justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl" style="font-family: 'Space Grotesk', system-ui, sans-serif;">
+              Let's build something
+            </h2>
+            <p class="mt-1 text-base text-slate-300">
+              Open to collaborations, side projects, and interesting conversations.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
+          <!-- Contact info -->
+          <div class="space-y-4">
+            <div class="rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4">
+              <div class="text-xs uppercase tracking-[0.18em] text-slate-400">Quick links</div>
+              <div class="mt-3 space-y-2">
+                <a href="mailto:hello@example.com" class="flex items-center gap-3 rounded-xl border border-slate-800/70 bg-slate-950/70 p-3 text-sm text-slate-200 transition hover:border-teal-400/70 hover:bg-slate-900/80">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-teal-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                    <path d="m2 7 8.97 5.7a1.94 1.94 0 0 0 2.06 0L22 7"></path>
+                  </svg>
+                  <span>hello@dipankarshaw.dev</span>
+                </a>
+                <a href="https://github.com" target="_blank" class="flex items-center gap-3 rounded-xl border border-slate-800/70 bg-slate-950/70 p-3 text-sm text-slate-200 transition hover:border-teal-400/70 hover:bg-slate-900/80">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-teal-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M15 22v-2.88a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 19 5.77 5.07 5.07 0 0 0 18.91 2S17.73 1.65 15 3.46a13.38 13.38 0 0 0-6 0C6.27 1.65 5.09 2 5.09 2A5.07 5.07 0 0 0 5 5.77 5.44 5.44 0 0 0 3.5 9.51c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 19.14V22" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                  <span>github.com/yourusername</span>
+                </a>
+                <a href="https://twitter.com" target="_blank" class="flex items-center gap-3 rounded-xl border border-slate-800/70 bg-slate-950/70 p-3 text-sm text-slate-200 transition hover:border-teal-400/70 hover:bg-slate-900/80">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-teal-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                  </svg>
+                  <span>@yourusername</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="rounded-2xl border border-slate-800/80 bg-gradient-to-br from-teal-500/20 via-cyan-500/10 to-purple-700/20 p-4">
+              <div class="flex items-start gap-3">
+                <div class="mt-1 flex h-8 w-8 items-center justify-center rounded-full border border-teal-300/80 bg-slate-950/70 text-sm font-medium text-teal-200 shadow-sm shadow-teal-500/40">
+                  ⚡
+                </div>
+                <div class="space-y-1">
+                  <h3 class="text-sm font-medium tracking-tight text-slate-50">
+                    Quick response time
+                  </h3>
+                  <p class="text-sm text-slate-200">
+                    I usually reply within 24 hours. For urgent requests, mention it in the subject line.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact form -->
+          <div class="rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4 sm:p-5">
+            <div class="text-xs uppercase tracking-[0.18em] text-slate-400">Send a message</div>
+            <form class="mt-4 space-y-4">
+              <div>
+                <label for="name" class="block text-sm text-slate-300">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  class="mt-1 w-full rounded-xl border border-slate-800/80 bg-slate-950/80 px-3 py-2 text-sm text-slate-200 placeholder-slate-500 focus:border-teal-400/70 focus:outline-none focus:ring-1 focus:ring-teal-400/70"
+                  placeholder="Your name"
+                />
+              </div>
+              <div>
+                <label for="email" class="block text-sm text-slate-300">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  class="mt-1 w-full rounded-xl border border-slate-800/80 bg-slate-950/80 px-3 py-2 text-sm text-slate-200 placeholder-slate-500 focus:border-teal-400/70 focus:outline-none focus:ring-1 focus:ring-teal-400/70"
+                  placeholder="your@email.com"
+                />
+              </div>
+              <div>
+                <label for="message" class="block text-sm text-slate-300">Message</label>
+                <textarea
+                  id="message"
+                  rows="4"
+                  class="mt-1 w-full rounded-xl border border-slate-800/80 bg-slate-950/80 px-3 py-2 text-sm text-slate-200 placeholder-slate-500 focus:border-teal-400/70 focus:outline-none focus:ring-1 focus:ring-teal-400/70"
+                  placeholder="Tell me about your project or idea..."
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="inline-flex w-full items-center justify-center gap-2 rounded-full border border-teal-400/70 bg-gradient-to-tr from-teal-500/60 via-cyan-500/60 to-emerald-500/70 px-4 py-2 text-sm font-medium tracking-tight text-slate-950 shadow-md shadow-teal-500/50 transition hover:shadow-lg hover:shadow-teal-500/60"
+              >
+                <span>Send message</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M22 2 11 13" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="m22 2-7 20-4-9-9-4 20-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <V2Footer />
+  </div>
+</V2Layout>

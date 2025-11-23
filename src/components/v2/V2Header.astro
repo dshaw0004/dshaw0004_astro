@@ -1,0 +1,117 @@
+---
+interface Props {
+  currentPage?: 'home' | 'blog' | 'store';
+}
+
+const { currentPage = 'home' } = Astro.props;
+---
+
+<header class="sticky top-0 z-30 backdrop-blur-md">
+  <div class="rounded-2xl border border-slate-800/70 bg-slate-950/70 px-4 py-3 shadow-sm shadow-slate-900/60 sm:px-6">
+    <div class="flex items-center justify-between gap-6">
+      <!-- Logo -->
+      <a href="/v2" class="flex items-center gap-3">
+        <div class="flex h-9 w-9 items-center justify-center rounded-xl border border-teal-400/40 bg-gradient-to-tr from-teal-500/30 via-cyan-400/10 to-purple-500/40 text-xs font-semibold uppercase tracking-[0.18em] text-teal-50 shadow-md shadow-teal-500/40" style="font-family: 'Space Grotesk', system-ui, sans-serif;">
+          DS
+        </div>
+        <div class="flex flex-col leading-none">
+          <span class="text-sm font-medium tracking-tight text-slate-50" style="font-family: 'Space Grotesk', system-ui, sans-serif;">Dipankar&nbsp;Shaw</span>
+          <span class="text-xs text-slate-400">Full Stack Developer • India</span>
+        </div>
+      </a>
+
+      <!-- Nav links -->
+      <nav class="hidden items-center gap-6 text-sm font-medium text-slate-300 md:flex">
+        {currentPage === 'home' ? (
+          <>
+            <a href="#about" class="transition-colors hover:text-teal-300">About</a>
+            <a href="#skills" class="transition-colors hover:text-teal-300">Stack</a>
+            <a href="#featured-projects" class="transition-colors hover:text-teal-300">Work</a>
+            <a href="#routes" class="transition-colors hover:text-teal-300">Pages</a>
+            <a href="#contact" class="transition-colors hover:text-teal-300">Contact</a>
+          </>
+        ) : (
+          <>
+            <a href="/v2" class="transition-colors hover:text-teal-300">Home</a>
+            <a href="/v2#about" class="transition-colors hover:text-teal-300">About</a>
+            <a href="/v2#skills" class="transition-colors hover:text-teal-300">Stack</a>
+            <a href="/v2#featured-projects" class="transition-colors hover:text-teal-300">Work</a>
+            <a href="/v2#routes" class="transition-colors hover:text-teal-300">Pages</a>
+            <a href="/v2#contact" class="transition-colors hover:text-teal-300">Contact</a>
+            {currentPage === 'blog' && (
+              <span class="rounded-full bg-teal-500/10 px-3 py-1 text-xs text-teal-200">Blog</span>
+            )}
+            {currentPage === 'store' && (
+              <span class="rounded-full bg-teal-500/10 px-3 py-1 text-xs text-teal-200">Store</span>
+            )}
+          </>
+        )}
+      </nav>
+
+      <!-- CTA + social icons + theme toggle -->
+      <div class="flex items-center gap-3">
+        {currentPage === 'home' && (
+          <div class="hidden items-center gap-2 sm:flex">
+            <!-- GitHub -->
+            <a href="https://github.com" target="_blank" class="group rounded-full border border-slate-700/80 bg-slate-900/70 p-1.5 text-slate-300 shadow-sm shadow-slate-900/70 transition hover:border-teal-400/70 hover:bg-slate-900 hover:text-teal-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M15 22v-2.88a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 19 5.77 5.07 5.07 0 0 0 18.91 2S17.73 1.65 15 3.46a13.38 13.38 0 0 0-6 0C6.27 1.65 5.09 2 5.09 2A5.07 5.07 0 0 0 5 5.77 5.44 5.44 0 0 0 3.5 9.51c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 19.14V22" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </a>
+            <!-- Twitter -->
+            <a href="https://twitter.com" target="_blank" class="group rounded-full border border-slate-700/80 bg-slate-900/70 p-1.5 text-slate-300 shadow-sm shadow-slate-900/70 transition hover:border-teal-400/70 hover:bg-slate-900 hover:text-teal-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M18 2h-3a4 4 0 0 0-4 4v3H8v4h3v7h4v-7h3l1-4h-4V6a1 1 0 0 1 1-1h3z" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </a>
+            <!-- GitLab -->
+            <a href="https://gitlab.com" target="_blank" class="group rounded-full border border-slate-700/80 bg-slate-900/70 p-1.5 text-slate-300 shadow-sm shadow-slate-900/70 transition hover:border-teal-400/70 hover:bg-slate-900 hover:text-teal-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21.9 13.44 20 6.5a.6.6 0 0 0-1.13-.06L17 10H7L5.13 6.44A.6.6 0 0 0 4 6.5l-1.9 6.94a1.2 1.2 0 0 0 .45 1.26L12 21l9.45-6.3a1.2 1.2 0 0 0 .45-1.26Z" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </a>
+            <!-- Dev.to -->
+            <a href="https://dev.to" target="_blank" class="group rounded-full border border-slate-700/80 bg-slate-900/70 p-1.5 text-slate-300 shadow-sm shadow-slate-900/70 transition hover:border-teal-400/70 hover:bg-slate-900 hover:text-teal-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <path d="M7.5 8.5v7h1.25a1.75 1.75 0 0 0 1.75-1.75v-3.5A1.75 1.75 0 0 0 8.75 8.5Z"></path>
+                <path d="M12 15.5v-7l2.25 7 2.25-7v7"></path>
+              </svg>
+            </a>
+          </div>
+        )}
+
+        <!-- Theme toggle -->
+        <button id="theme-toggle" type="button" class="inline-flex items-center gap-1.5 rounded-full border border-slate-700/80 bg-slate-900/80 px-2.5 py-1 text-[0.7rem] text-slate-200 shadow-sm shadow-slate-900/70 transition hover:border-teal-400/80 hover:text-teal-200">
+          <span class="inline-flex items-center justify-center">
+            <!-- Sun (light mode icon) -->
+            <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path>
+              <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+            <!-- Moon (dark mode icon) -->
+            <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 12.79A9 9 0 0 1 11.21 3 7 7 0 1 0 21 12.79Z"></path>
+            </svg>
+          </span>
+          <span id="theme-toggle-label">Dark</span>
+        </button>
+
+        <a href={currentPage === 'home' ? '#contact' : '/v2#contact'} class={currentPage === 'home' ? 'inline-flex' : 'hidden sm:inline-flex'} + " items-center gap-2 rounded-full border border-teal-400/70 bg-gradient-to-tr from-teal-500/60 via-cyan-500/60 to-emerald-500/70 px-4 py-1.5 text-xs font-medium tracking-tight text-slate-950 shadow-md shadow-teal-500/50 transition hover:shadow-lg hover:shadow-teal-500/60">
+          <span>{currentPage === 'home' ? "Let's build" : 'Contact'}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M5 12h14" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="m13 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

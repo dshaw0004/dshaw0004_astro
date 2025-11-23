@@ -1,0 +1,249 @@
+---
+import V2Layout from '@/layouts/V2Layout.astro';
+import V2Header from '@/components/v2/V2Header.astro';
+import V2Footer from '@/components/v2/V2Footer.astro';
+---
+
+<V2Layout title="Store • Dipankar Shaw">
+  <!-- Page wrapper -->
+  <div class="mx-auto flex min-h-screen max-w-6xl flex-col gap-10 px-4 pb-16 pt-6 sm:px-6 lg:px-8 lg:pt-10">
+    <!-- NAVBAR -->
+    <V2Header currentPage="store" />
+
+    <!-- MAIN -->
+    <main class="flex flex-1 flex-col gap-8">
+      <!-- Page header -->
+      <section class="space-y-3">
+        <div class="inline-flex items-center gap-2 rounded-full border border-teal-400/40 bg-slate-900/80 px-3 py-1 text-[0.7rem] font-medium text-teal-200 shadow-sm shadow-teal-500/40">
+          <span class="inline-flex h-1.5 w-1.5 rounded-full bg-teal-400"></span>
+          <span>Store • Tools for developers</span>
+        </div>
+        <div>
+          <h1 class="text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl" style="font-family: 'Space Grotesk', system-ui, sans-serif;">
+            Ship faster with tiny tools
+          </h1>
+          <p class="mt-2 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
+            Lightweight templates, starter kits, and dev tools I use myself. No fluff, just things that remove friction from building.
+          </p>
+        </div>
+      </section>
+
+      <!-- Layout: filters + products -->
+      <section class="grid gap-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+        <!-- Sidebar: filters + summary -->
+        <aside class="space-y-4">
+          <div class="flex items-center justify-between gap-3">
+            <h2 class="text-lg font-semibold tracking-tight text-slate-50" style="font-family: 'Space Grotesk', system-ui, sans-serif;">
+              Products
+            </h2>
+            <span class="rounded-full bg-slate-900/80 px-3 py-1 text-xs text-slate-300">
+              3 items
+            </span>
+          </div>
+
+          <div class="space-y-3 rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4">
+            <p class="text-xs font-medium uppercase tracking-[0.18em] text-slate-400">
+              Filter
+            </p>
+            <div class="space-y-2 text-sm text-slate-200">
+              <button type="button" data-filter="all" class="filter-chip inline-flex items-center gap-1 rounded-full border border-teal-400/70 bg-teal-500/10 px-3 py-1 text-xs text-teal-200">
+                <span>All</span>
+              </button>
+              <div class="flex flex-wrap gap-2">
+                <button type="button" data-filter="starter" class="filter-chip inline-flex items-center gap-1 rounded-full border border-slate-700/80 bg-slate-900/80 px-3 py-1 text-xs text-slate-200">
+                  <span>Starter kits</span>
+                </button>
+                <button type="button" data-filter="neovim" class="filter-chip inline-flex items-center gap-1 rounded-full border border-slate-700/80 bg-slate-900/80 px-3 py-1 text-xs text-slate-200">
+                  <span>Neovim</span>
+                </button>
+                <button type="button" data-filter="cli" class="filter-chip inline-flex items-center gap-1 rounded-full border border-slate-700/80 bg-slate-900/80 px-3 py-1 text-xs text-slate-200">
+                  <span>CLI</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="mt-3 rounded-xl border border-slate-800/80 bg-slate-950/80 p-3 text-xs text-slate-300">
+              <p class="mb-1 font-medium text-slate-200">
+                Simple licensing
+              </p>
+              <p>
+                Use these products in unlimited personal and commercial projects.
+                Don't resell or redistribute them as your own.
+              </p>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Products grid -->
+        <section class="space-y-4">
+          <div class="grid gap-4 md:grid-cols-2" id="products-grid">
+            <!-- Product 1 -->
+            <article class="product-card group flex flex-col rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4 transition hover:border-teal-400/70 hover:bg-slate-900/80" data-category="starter">
+              <header class="flex items-start justify-between gap-3">
+                <div>
+                  <p class="text-[0.7rem] uppercase tracking-[0.18em] text-slate-400">
+                    Starter • Next.js + API
+                  </p>
+                  <h3 class="mt-1 text-base font-semibold tracking-tight text-slate-50">
+                    Full‑stack SaaS starter
+                  </h3>
+                </div>
+                <span class="rounded-full bg-teal-500/10 px-2 py-0.5 text-[0.65rem] text-teal-200">
+                  ₹1,999
+                </span>
+              </header>
+              <p class="mt-2 text-sm text-slate-300">
+                A minimal but complete codebase for building subscription apps: auth, billing hooks, dashboard layout, and API patterns I actually use.
+              </p>
+              <ul class="mt-3 space-y-1 text-xs text-slate-300">
+                <li>• Ready‑to‑ship Next.js app shell</li>
+                <li>• Auth + protected routes wired</li>
+                <li>• Example billing flow and webhooks</li>
+              </ul>
+              <div class="mt-4 flex items-center justify-between text-[0.75rem] text-slate-400">
+                <span>Built for TypeScript</span>
+                <button type="button" class="inline-flex items-center gap-1 rounded-full border border-teal-400/70 bg-teal-500/10 px-3 py-1 text-xs font-medium text-teal-200 transition hover:bg-teal-500/20">
+                  <span>View details</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M5 12h14" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="m13 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- Product 2 -->
+            <article class="product-card group flex flex-col rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4 transition hover:border-teal-400/70 hover:bg-slate-900/80" data-category="neovim">
+              <header class="flex items-start justify-between gap-3">
+                <div>
+                  <p class="text-[0.7rem] uppercase tracking-[0.18em] text-slate-400">
+                    Neovim • IDE setup
+                  </p>
+                  <h3 class="mt-1 text-base font-semibold tracking-tight text-slate-50">
+                    Neovim JS/TS starter config
+                  </h3>
+                </div>
+                <span class="rounded-full bg-purple-500/10 px-2 py-0.5 text-[0.65rem] text-purple-200">
+                  ₹799
+                </span>
+              </header>
+              <p class="mt-2 text-sm text-slate-300">
+                A focused Neovim config that feels like a fast IDE: LSP, treesitter, formatting, and fuzzy finding tuned for JavaScript and TypeScript.
+              </p>
+              <ul class="mt-3 space-y-1 text-xs text-slate-300">
+                <li>• Clean keymaps for daily editing</li>
+                <li>• LSP for TS/JS + formatting</li>
+                <li>• Minimal plugin set with lazy loading</li>
+              </ul>
+              <div class="mt-4 flex items-center justify-between text-[0.75rem] text-slate-400">
+                <span>Works on macOS, Linux, WSL</span>
+                <button type="button" class="inline-flex items-center gap-1 rounded-full border border-purple-400/70 bg-purple-500/10 px-3 py-1 text-xs font-medium text-purple-200 transition hover:bg-purple-500/20">
+                  <span>View details</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M5 12h14" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="m13 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- Product 3 -->
+            <article class="product-card group flex flex-col rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4 transition hover:border-teal-400/70 hover:bg-slate-900/80" data-category="cli">
+              <header class="flex items-start justify-between gap-3">
+                <div>
+                  <p class="text-[0.7rem] uppercase tracking-[0.18em] text-slate-400">
+                    CLI • Productivity
+                  </p>
+                  <h3 class="mt-1 text-base font-semibold tracking-tight text-slate-50">
+                    Dev workflow CLI bundle
+                  </h3>
+                </div>
+                <span class="rounded-full bg-slate-700/80 px-2 py-0.5 text-[0.65rem] text-slate-100">
+                  ₹499
+                </span>
+              </header>
+              <p class="mt-2 text-sm text-slate-300">
+                A small collection of Node and Python CLIs I use to speed up repos, env setup, and common git flows. Opinionated but easy to tweak.
+              </p>
+              <ul class="mt-3 space-y-1 text-xs text-slate-300">
+                <li>• Project bootstrap script</li>
+                <li>• Git helpers for common flows</li>
+                <li>• API health‑check commands</li>
+              </ul>
+              <div class="mt-4 flex items-center justify-between text-[0.75rem] text-slate-400">
+                <span>Runs in any terminal</span>
+                <button type="button" class="inline-flex items-center gap-1 rounded-full border border-slate-600/80 bg-slate-900/80 px-3 py-1 text-xs font-medium text-slate-200 transition hover:bg-slate-800">
+                  <span>View details</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M5 12h14" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="m13 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <!-- Store note -->
+          <div class="rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4 text-xs text-slate-300">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <p>
+                All products are digital downloads with lifetime updates. You'll get a private repo or ZIP after checkout.
+              </p>
+              <a href="/v2#contact" class="inline-flex items-center gap-1 text-teal-300 hover:text-teal-200">
+                <span>Need a custom setup?</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M5 12h14" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="m13 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <V2Footer context="store" />
+  </div>
+</V2Layout>
+
+<script>
+  // Simple filter logic for store
+  const chips = document.querySelectorAll('.filter-chip');
+  const products = document.querySelectorAll('.product-card');
+
+  function setActiveFilter(filter: string) {
+    chips.forEach((chip) => {
+      const value = chip.getAttribute('data-filter');
+      if (value === filter) {
+        chip.classList.remove('border-slate-700/80', 'bg-slate-900/80', 'text-slate-200');
+        chip.classList.add('border-teal-400/70', 'bg-teal-500/10', 'text-teal-200');
+      } else if (value !== 'all') {
+        chip.classList.remove('border-teal-400/70', 'bg-teal-500/10', 'text-teal-200');
+        chip.classList.add('border-slate-700/80', 'bg-slate-900/80', 'text-slate-200');
+      } else if (value === 'all' && filter !== 'all') {
+        chip.classList.remove('border-teal-400/70', 'bg-teal-500/10', 'text-teal-200');
+        chip.classList.add('border-slate-700/80', 'bg-slate-900/80', 'text-slate-200');
+      }
+    });
+
+    products.forEach((card) => {
+      const category = card.getAttribute('data-category');
+      if (filter === 'all' || category === filter) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const value = chip.getAttribute('data-filter') || 'all';
+      setActiveFilter(value);
+    });
+  });
+
+  // Default filter
+  setActiveFilter('all');
+</script>
