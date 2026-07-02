@@ -1,21 +1,356 @@
 ---
-import BlogPost from "@/layouts/BlogPost.astro";
-import "@/styles/blog.css";
 import { CollectionEntry, getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import ThemeToggle from "@/components/ThemeToggle.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
 
 export async function getStaticPaths() {
-	const posts = await getCollection("blog");
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
-	}));
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
 }
 type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage } = post.data;
 const { Content } = await post.render();
 ---
 
-<BlogPost {...post.data}>
-	<Content />
-</BlogPost>
+<Layout title={`${title} | Dipankar Shaw`} description={description}>
+  <!-- Top Navigation Bar -->
+  <header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant/20 shadow-sm h-20 transition-all duration-500">
+    <div class="max-w-container-max mx-auto h-full flex justify-between items-center px-margin-mobile md:px-margin-desktop">
+      <a href="/" class="text-headline-lg font-black text-primary tracking-tighter">Dipankar Shaw</a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-stack-md">
+        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/#home">Home</a>
+        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/#about">About</a>
+        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/#experience">Experience</a>
+        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/#skills">Skills</a>
+        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/#certificates">Certificates</a>
+        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/#projects">Projects</a>
+        <a class="text-primary font-bold border-b-2 border-primary pb-1 text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/blog">Blog</a>
+        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="https://appbasket.web.app" target="_blank">Store</a>
+        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/#contact">Contact</a>
+      </nav>
+      
+      <div class="flex items-center gap-4">
+        <ThemeToggle />
+        <a href="/#contact" class="hidden sm:inline-block bg-primary text-on-primary px-6 py-2 rounded-full font-label-md text-label-md active:scale-95 transition-transform hover:opacity-90">Hire Me</a>
+        
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center p-2 text-on-surface-variant hover:text-primary transition-colors" aria-label="Toggle navigation menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-background border-b border-outline-variant/20 shadow-lg px-margin-mobile py-4 flex flex-col gap-4">
+      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="/#home">Home</a>
+      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="/#about">About</a>
+      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="/#experience">Experience</a>
+      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="/#skills">Skills</a>
+      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="/#certificates">Certificates</a>
+      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="/#projects">Projects</a>
+      <a class="text-primary font-bold text-label-md font-label-md" href="/blog">Blog</a>
+      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="https://appbasket.web.app" target="_blank">Store</a>
+      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="/#contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- Kinetic Background -->
+  <div class="fixed inset-0 w-full h-full -z-10" style="display:block;">
+    <canvas id="shader-canvas-ANIMATION_3" style="display:block;width:100%;height:100%"></canvas>
+  </div>
+
+  <main class="relative z-10 pt-32 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-[900px] mx-auto overflow-x-hidden">
+    <!-- Hero Section -->
+    <section class="text-center mb-stack-lg reveal">
+      <time class="font-label-md text-label-md text-on-surface-variant mb-4 block">
+        <FormattedDate date={pubDate} />
+        {updatedDate && (
+          <span class="italic ml-2">(Updated: <FormattedDate date={updatedDate} />)</span>
+        )}
+      </time>
+      <h1 class="font-display-lg text-display-lg md:font-display-xl md:text-display-xl text-on-surface mb-stack-md leading-tight">
+        {title}
+      </h1>
+    </section>
+
+    <!-- Featured Image Container -->
+    {heroImage && (
+      <div class="relative w-full rounded-xl overflow-hidden shadow-sm mb-section-gap reveal border border-outline-variant/30 bg-surface-container">
+        <img
+          alt={`Hero image for ${title}`}
+          class="w-full h-auto object-cover aspect-video"
+          src={heroImage}
+        />
+      </div>
+    )}
+
+    <!-- Article Content -->
+    <article class="reveal prose max-w-none mb-stack-lg text-on-surface-variant">
+      <div class="blog-body">
+        <Content />
+      </div>
+    </article>
+
+    <!-- Newsletter / Call to Action -->
+    <section class="mt-section-gap p-stack-lg bg-primary-container text-on-primary-container rounded-2xl shadow-sm border border-outline-variant/20 backdrop-blur-md">
+      <div class="max-w-[600px] space-y-4">
+        <h3 class="font-headline-lg text-headline-lg text-on-primary-container">
+          Enjoyed the deep dive?
+        </h3>
+        <p class="font-body-md text-body-md opacity-90 text-on-primary-container">
+          Get technical insights on algorithms, systems design, and modern engineering delivered to your inbox weekly.
+        </p>
+        <form class="flex flex-col sm:flex-row gap-stack-sm" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+          <input
+            class="flex-grow px-6 py-3 rounded-full bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-on-primary placeholder:text-on-primary-container/50 text-on-primary-container"
+            placeholder="Email address"
+            type="email"
+            required
+          />
+          <button class="bg-white text-primary px-8 py-3 rounded-full font-label-md hover:bg-surface-bright active:scale-95 transition-all">
+            Join 5k+ Devs
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-surface-container-low border-t border-outline-variant/30 w-full py-stack-lg relative z-10">
+    <div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto gap-stack-md">
+      <div class="text-headline-lg font-bold text-on-surface">Dipankar Shaw</div>
+      <div class="text-body-md font-body-md text-on-surface-variant">
+        © 2026 Dipankar Shaw. Precision in every pixel.
+      </div>
+      <div class="flex gap-stack-md">
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="/blog">Blog</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="https://appbasket.web.app" target="_blank">Store</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script is:inline>
+    // Reveal on scroll logic
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        const icon = mobileMenuBtn.querySelector('.material-symbols-outlined');
+        if (icon) {
+          icon.textContent = mobileMenu.classList.contains('hidden') ? 'menu' : 'close';
+        }
+      });
+    }
+
+    // Kinetic WebGL Shader
+    (function() {
+      const canvas = document.getElementById('shader-canvas-ANIMATION_3');
+      if (!canvas) return;
+
+      function syncSize() {
+        const w = canvas.clientWidth  || window.innerWidth;
+        const h = canvas.clientHeight || window.innerHeight;
+        if (canvas.width !== w || canvas.height !== h) {
+          canvas.width  = w;
+          canvas.height = h;
+        }
+      }
+      if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(syncSize).observe(canvas);
+      }
+      syncSize();
+
+      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      if (!gl) return;
+      
+      const vs = `attribute vec2 a_position;
+      varying vec2 v_texCoord;
+      void main() {
+        v_texCoord = a_position * 0.5 + 0.5;
+        gl_Position = vec4(a_position, 0.0, 1.0);
+      }`;
+      
+      const fsModified = `precision highp float;
+      varying vec2 v_texCoord;
+      uniform float u_time;
+      uniform vec2 u_resolution;
+      uniform float u_dark_mode;
+
+      void main() {
+          vec2 uv = v_texCoord;
+          
+          float speed = 0.15;
+          float scale = 2.0;
+          
+          float noise = sin(uv.x * scale + u_time * speed) * 0.5 + 0.5;
+          noise += sin(uv.y * scale * 1.2 - u_time * speed * 0.8) * 0.5 + 0.5;
+          noise *= 0.5;
+          
+          vec3 color1;
+          vec3 color2;
+          vec3 accent;
+          
+          if (u_dark_mode > 0.5) {
+              color1 = vec3(0.02, 0.02, 0.08); // deep indigo black
+              color2 = vec3(0.05, 0.04, 0.15); // dark violet
+              accent = vec3(0.31, 0.27, 0.90);
+          } else {
+              color1 = vec3(0.98, 0.97, 1.0); // surface-bright
+              color2 = vec3(0.93, 0.92, 0.98); // surface-container-low
+              accent = vec3(0.31, 0.27, 0.90);
+          }
+          
+          vec3 finalColor = mix(color1, color2, noise);
+          finalColor = mix(finalColor, accent, noise * 0.07);
+          
+          gl_FragColor = vec4(finalColor, 1.0);
+      }`;
+      
+      function cs(type, src) {
+        const s = gl.createShader(type);
+        gl.shaderSource(s, src);
+        gl.compileShader(s);
+        return s;
+      }
+      
+      const prog = gl.createProgram();
+      gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+      gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fsModified));
+      gl.linkProgram(prog);
+      gl.useProgram(prog);
+      
+      const buf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+      
+      const pos = gl.getAttribLocation(prog, 'a_position');
+      gl.enableVertexAttribArray(pos);
+      gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+      
+      const uTime = gl.getUniformLocation(prog, 'u_time');
+      const uRes = gl.getUniformLocation(prog, 'u_resolution');
+      const uDarkMode = gl.getUniformLocation(prog, 'u_dark_mode');
+
+      function render(t) {
+        syncSize();
+        gl.viewport(0, 0, canvas.width, canvas.height);
+        
+        if (uTime) gl.uniform1f(uTime, t * 0.001);
+        if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+        
+        const isDark = document.body.classList.contains('dark') ? 1.0 : 0.0;
+        if (uDarkMode) gl.uniform1f(uDarkMode, isDark);
+        
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+        requestAnimationFrame(render);
+      }
+      render(0);
+    })();
+  </script>
+
+  <style is:global>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Blog content styling */
+    .prose {
+      font-size: 1.125rem;
+      line-height: 1.8;
+    }
+    .prose p {
+      margin-bottom: 1.5rem;
+    }
+    .prose h1, .prose h2, .prose h3, .prose h4 {
+      color: var(--color-on-surface);
+      font-weight: 700;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .prose h2 {
+      font-size: 1.75rem;
+    }
+    .prose h3 {
+      font-size: 1.4rem;
+    }
+    .prose ul, .prose ol {
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+      list-style-type: disc;
+    }
+    .prose ol {
+      list-style-type: decimal;
+    }
+    .prose li {
+      margin-bottom: 0.5rem;
+    }
+    .prose pre {
+      background-color: #1e1e2e !important;
+      color: #cdd6f4;
+      padding: 1.5rem;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+    }
+    .prose code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9em;
+      background-color: rgba(79, 70, 229, 0.1);
+      color: var(--color-primary);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+    }
+    .prose pre code {
+      background-color: transparent;
+      color: inherit;
+      padding: 0;
+      border-radius: 0;
+      font-size: inherit;
+    }
+    .prose blockquote {
+      border-left: 4px solid var(--color-primary);
+      padding-left: 1.5rem;
+      font-style: italic;
+      margin: 2rem 0;
+      color: var(--color-on-surface);
+    }
+  </style>
+</Layout>
