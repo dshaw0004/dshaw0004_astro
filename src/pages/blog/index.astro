@@ -1,139 +1,368 @@
 ---
 import { getCollection } from "astro:content";
-import Footer from "@/components/Footer.astro";
-import FormattedDate from "@/components/FormattedDate.astro";
-import Header from "@/components/Header.astro";
 import Layout from "@/layouts/Layout.astro";
-import SkeletonLoader from "@/components/SkeletonLoader.astro";
+import ThemeToggle from "@/components/ThemeToggle.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
 
 const posts = (await getCollection("blog")).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+const featuredPost = posts[0];
+const otherPosts = posts.slice(1);
 ---
 
-<Layout title="My Blogs" description="Here is few blogs written by me">
-	<Header title="My Blogs" />
-  <main class="w-full">
-    <section class="w-[80%] lg:w-[60%] mx-auto">
-			<ul>
-				{
-					posts.map((post) => (
-						<li>
-							<a href={`/blog/${post.slug}/`}>
-								<img
-									width={720}
-									height={360}
-									src={post.data.heroImage}
-									alt={`Cover image for ${post.data.title}`}
-									loading="lazy"
-								/>
-								<h4 class="title">{post.data.title}</h4>
-								<p class="date">
-									<FormattedDate date={post.data.pubDate} />
-								</p>
-							</a>
-						</li>
-					))
-				}
-			</ul>
-		</section>
-	</main>
-	<Footer />
-	<script>
-		// Hide skeleton loaders when images load
-		document.addEventListener('DOMContentLoaded', () => {
-			const images = document.querySelectorAll('.blog-image');
-			images.forEach((img) => {
-				if (img instanceof HTMLImageElement) {
-					const container = img.closest('.image-container');
-					const skeleton = container?.querySelector('[data-skeleton]');
-					
-					if (img.complete) {
-						skeleton?.classList.add('skeleton-hidden');
-						img.style.display = 'block';
-					} else {
-						img.style.display = 'none';
-						img.addEventListener('load', () => {
-							skeleton?.classList.add('skeleton-hidden');
-							img.style.display = 'block';
-						});
-					}
-				}
-			});
-		});
-	</script>
-	<style>
-		ul {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 2rem;
-			list-style-type: none;
-			margin: 0;
-			padding: 0;
-		}
-		.image-container {
-			position: relative;
-			width: 100%;
-		}
-		.blog-image {
-			width: 100%;
-			display: block;
-		}
-		ul li {
-			width: calc(50% - 1rem);
-		}
-		ul li * {
-			text-decoration: none;
-			transition: 0.2s ease;
-		}
-		ul li:first-child {
-			width: 100%;
-			margin-bottom: 1rem;
-			text-align: center;
-		}
-		ul li:first-child img {
-			width: 100%;
-		}
-		ul li:first-child .title {
-			font-size: 2.369rem;
-		}
-		ul li img {
-			margin-bottom: 0.5rem;
-			border-radius: 12px;
-		}
-		ul li a {
-			display: block;
-		}
-		.title {
-			margin: 0;
-			color: rgb(var(--fg-dark));
-			line-height: 1;
-		}
-		.date {
-			margin: 0;
-			color: rgb(var(--gray));
-		}
-		ul li a:hover h4,
-		ul li a:hover .date {
-			color: rgb(var(--accent));
-		}
-		ul a:hover img {
-			box-shadow: var(--box-shadow);
-		}
-		@media (max-width: 720px) {
-			ul {
-				gap: 0.5em;
-			}
-			ul li {
-				width: 100%;
-				text-align: center;
-			}
-			ul li:first-child {
-				margin-bottom: 0;
-			}
-			ul li:first-child .title {
-				font-size: 1.563em;
-			}
-		}
-	</style>
+<Layout title="Blog | Dipankar Shaw" description="Digital Craftsmanship in bits and pixels. Insights, tutorials, and deep dives into web engineering, serverless architectures, and system automation.">
+  <!-- Top Navigation Bar -->
+  <header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant/20 shadow-sm h-20 transition-all duration-500">
+    <div class="max-w-container-max mx-auto h-full flex justify-between items-center px-margin-mobile md:px-margin-desktop">
+      <a href="/" class="text-headline-lg font-black text-primary tracking-tighter">Dipankar Shaw</a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-stack-md">
+        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/#home">Home</a>
+        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/#about">About</a>
+        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/#experience">Experience</a>
+        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/#skills">Skills</a>
+        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/#certificates">Certificates</a>
+        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/#projects">Projects</a>
+        <a class="text-primary font-bold border-b-2 border-primary pb-1 text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/blog">Blog</a>
+        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="https://appbasket.web.app" target="_blank">Store</a>
+        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/#contact">Contact</a>
+      </nav>
+      
+      <div class="flex items-center gap-4">
+        <ThemeToggle />
+        <a href="/#contact" class="hidden sm:inline-block bg-primary text-on-primary px-6 py-2 rounded-full font-label-md text-label-md active:scale-95 transition-transform hover:opacity-90">Hire Me</a>
+        
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center p-2 text-on-surface-variant hover:text-primary transition-colors" aria-label="Toggle navigation menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-background border-b border-outline-variant/20 shadow-lg px-margin-mobile py-4 flex flex-col gap-4">
+      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="/#home">Home</a>
+      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="/#about">About</a>
+      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="/#experience">Experience</a>
+      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="/#skills">Skills</a>
+      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="/#certificates">Certificates</a>
+      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="/#projects">Projects</a>
+      <a class="text-primary font-bold text-label-md font-label-md" href="/blog">Blog</a>
+      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="https://appbasket.web.app" target="_blank">Store</a>
+      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="/#contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- Kinetic Background -->
+  <div class="fixed inset-0 w-full h-full -z-10" style="display:block;">
+    <canvas id="shader-canvas-ANIMATION_2" style="display:block;width:100%;height:100%"></canvas>
+  </div>
+
+  <main class="relative z-10 pt-32 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop space-y-section-gap overflow-x-hidden pb-20">
+    <!-- Hero & Featured -->
+    <section class="reveal">
+      <div class="flex flex-col gap-stack-sm mb-stack-lg">
+        <span class="font-label-md text-label-md text-primary uppercase tracking-widest">Journal</span>
+        <h1 class="font-display-xl text-display-xl text-on-surface max-w-2xl">
+          Digital Craftsmanship in bits and pixels.
+        </h1>
+      </div>
+      
+      <!-- Featured Card -->
+      {featuredPost && (
+        <article class="group bg-white dark:bg-slate-900/60 rounded-xl overflow-hidden shadow-sm hover:shadow-xl border border-outline-variant/30 transition-all duration-500">
+          <div class="grid md:grid-cols-2">
+            <div class="relative overflow-hidden aspect-video md:aspect-auto h-full min-h-[300px] bg-surface-container">
+              <img
+                class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700"
+                src={featuredPost.data.heroImage}
+                alt={featuredPost.data.title}
+              />
+            </div>
+            <div class="p-stack-lg flex flex-col justify-center gap-stack-md">
+              <div class="flex gap-stack-sm items-center">
+                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full font-label-sm text-label-sm">Featured Post</span>
+                <span class="font-label-sm text-label-sm text-on-surface-variant">
+                  <FormattedDate date={featuredPost.data.pubDate} />
+                </span>
+              </div>
+              <h2 class="font-display-lg text-display-lg text-on-surface leading-tight">
+                {featuredPost.data.title}
+              </h2>
+              <p class="font-body-lg text-body-lg text-on-surface-variant line-clamp-3">
+                {featuredPost.data.description}
+              </p>
+              <a href={`/blog/${featuredPost.slug}/`} class="flex items-center gap-2 text-primary font-bold font-label-md text-label-md mt-4 w-fit hover:translate-x-1 transition-transform">
+                Read Full Post
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      )}
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="space-y-stack-lg">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-outline-variant/20 pb-4">
+        <h3 class="font-headline-lg text-headline-lg text-on-surface">Latest Insights</h3>
+        <div class="relative w-full sm:w-72">
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant/70 text-base">search</span>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search articles..."
+            class="w-full pl-10 pr-4 py-2.5 bg-white/70 dark:bg-slate-900/75 border border-outline-variant/50 rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-sm transition-all text-on-surface outline-none"
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="blog-grid">
+        {otherPosts.map((post) => (
+          <article class="blog-post-card reveal group hover-lift bg-white dark:bg-slate-900/60 p-4 rounded-xl flex flex-col gap-stack-sm border border-outline-variant/30 hover:border-primary/50 transition-all duration-300">
+            <div class="aspect-video rounded-lg overflow-hidden bg-surface-container-high relative">
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                src={post.data.heroImage}
+                alt={post.data.title}
+                loading="lazy"
+              />
+            </div>
+            <div class="flex flex-col gap-base mt-2 flex-grow justify-between">
+              <div>
+                <span class="font-label-sm text-label-sm text-primary">
+                  <FormattedDate date={post.data.pubDate} />
+                </span>
+                <h4 class="blog-title font-headline-lg text-headline-lg text-lg text-on-surface group-hover:text-primary transition-colors mt-1 line-clamp-2">
+                  {post.data.title}
+                </h4>
+                <p class="blog-desc text-on-surface-variant text-sm mt-2 line-clamp-3">
+                  {post.data.description}
+                </p>
+              </div>
+              <a href={`/blog/${post.slug}/`} class="text-primary font-bold font-label-md text-label-md inline-flex items-center gap-1 mt-4 hover:translate-x-1 transition-transform">
+                Read Post <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Newsletter Subscription -->
+    <section class="reveal bg-surface-container-low/40 dark:bg-slate-900/40 rounded-3xl p-stack-lg border border-outline-variant/30 text-center space-y-stack-md backdrop-blur-md">
+      <h3 class="font-display-lg text-display-lg text-on-surface">Get the latest stack updates.</h3>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto">
+        Subscribe to get my weekly "What I learned" series and other tech insights delivered straight to your inbox.
+      </p>
+      <form class="flex flex-col sm:flex-row gap-stack-sm max-w-md mx-auto mt-stack-md" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+        <input
+          class="flex-grow px-6 py-4 rounded-xl border border-outline-variant/60 bg-white/50 dark:bg-slate-900/50 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none font-label-md text-label-md text-on-surface"
+          placeholder="you@example.com"
+          type="email"
+          required
+        />
+        <button class="bg-primary text-on-primary px-stack-lg py-4 rounded-xl font-bold font-label-md text-label-md hover:scale-[1.02] active:scale-95 transition-transform">
+          Subscribe
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-surface-container-low border-t border-outline-variant/30 w-full py-stack-lg relative z-10">
+    <div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto gap-stack-md">
+      <div class="text-headline-lg font-bold text-on-surface">Dipankar Shaw</div>
+      <div class="text-body-md font-body-md text-on-surface-variant">
+        © 2026 Dipankar Shaw. Precision in every pixel.
+      </div>
+      <div class="flex gap-stack-md">
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="/blog">Blog</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="https://appbasket.web.app" target="_blank">Store</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script is:inline>
+    // Reveal on scroll logic
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Active search utility
+    const searchInput = document.getElementById('search-input');
+    const postArticles = document.querySelectorAll('.blog-post-card');
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        postArticles.forEach(article => {
+          const title = article.querySelector('.blog-title').textContent.toLowerCase();
+          const description = article.querySelector('.blog-desc').textContent.toLowerCase();
+          if (title.includes(query) || description.includes(query)) {
+            article.classList.remove('hidden');
+            article.style.display = '';
+          } else {
+            article.classList.add('hidden');
+            article.style.display = 'none';
+          }
+        });
+      });
+    }
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        const icon = mobileMenuBtn.querySelector('.material-symbols-outlined');
+        if (icon) {
+          icon.textContent = mobileMenu.classList.contains('hidden') ? 'menu' : 'close';
+        }
+      });
+    }
+
+    // Kinetic WebGL Shader
+    (function() {
+      const canvas = document.getElementById('shader-canvas-ANIMATION_2');
+      if (!canvas) return;
+
+      function syncSize() {
+        const w = canvas.clientWidth  || window.innerWidth;
+        const h = canvas.clientHeight || window.innerHeight;
+        if (canvas.width !== w || canvas.height !== h) {
+          canvas.width  = w;
+          canvas.height = h;
+        }
+      }
+      if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(syncSize).observe(canvas);
+      }
+      syncSize();
+
+      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      if (!gl) return;
+      
+      const vs = `attribute vec2 a_position;
+      varying vec2 v_texCoord;
+      void main() {
+        v_texCoord = a_position * 0.5 + 0.5;
+        gl_Position = vec4(a_position, 0.0, 1.0);
+      }`;
+      
+      const fsModified = `precision highp float;
+      varying vec2 v_texCoord;
+      uniform float u_time;
+      uniform vec2 u_resolution;
+      uniform float u_dark_mode;
+
+      void main() {
+          vec2 uv = v_texCoord;
+          
+          float speed = 0.15;
+          float scale = 2.0;
+          
+          float noise = sin(uv.x * scale + u_time * speed) * 0.5 + 0.5;
+          noise += sin(uv.y * scale * 1.2 - u_time * speed * 0.8) * 0.5 + 0.5;
+          noise *= 0.5;
+          
+          vec3 color1;
+          vec3 color2;
+          vec3 accent;
+          
+          if (u_dark_mode > 0.5) {
+              color1 = vec3(0.02, 0.02, 0.08); // deep indigo black
+              color2 = vec3(0.05, 0.04, 0.15); // dark violet
+              accent = vec3(0.31, 0.27, 0.90);
+          } else {
+              color1 = vec3(0.98, 0.97, 1.0); // surface-bright
+              color2 = vec3(0.93, 0.92, 0.98); // surface-container-low
+              accent = vec3(0.31, 0.27, 0.90);
+          }
+          
+          vec3 finalColor = mix(color1, color2, noise);
+          finalColor = mix(finalColor, accent, noise * 0.07);
+          
+          gl_FragColor = vec4(finalColor, 1.0);
+      }`;
+      
+      function cs(type, src) {
+        const s = gl.createShader(type);
+        gl.shaderSource(s, src);
+        gl.compileShader(s);
+        return s;
+      }
+      
+      const prog = gl.createProgram();
+      gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+      gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fsModified));
+      gl.linkProgram(prog);
+      gl.useProgram(prog);
+      
+      const buf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+      
+      const pos = gl.getAttribLocation(prog, 'a_position');
+      gl.enableVertexAttribArray(pos);
+      gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+      
+      const uTime = gl.getUniformLocation(prog, 'u_time');
+      const uRes = gl.getUniformLocation(prog, 'u_resolution');
+      const uDarkMode = gl.getUniformLocation(prog, 'u_dark_mode');
+
+      function render(t) {
+        syncSize();
+        gl.viewport(0, 0, canvas.width, canvas.height);
+        
+        if (uTime) gl.uniform1f(uTime, t * 0.001);
+        if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+        
+        const isDark = document.body.classList.contains('dark') ? 1.0 : 0.0;
+        if (uDarkMode) gl.uniform1f(uDarkMode, isDark);
+        
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+        requestAnimationFrame(render);
+      }
+      render(0);
+    })();
+  </script>
+
+  <style is:global>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -10px rgba(79, 70, 229, 0.15);
+    }
+  </style>
 </Layout>
