@@ -2,6 +2,54 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+:root {
+  --color: rgb(224, 204, 250);
+  --fg-dark: blanchedalmond;
+  --black: 15, 18, 25;
+  --gray: 96, 115, 159;
+  --gray-light: 229, 233, 240;
+  --gray-dark: 34, 41, 57;
+  --gray-gradient: rgba(var(--gray-light), 50%), #fff;
+  --box-shadow:
+    0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
+    0 16px 32px rgba(var(--gray), 33%);
+  --dark-gradient: var(--black), rgb(40, 43, 50), rgb(75, 78, 85);
+  --accent: 136, 58, 234;
+  --accent-light: 224, 204, 250;
+  --accent-dark: 49, 10, 101;
+  --accent-gradient: linear-gradient(45deg, #efefef, #faded0 30%, white 60%);
+  --accent-light-gradient: linear-gradient(
+    45deg,
+    #fec5bb,
+    #fcd5ce,
+    #fae1dd,
+    #f8edeb,
+    #e8e8e4,
+    #d8e2dc,
+    #ece4db,
+    #ffe5d9,
+    #ffd7ba,
+    #fec89a
+  );
+  /* --accent-dark-gradient: linear-gradient(
+		45deg,
+		rgb(var(--accent)),
+		rgb(var(--accent-dark)) 25%,
+		#001212 60%
+	); */
+  --accent-dark-gradient: linear-gradient(
+    45deg,
+    #000001,
+    #000012,
+    #000123,
+    #001234,
+    #012345,
+    #123456
+  );
+  --primary: #3525cd;
+  --on-surface-variant: #464555;
+}
+
 @theme {
   --color-primary-container: #4f46e5;
   --color-surface-variant: #e4e1ee;
@@ -13,7 +61,7 @@
   --color-on-secondary-fixed: #00174b;
   --color-on-tertiary-fixed-variant: #7b2f00;
   --color-on-surface: #1b1b24;
-  --color-primary: #3525cd;
+  --color-primary: var(--primary);
   --color-tertiary: #7e3000;
   --color-on-secondary-fixed-variant: #003ea8;
   --color-surface-container-highest: #e4e1ee;
@@ -33,7 +81,7 @@
   --color-outline-variant: #c7c4d8;
   --color-on-tertiary-container: #ffd2be;
   --color-on-error-container: #93000a;
-  --color-on-surface-variant: #464555;
+  --color-on-surface-variant: var(--on-surface-variant);
   --color-inverse-surface: #302f39;
   --color-error-container: #ffdad6;
   --color-on-primary-fixed-variant: #3323cc;
@@ -77,55 +125,14 @@
 }
 
 @layer base {
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body{
-  width: 100vw;
-}
-}
-
-:root {
-  --color: rgb(224, 204, 250);
-  --fg-dark: blanchedalmond;
-  --black: 15, 18, 25;
-  --gray: 96, 115, 159;
-  --gray-light: 229, 233, 240;
-  --gray-dark: 34, 41, 57;
-  --gray-gradient: rgba(var(--gray-light), 50%), #fff;
-  --box-shadow: 0 2px 6px rgba(var(--gray), 25%),
-    0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
-  --dark-gradient: var(--black), rgb(40, 43, 50), rgb(75, 78, 85);
-  --accent: 136, 58, 234;
-  --accent-light: 224, 204, 250;
-  --accent-dark: 49, 10, 101;
-  --accent-gradient: linear-gradient(45deg, #efefef, #faded0 30%, white 60%);
-  --accent-light-gradient: linear-gradient(45deg,
-      #fec5bb,
-      #fcd5ce,
-      #fae1dd,
-      #f8edeb,
-      #e8e8e4,
-      #d8e2dc,
-      #ece4db,
-      #ffe5d9,
-      #ffd7ba,
-      #fec89a);
-  /* --accent-dark-gradient: linear-gradient(
-		45deg,
-		rgb(var(--accent)),
-		rgb(var(--accent-dark)) 25%,
-		#001212 60%
-	); */
-  --accent-dark-gradient: linear-gradient(45deg,
-      #000001,
-      #000012,
-      #000123,
-      #001234,
-      #012345,
-      #123456);
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    width: 100vw;
+  }
 }
 
 @font-face {
@@ -154,7 +161,9 @@ body {
   overflow-wrap: break-word;
   line-height: 1.7;
   background-repeat: no-repeat;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
   /* background-color: black !important; */
   /* background-image: url('/dots-no-bg.png') !important; */
   /* background-size: cover; */
@@ -177,7 +186,7 @@ body {
   --color-surface: #12111f;
   --color-on-surface: #f3effc;
   --color-surface-variant: #2a2938;
-  --color-on-surface-variant: #c7c4d8;
+  --on-surface-variant: #c7c4d8;
   --color-surface-container: #171626;
   --color-surface-container-low: #141322;
   --color-surface-container-high: #1c1a2e;
@@ -185,7 +194,7 @@ body {
   --color-surface-container-highest: #26243a;
   --color-outline-variant: #3a384d;
   --color-outline: #8c89a3;
-  --color-primary: #8a7ffd;
+  --primary: #8a7ffd;
   --color-primary-container: #2c258d;
 }
 
@@ -232,8 +241,6 @@ table {
 }
 
 img {
-  max-width: 100%;
-  height: auto;
   border-radius: 8px;
 }
 
@@ -249,7 +256,7 @@ pre {
   margin-block: 1em;
 }
 
-pre>code {
+pre > code {
   all: unset;
 }
 

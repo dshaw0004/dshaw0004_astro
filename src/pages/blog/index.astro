@@ -1,8 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
-import ThemeToggle from "@/components/ThemeToggle.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
+import Header from "@/components/Header.astro";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -14,54 +14,14 @@ const otherPosts = posts.slice(1);
 
 <Layout title="Blog | Dipankar Shaw" description="Digital Craftsmanship in bits and pixels. Insights, tutorials, and deep dives into web engineering, serverless architectures, and system automation.">
   <!-- Top Navigation Bar -->
-  <header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant/20 shadow-sm h-20 transition-all duration-500">
-    <div class="max-w-container-max mx-auto h-full flex justify-between items-center px-margin-mobile md:px-margin-desktop">
-      <a href="/" class="text-headline-lg font-black text-primary tracking-tighter">Dipankar Shaw</a>
-      
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center gap-stack-md">
-        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/#home">Home</a>
-        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/#about">About</a>
-        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/#experience">Experience</a>
-        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/#skills">Skills</a>
-        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/#certificates">Certificates</a>
-        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/#projects">Projects</a>
-        <a class="text-primary font-bold border-b-2 border-primary pb-1 text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/blog">Blog</a>
-        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="https://appbasket.web.app" target="_blank">Store</a>
-        <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="/#contact">Contact</a>
-      </nav>
-      
-      <div class="flex items-center gap-4">
-        <ThemeToggle />
-        <a href="/#contact" class="hidden sm:inline-block bg-primary text-on-primary px-6 py-2 rounded-full font-label-md text-label-md active:scale-95 transition-transform hover:opacity-90">Hire Me</a>
-        
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center p-2 text-on-surface-variant hover:text-primary transition-colors" aria-label="Toggle navigation menu">
-          <span class="material-symbols-outlined">menu</span>
-        </button>
-      </div>
-    </div>
-    
-    <!-- Mobile Dropdown Navigation -->
-    <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-background border-b border-outline-variant/20 shadow-lg px-margin-mobile py-4 flex flex-col gap-4">
-      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="/#home">Home</a>
-      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="/#about">About</a>
-      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="/#experience">Experience</a>
-      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="/#skills">Skills</a>
-      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="/#certificates">Certificates</a>
-      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="/#projects">Projects</a>
-      <a class="text-primary font-bold text-label-md font-label-md" href="/blog">Blog</a>
-      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="https://appbasket.web.app" target="_blank">Store</a>
-      <a class="text-on-surface-variant text-label-md font-label-md hover:text-primary" href="/#contact">Contact</a>
-    </div>
-  </header>
+  <Header title="Blogs" />
 
   <!-- Kinetic Background -->
   <div class="fixed inset-0 w-full h-full -z-10" style="display:block;">
     <canvas id="shader-canvas-ANIMATION_2" style="display:block;width:100%;height:100%"></canvas>
   </div>
 
-  <main class="relative z-10 pt-32 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop space-y-section-gap overflow-x-hidden pb-20">
+  <main class="relative z-10 pt-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop space-y-section-gap overflow-x-hidden pb-20">
     <!-- Hero & Featured -->
     <section class="reveal">
       <div class="flex flex-col gap-stack-sm mb-stack-lg">
@@ -70,7 +30,7 @@ const otherPosts = posts.slice(1);
           Digital Craftsmanship in bits and pixels.
         </h1>
       </div>
-      
+
       <!-- Featured Card -->
       {featuredPost && (
         <article class="group bg-white dark:bg-slate-900/60 rounded-xl overflow-hidden shadow-sm hover:shadow-xl border border-outline-variant/30 transition-all duration-500">
@@ -95,7 +55,7 @@ const otherPosts = posts.slice(1);
               <p class="font-body-lg text-body-lg text-on-surface-variant line-clamp-3">
                 {featuredPost.data.description}
               </p>
-              <a href={`/blog/${featuredPost.slug}/`} class="flex items-center gap-2 text-primary font-bold font-label-md text-label-md mt-4 w-fit hover:translate-x-1 transition-transform">
+              <a href={`/blog/${featuredPost.id}/`} class="flex items-center gap-2 text-primary font-bold font-label-md text-label-md mt-4 w-fit hover:translate-x-1 transition-transform">
                 Read Full Post
                 <span class="material-symbols-outlined">arrow_forward</span>
               </a>
@@ -258,14 +218,14 @@ const otherPosts = posts.slice(1);
 
       const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
       if (!gl) return;
-      
+
       const vs = `attribute vec2 a_position;
       varying vec2 v_texCoord;
       void main() {
         v_texCoord = a_position * 0.5 + 0.5;
         gl_Position = vec4(a_position, 0.0, 1.0);
       }`;
-      
+
       const fsModified = `precision highp float;
       varying vec2 v_texCoord;
       uniform float u_time;
@@ -274,18 +234,18 @@ const otherPosts = posts.slice(1);
 
       void main() {
           vec2 uv = v_texCoord;
-          
+
           float speed = 0.15;
           float scale = 2.0;
-          
+
           float noise = sin(uv.x * scale + u_time * speed) * 0.5 + 0.5;
           noise += sin(uv.y * scale * 1.2 - u_time * speed * 0.8) * 0.5 + 0.5;
           noise *= 0.5;
-          
+
           vec3 color1;
           vec3 color2;
           vec3 accent;
-          
+
           if (u_dark_mode > 0.5) {
               color1 = vec3(0.02, 0.02, 0.08); // deep indigo black
               color2 = vec3(0.05, 0.04, 0.15); // dark violet
@@ -295,34 +255,34 @@ const otherPosts = posts.slice(1);
               color2 = vec3(0.93, 0.92, 0.98); // surface-container-low
               accent = vec3(0.31, 0.27, 0.90);
           }
-          
+
           vec3 finalColor = mix(color1, color2, noise);
           finalColor = mix(finalColor, accent, noise * 0.07);
-          
+
           gl_FragColor = vec4(finalColor, 1.0);
       }`;
-      
+
       function cs(type, src) {
         const s = gl.createShader(type);
         gl.shaderSource(s, src);
         gl.compileShader(s);
         return s;
       }
-      
+
       const prog = gl.createProgram();
       gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
       gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fsModified));
       gl.linkProgram(prog);
       gl.useProgram(prog);
-      
+
       const buf = gl.createBuffer();
       gl.bindBuffer(gl.ARRAY_BUFFER, buf);
       gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
-      
+
       const pos = gl.getAttribLocation(prog, 'a_position');
       gl.enableVertexAttribArray(pos);
       gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
-      
+
       const uTime = gl.getUniformLocation(prog, 'u_time');
       const uRes = gl.getUniformLocation(prog, 'u_resolution');
       const uDarkMode = gl.getUniformLocation(prog, 'u_dark_mode');
@@ -330,13 +290,13 @@ const otherPosts = posts.slice(1);
       function render(t) {
         syncSize();
         gl.viewport(0, 0, canvas.width, canvas.height);
-        
+
         if (uTime) gl.uniform1f(uTime, t * 0.001);
         if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
-        
+
         const isDark = document.body.classList.contains('dark') ? 1.0 : 0.0;
         if (uDarkMode) gl.uniform1f(uDarkMode, isDark);
-        
+
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
         requestAnimationFrame(render);
       }
